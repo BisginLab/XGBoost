@@ -76,6 +76,23 @@ categorical_features = [
 # Get numerical features
 numerical_features = [f for f in selected_features if f not in categorical_features]
 
+# After feature definitions but before training
+print("\nTraining with these features:")
+print("\nNumerical features:")
+for i, feat in enumerate(numerical_features, 1):
+    print(f"{i}. {feat}")
+
+print("\nCategorical features:")
+for i, feat in enumerate(categorical_features, 1):
+    print(f"{i}. {feat}")
+
+print("\nTotal feature count:", len(numerical_features) + len(categorical_features))
+print("\nFeatures in order of MI importance:")
+for i, feat in enumerate(selected_features, 1):
+    print(f"{i}. {feat}")
+
+print("\nStarting training...")
+
 # Prepare X and y
 X = df[selected_features]
 y = df['status']
@@ -184,11 +201,22 @@ for i in range(n_classifiers):
 
 # Evaluate models
 def evaluate_models(models, X, y, set_name):
-    y_preds = [model.predict_proba(X)[:, 1] for model in models]
-    y_pred = np.mean(y_preds, axis=0)
-    fpr, tpr, _ = roc_curve(y, y_pred)
+    # Get predictions from all models
+    y_preds_proba = [model.predict_proba(X)[:, 1] for model in models]
+    y_pred_proba = np.mean(y_preds_proba, axis=0)
+    
+    # Calculate ROC AUC
+    fpr, tpr, _ = roc_curve(y, y_pred_proba)
     auc_score = auc(fpr, tpr)
-    print(f'Model AUC on {set_name} set: {auc_score:.4f}')
+    
+    # Calculate Accuracy
+    y_pred = (y_pred_proba > 0.5).astype(int)  # Convert probabilities to binary predictions
+    accuracy = np.mean(y_pred == y)
+    
+    print(f'\n{set_name.upper()} SET METRICS:')
+    print(f'ROC AUC: {auc_score:.4f}')
+    print(f'Accuracy: {accuracy:.4f}')
+    
     return fpr, tpr, auc_score
 
 # Save models
