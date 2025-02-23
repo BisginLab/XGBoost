@@ -1,0 +1,12 @@
+pandas
+numpy
+xgboost
+xgboost[gpu]
+scikit-learn
+matplotlib
+joblib
+torch
+google-generativeai
+category_encoders
+groq
+pillow
