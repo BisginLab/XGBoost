@@ -1,5 +1,5 @@
 env/
-content/
+content/sample_data/corrected_permacts.csv
 saved_models/
 *.pyc
 *.pyo
