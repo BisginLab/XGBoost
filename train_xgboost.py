@@ -11,6 +11,8 @@ import zipfile
 import io
 import pandas as pd
 import numpy as np
+import sys
+from datetime import datetime
 
 import xgboost as xgb
 import torch
@@ -21,7 +23,6 @@ from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 import os
 import joblib
-from datetime import datetime
 
 # Check XGBoost GPU support
 print("XGBoost GPU support:", xgb.build_info())
@@ -34,8 +35,6 @@ if torch.cuda.is_available():
     for i in range(torch.cuda.device_count()):
         print(f"GPU {i}: {torch.cuda.get_device_name(i)}")
 
-
-
 # TO DO
 # double check user vs developer centric features from paper
 # double check validation and training/testing split
@@ -46,6 +45,27 @@ if torch.cuda.is_available():
 # make colab copy to folderr
 # push progress to github repo
 # do google slides for excelformer, add to google drive
+
+# Add at the start of the script, after imports
+class Logger:
+    def __init__(self, filename):
+        self.terminal = sys.stdout
+        self.log = open(filename, 'w')
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+        self.log.flush()
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+# Add after the imports
+import sys
+timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+log_filename = f'training_log_{timestamp}.txt'
+sys.stdout = Logger(log_filename)
 
 # Read the CSV file
 print("Loading data...")
@@ -87,7 +107,7 @@ for i, feat in enumerate(categorical_features, 1):
     print(f"{i}. {feat}")
 
 print("\nTotal feature count:", len(numerical_features) + len(categorical_features))
-print("\nFeatures in order of MI importance:")
+print("\nFeatures to be used in training:")
 for i, feat in enumerate(selected_features, 1):
     print(f"{i}. {feat}")
 
@@ -250,15 +270,16 @@ plt.close()
 print(f"\nSaved ROC curve plot as: {plot_filename}")
 
 # FEATURE IMPORTANCE
-# Get the correct shape from the model
+# After training models...
+print("\nCalculating feature importance from trained models...")
+# Get the correct shape from the first model
 first_model = models[0]
 xgb_feature_importance = first_model.named_steps['classifier'].feature_importances_
-feature_importance = np.zeros_like(xgb_feature_importance)  # Initialize with correct shape
+feature_importance = np.zeros_like(xgb_feature_importance)
 
 for model in models:
     # Get feature importance from the XGBoost classifier
     xgb_feature_importance = model.named_steps['classifier'].feature_importances_
-
     # Accumulate feature importance
     feature_importance += xgb_feature_importance
 
@@ -270,14 +291,29 @@ preprocessor = models[0].named_steps['preprocessor']
 cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
 feature_names = numerical_features + list(cat_feature_names)
 
-# Verify dimensions match
-print(f"Feature importance shape: {feature_importance.shape}")
-print(f"Number of feature names: {len(feature_names)}")
-
 # Create a dictionary of feature importances
 feature_importance_dict = dict(zip(feature_names, feature_importance))
 
-# Rest of the code remains the same...
+# Aggregate importance for categorical features
+aggregated_importance = {}
+
+# Add numerical features directly
+for feat in numerical_features:
+    aggregated_importance[feat] = feature_importance_dict[feat]
+
+# Sum importance for each categorical feature's encoded versions
+for cat_feat in categorical_features:
+    cat_importance = sum(
+        importance for fname, importance in feature_importance_dict.items() 
+        if fname.startswith(cat_feat + '_')
+    )
+    aggregated_importance[cat_feat] = cat_importance
+
+# Print aggregated feature importance
+print("\nFeature Importance (aggregated for categorical features):")
+for feat, importance in sorted(aggregated_importance.items(), 
+                             key=lambda x: x[1], reverse=True):
+    print(f"{feat}: {importance:.4f}")
 
 # LLM-BASED PREDICTION EXPLANATION
 '''
@@ -479,3 +515,7 @@ sample_idx = 1
 X_sample = X_test.iloc[[sample_idx]]
 explain_prediction(models, X_sample, sample_idx)
 '''
+
+# Add at the very end of the script
+sys.stdout = sys.stdout.terminal  # Restore normal stdout
+print(f"Training log saved to: {log_filename}")
