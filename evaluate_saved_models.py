@@ -34,13 +34,67 @@ def evaluate_models(models, X, y, set_name):
     
     return fpr, tpr, auc_score
 
+def plot_feature_importance(models, numerical_features, categorical_features, save_to_file=True):
+    # Get the correct shape from the model
+    first_model = models[0]
+    xgb_feature_importance = first_model.named_steps['classifier'].feature_importances_
+    feature_importance = np.zeros_like(xgb_feature_importance)  # Initialize with correct shape
+
+    for model in models:
+        # Get feature importance from the XGBoost classifier
+        xgb_feature_importance = model.named_steps['classifier'].feature_importances_
+        # Accumulate feature importance
+        feature_importance += xgb_feature_importance
+
+    # Average feature importance across all models
+    feature_importance /= len(models)
+
+    # Map feature importance back to original features
+    preprocessor = models[0].named_steps['preprocessor']
+    cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
+    feature_names = numerical_features + list(cat_feature_names)
+
+    # Create a dictionary of feature importances
+    feature_importance_dict = dict(zip(feature_names, feature_importance))
+
+    # Aggregate importance for categorical features
+    aggregated_importance = {}
+    
+    # Add numerical features directly
+    for feat in numerical_features:
+        aggregated_importance[feat] = feature_importance_dict[feat]
+    
+    # Sum importance for each categorical feature's encoded versions
+    for cat_feat in categorical_features:
+        cat_importance = sum(
+            importance for fname, importance in feature_importance_dict.items() 
+            if fname.startswith(cat_feat + '_')
+        )
+        aggregated_importance[cat_feat] = cat_importance
+
+    # Sort and save/print aggregated features
+    sorted_features = sorted(aggregated_importance.items(), key=lambda x: x[1], reverse=True)
+    
+    if save_to_file:
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f'feature_importance_{timestamp}.txt'
+        with open(filename, 'w') as f:
+            for feat, importance in sorted_features:
+                line = f"{feat}: {importance:.4f}"
+                print(line)
+                f.write(line + '\n')
+        print(f"\nSaved feature importance to: {filename}")
+    else:
+        for feat, importance in sorted_features:
+            print(f"{feat}: {importance:.4f}")
+
 def main():
     # Load data
     print("Loading data...")
     df = pd.read_csv('./content/sample_data/corrected_permacts.csv')
     df = df.dropna(ignore_index=False)
     
-    # Define features (same as training script)
+    # Define features in order of MI importance from ExcelFormer output (exactly as in training script)
     selected_features = [
         'Unnamed: 0', 'ContentRating', 'LastUpdated', 'days_since_last_update',
         'highest_android_version', 'pkgname', 'privacy_policy_link', 'CurrentVersion',
@@ -50,6 +104,15 @@ def main():
         'developer_address', 'developer_website', 'LOCATION', 'PHONE',
         'intent', 'DeveloperCategory', 'Genre', 'ReviewsAverage'
     ]
+
+    # Define categorical features (exactly as in training script)
+    categorical_features = [
+        'ContentRating', 'highest_android_version', 'pkgname', 'CurrentVersion',
+        'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre'
+    ]
+
+    # Get numerical features (exactly as in training script)
+    numerical_features = [f for f in selected_features if f not in categorical_features]
     
     # Prepare X and y
     X = df[selected_features]
@@ -95,6 +158,9 @@ def main():
     plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\nSaved evaluation plot as: {plot_filename}")
+
+    # Fix the call to plot_feature_importance
+    plot_feature_importance(models, numerical_features, categorical_features)
 
 if __name__ == "__main__":
     main() 
