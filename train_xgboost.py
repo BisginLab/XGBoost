@@ -58,7 +58,7 @@ print(f"Shape after dropping NaNs: {df.shape}")
 
 # Define features in order of MI importance from ExcelFormer output
 selected_features = [
-    'Unnamed: 0', 'ContentRating', 'LastUpdated', 'days_since_last_update',
+    'ContentRating', 'LastUpdated', 'days_since_last_update',
     'highest_android_version', 'pkgname', 'privacy_policy_link', 'CurrentVersion',
     'TwoStarRatings', 'isSpamming', 'OneStarRatings', 'FourStarRatings',
     'ThreeStarRatings', 'max_downloads_log', 'lowest_android_version',
