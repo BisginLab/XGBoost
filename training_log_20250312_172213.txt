@@ -1,0 +1,130 @@
+Loading data...
+Initial DataFrame shape: (870514, 50)
+Shape after dropping NaNs: (724160, 50)
+
+Training with these features:
+
+Numerical features:
+1. LastUpdated
+2. days_since_last_update
+3. privacy_policy_link
+4. TwoStarRatings
+5. isSpamming
+6. OneStarRatings
+7. FourStarRatings
+8. ThreeStarRatings
+9. max_downloads_log
+10. LenWhatsNew
+11. FiveStarRatings
+12. STORAGE
+13. developer_address
+14. developer_website
+15. LOCATION
+16. PHONE
+17. intent
+18. ReviewsAverage
+
+Categorical features:
+1. ContentRating
+2. highest_android_version
+3. CurrentVersion
+4. lowest_android_version
+5. AndroidVersion
+6. DeveloperCategory
+7. Genre
+
+Total feature count: 25
+
+Features to be used in training:
+1. ContentRating
+2. LastUpdated
+3. days_since_last_update
+4. highest_android_version
+5. privacy_policy_link
+6. CurrentVersion
+7. TwoStarRatings
+8. isSpamming
+9. OneStarRatings
+10. FourStarRatings
+11. ThreeStarRatings
+12. max_downloads_log
+13. lowest_android_version
+14. LenWhatsNew
+15. FiveStarRatings
+16. STORAGE
+17. AndroidVersion
+18. developer_address
+19. developer_website
+20. LOCATION
+21. PHONE
+22. intent
+23. DeveloperCategory
+24. Genre
+25. ReviewsAverage
+
+Starting training...
+
+Feature counts:
+Total selected features: 25
+Numerical features: 18
+Categorical features: 7
+
+Indices info:
+Number of train indices: 506912
+Number of val indices: 108624
+Number of test indices: 108624
+Min/Max train indices: 0, 870513
+Min/Max val indices: 6, 870509
+Min/Max test indices: 9, 870512
+
+DataFrame info:
+DataFrame index range: 0, 870513
+DataFrame index is continuous: True
+Sample of indices: [ 98326 469033 379988 387371 496174]
+Sample of df index: [0, 1, 2, 3, 4]
+
+Detailed Index Analysis:
+1. DataFrame properties:
+- Index type: <class 'pandas.core.indexes.base.Index'>
+- Index dtype: int64
+- Number of unique indices: 724160
+- Any duplicates in index? False
+
+2. Loaded indices properties:
+- Train indices type: <class 'numpy.ndarray'>
+- Train indices dtype: int64
+- Number of unique train indices: 506912
+- Any duplicates in train indices? False
+
+3. Index overlap analysis:
+- Train indices in DataFrame index: True
+- Val indices in DataFrame index: True
+- Test indices in DataFrame index: True
+
+Data split sizes:
+Train: 506912 (70.0%)
+Val: 108624 (15.0%)
+Test: 108624 (15.0%)
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+Saved trained models as: saved_models/xgboost_ensemble_2025_03_12_run_20250312_172229.joblib

@@ -1,0 +1,27 @@
+ContentRating: 0.2722
+Genre: 0.1355
+days_since_last_update: 0.1083
+developer_address: 0.0872
+CurrentVersion: 0.0801
+AndroidVersion: 0.0574
+LastUpdated: 0.0504
+TwoStarRatings: 0.0433
+ThreeStarRatings: 0.0298
+max_downloads_log: 0.0276
+DeveloperCategory: 0.0201
+lowest_android_version: 0.0200
+LOCATION: 0.0117
+isSpamming: 0.0104
+STORAGE: 0.0092
+OneStarRatings: 0.0071
+PHONE: 0.0066
+highest_android_version: 0.0064
+intent: 0.0055
+FiveStarRatings: 0.0027
+Unnamed: 0: 0.0022
+privacy_policy_link: 0.0021
+developer_website: 0.0019
+LenWhatsNew: 0.0009
+FourStarRatings: 0.0009
+ReviewsAverage: 0.0005
+pkgname: 0.0000

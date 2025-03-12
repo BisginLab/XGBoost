@@ -1,0 +1,20 @@
+ContentRating_Unrated: 0.1571
+privacy_policy_link: 0.1367
+developer_website: 0.0631
+isSpamming: 0.0560
+ContentRating_Everyone: 0.0420
+days_since_last_update: 0.0321
+max_downloads_log: 0.0227
+LastUpdated: 0.0213
+DeveloperCategory_Active: 0.0176
+LenWhatsNew: 0.0173
+TwoStarRatings: 0.0142
+AndroidVersion_2.3 and up: 0.0137
+lowest_android_version_Jelly Bean: 0.0131
+PHONE: 0.0124
+Genre_Books & Reference: 0.0120
+Genre_Personalization: 0.0111
+Genre_Casual: 0.0104
+developer_address: 0.0103
+OneStarRatings: 0.0096
+Genre_Entertainment: 0.0093
