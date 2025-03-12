@@ -141,8 +141,8 @@ def main():
     
     # Define features in order of MI importance from ExcelFormer output (exactly as in training script)
     selected_features = [
-        'Unnamed: 0', 'ContentRating', 'LastUpdated', 'days_since_last_update',
-        'highest_android_version', 'pkgname', 'privacy_policy_link', 'CurrentVersion',
+        'ContentRating', 'LastUpdated', 'days_since_last_update',
+        'highest_android_version', 'privacy_policy_link', 'CurrentVersion',
         'TwoStarRatings', 'isSpamming', 'OneStarRatings', 'FourStarRatings',
         'ThreeStarRatings', 'max_downloads_log', 'lowest_android_version',
         'LenWhatsNew', 'FiveStarRatings', 'STORAGE', 'AndroidVersion',
@@ -152,7 +152,7 @@ def main():
 
     # Define categorical features (exactly as in training script)
     categorical_features = [
-        'ContentRating', 'highest_android_version', 'pkgname', 'CurrentVersion',
+        'ContentRating', 'highest_android_version', 'CurrentVersion',
         'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre'
     ]
 
