@@ -79,7 +79,7 @@ print(f"Shape after dropping NaNs: {df.shape}")
 # Define features in order of MI importance from ExcelFormer output
 selected_features = [
     'ContentRating', 'LastUpdated', 'days_since_last_update',
-    'highest_android_version', 'pkgname', 'privacy_policy_link', 'CurrentVersion',
+    'highest_android_version', 'privacy_policy_link', 'CurrentVersion',
     'TwoStarRatings', 'isSpamming', 'OneStarRatings', 'FourStarRatings',
     'ThreeStarRatings', 'max_downloads_log', 'lowest_android_version',
     'LenWhatsNew', 'FiveStarRatings', 'STORAGE', 'AndroidVersion',
@@ -89,7 +89,7 @@ selected_features = [
 
 # Define categorical features
 categorical_features = [
-    'ContentRating', 'highest_android_version', 'pkgname', 'CurrentVersion',
+    'ContentRating', 'highest_android_version', 'CurrentVersion',
     'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre'
 ]
 
@@ -221,27 +221,44 @@ for i in range(n_classifiers):
 
 # Evaluate models
 def evaluate_models(models, X, y, set_name):
-    # Get predictions from all models
-    y_preds_proba = [model.predict_proba(X)[:, 1] for model in models]
-    y_pred_proba = np.mean(y_preds_proba, axis=0)
-    
-    # Calculate ROC AUC
-    fpr, tpr, _ = roc_curve(y, y_pred_proba)
-    auc_score = auc(fpr, tpr)
-    
-    # Calculate Accuracy
-    y_pred = (y_pred_proba > 0.5).astype(int)  # Convert probabilities to binary predictions
-    accuracy = np.mean(y_pred == y)
-    
-    print(f'\n{set_name.upper()} SET METRICS:')
-    print(f'ROC AUC: {auc_score:.4f}')
-    print(f'Accuracy: {accuracy:.4f}')
-    
-    return fpr, tpr, auc_score
+    try:
+        # Get predictions from all models
+        y_preds_proba = []
+        for model in models:
+            # Get preprocessor and classifier separately
+            preprocessor = model.named_steps['preprocessor']
+            classifier = model.named_steps['classifier']
+            
+            # Transform data first
+            X_transformed = preprocessor.transform(X)
+            
+            # Then predict with classifier directly
+            classifier.set_params(device='cpu')  # Force CPU prediction
+            y_pred = classifier.predict_proba(X_transformed)[:, 1]
+            y_preds_proba.append(y_pred)
+        
+        y_pred_proba = np.mean(y_preds_proba, axis=0)
+        
+        # Calculate metrics
+        fpr, tpr, _ = roc_curve(y, y_pred_proba)
+        auc_score = auc(fpr, tpr)
+        
+        y_pred = (y_pred_proba > 0.5).astype(int)
+        accuracy = np.mean(y_pred == y)
+        
+        print(f'\n{set_name.upper()} SET METRICS:')
+        print(f'ROC AUC: {auc_score:.4f}')
+        print(f'Accuracy: {accuracy:.4f}')
+        
+        return fpr, tpr, auc_score
+    except Exception as e:
+        print(f"Error in evaluate_models: {str(e)}")
+        raise
 
 # Save models
 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-model_filename = f'xgboost_ensemble_{timestamp}.joblib'
+date = datetime.now().strftime('%Y_%m_%d')  # Add date format
+model_filename = f'xgboost_ensemble_{date}_run_{timestamp}.joblib'
 os.makedirs('saved_models', exist_ok=True)
 joblib.dump(models, f'saved_models/{model_filename}')
 print(f"Saved trained models as: saved_models/{model_filename}")

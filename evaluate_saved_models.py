@@ -7,6 +7,28 @@ import joblib
 from datetime import datetime
 import os
 import glob
+import sys
+import warnings
+
+# Define Logger class first
+class Logger:
+    def __init__(self, filename):
+        self.terminal = sys.stdout
+        self.log = open(filename, 'w')
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+        self.log.flush()
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+# Then use it
+timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+log_filename = f'evaluation_log_{timestamp}.txt'
+sys.stdout = Logger(log_filename)
 
 # Load the most recent model unless specified
 def get_latest_model_path():
@@ -16,34 +38,51 @@ def get_latest_model_path():
     return max(model_files)  # Gets most recent by filename
 
 def evaluate_models(models, X, y, set_name):
-    # Get predictions from all models
-    y_preds_proba = [model.predict_proba(X)[:, 1] for model in models]
-    y_pred_proba = np.mean(y_preds_proba, axis=0)
-    
-    # Calculate ROC AUC
-    fpr, tpr, _ = roc_curve(y, y_pred_proba)
-    auc_score = auc(fpr, tpr)
-    
-    # Calculate Accuracy
-    y_pred = (y_pred_proba > 0.5).astype(int)
-    accuracy = np.mean(y_pred == y)
-    
-    print(f'\n{set_name.upper()} SET METRICS:')
-    print(f'ROC AUC: {auc_score:.4f}')
-    print(f'Accuracy: {accuracy:.4f}')
-    
-    return fpr, tpr, auc_score
+    try:
+        # Get predictions from all models
+        y_preds_proba = []
+        for model in models:
+            # Get preprocessor and classifier separately
+            preprocessor = model.named_steps['preprocessor']
+            classifier = model.named_steps['classifier']
+            
+            # Transform data first
+            X_transformed = preprocessor.transform(X)
+            
+            # Then predict with classifier directly
+            classifier.set_params(device='cpu')  # Force CPU prediction
+            y_pred = classifier.predict_proba(X_transformed)[:, 1]
+            y_preds_proba.append(y_pred)
+        
+        y_pred_proba = np.mean(y_preds_proba, axis=0)
+        
+        # Calculate metrics
+        fpr, tpr, _ = roc_curve(y, y_pred_proba)
+        auc_score = auc(fpr, tpr)
+        
+        y_pred = (y_pred_proba > 0.5).astype(int)
+        accuracy = np.mean(y_pred == y)
+        
+        print(f'\n{set_name.upper()} SET METRICS:')
+        print(f'ROC AUC: {auc_score:.4f}')
+        print(f'Accuracy: {accuracy:.4f}')
+        
+        return fpr, tpr, auc_score
+    except Exception as e:
+        print(f"Error in evaluate_models: {str(e)}")
+        print("Model structure:", model.named_steps.keys())
+        raise
 
 def plot_feature_importance(models, numerical_features, categorical_features, save_to_file=True):
-    # Get the correct shape from the model
+    print("\nCalculating feature importance from trained models...")
+    # Get the correct shape from the first model
     first_model = models[0]
     xgb_feature_importance = first_model.named_steps['classifier'].feature_importances_
-    feature_importance = np.zeros_like(xgb_feature_importance)  # Initialize with correct shape
+    feature_importance = np.zeros_like(xgb_feature_importance)
 
     for model in models:
         # Get feature importance from the XGBoost classifier
         xgb_feature_importance = model.named_steps['classifier'].feature_importances_
-        # Accumulate feature importance
         feature_importance += xgb_feature_importance
 
     # Average feature importance across all models
@@ -51,7 +90,8 @@ def plot_feature_importance(models, numerical_features, categorical_features, sa
 
     # Map feature importance back to original features
     preprocessor = models[0].named_steps['preprocessor']
-    cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
+    cat_encoder = preprocessor.named_transformers_['cat']
+    cat_feature_names = cat_encoder.get_feature_names_out()  # Don't pass arguments
     feature_names = numerical_features + list(cat_feature_names)
 
     # Create a dictionary of feature importances
@@ -72,11 +112,19 @@ def plot_feature_importance(models, numerical_features, categorical_features, sa
         )
         aggregated_importance[cat_feat] = cat_importance
 
-    # Sort and save/print aggregated features
+    # Sort and save/print features
     sorted_features = sorted(aggregated_importance.items(), key=lambda x: x[1], reverse=True)
     
+    # Get top 25 feature names
+    top_25_features = [feat[0] for feat in sorted_features[:25]]
+    
+    # Save to npy file
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    np_filename = f'top_25_xgboost_features_{timestamp}.npy'
+    np.save(np_filename, np.array(top_25_features))
+    print(f"\nSaved top 25 features to: {np_filename}")
+    
     if save_to_file:
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         filename = f'feature_importance_{timestamp}.txt'
         with open(filename, 'w') as f:
             for feat, importance in sorted_features:
@@ -84,9 +132,6 @@ def plot_feature_importance(models, numerical_features, categorical_features, sa
                 print(line)
                 f.write(line + '\n')
         print(f"\nSaved feature importance to: {filename}")
-    else:
-        for feat, importance in sorted_features:
-            print(f"{feat}: {importance:.4f}")
 
 def main():
     # Load data
@@ -161,6 +206,9 @@ def main():
 
     # Fix the call to plot_feature_importance
     plot_feature_importance(models, numerical_features, categorical_features)
+
+    sys.stdout = sys.stdout.terminal  # Restore normal stdout
+    print(f"Evaluation log saved to: {log_filename}")
 
 if __name__ == "__main__":
     main() 

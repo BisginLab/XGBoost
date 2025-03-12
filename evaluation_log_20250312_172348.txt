@@ -1,0 +1,15 @@
+Loading data...
+
+Loading models from: saved_models/xgboost_ensemble_2025_03_12_run_20250312_172334.joblib
+
+Evaluating saved models...
+
+VALIDATION SET METRICS:
+ROC AUC: 0.7843
+Accuracy: 0.7102
+
+TEST SET METRICS:
+ROC AUC: 0.7830
+Accuracy: 0.7096
+
+Saved evaluation plot as: evaluation_roc_curve_20250312_172352.png
