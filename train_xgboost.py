@@ -76,15 +76,15 @@ print(f"Initial DataFrame shape: {df.shape}")
 df = df.dropna(ignore_index=False)
 print(f"Shape after dropping NaNs: {df.shape}")
 
-# Define features in order of MI importance from ExcelFormer output
+# Define features based on XGBoost importance ranking
 selected_features = [
-    'ContentRating', 'LastUpdated', 'days_since_last_update',
-    'highest_android_version', 'privacy_policy_link', 'CurrentVersion',
-    'TwoStarRatings', 'isSpamming', 'OneStarRatings', 'FourStarRatings',
-    'ThreeStarRatings', 'max_downloads_log', 'lowest_android_version',
-    'LenWhatsNew', 'FiveStarRatings', 'STORAGE', 'AndroidVersion',
-    'developer_address', 'developer_website', 'LOCATION', 'PHONE',
-    'intent', 'DeveloperCategory', 'Genre', 'ReviewsAverage'
+    'ContentRating', 'Genre', 'CurrentVersion', 'AndroidVersion', 
+    'DeveloperCategory', 'lowest_android_version', 'highest_android_version',
+    'privacy_policy_link', 'developer_website', 'days_since_last_update',
+    'isSpamming', 'max_downloads_log', 'LenWhatsNew', 'PHONE',
+    'OneStarRatings', 'developer_address', 'FourStarRatings', 'intent',
+    'ReviewsAverage', 'STORAGE', 'LastUpdated', 'TwoStarRatings',
+    'LOCATION', 'FiveStarRatings', 'ThreeStarRatings'
 ]
 
 # Define categorical features
@@ -275,7 +275,7 @@ plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
-plt.title('ROC Curves')
+plt.title('XGBoost ROC Curves - Top 25 XGBoost Features')
 plt.legend(loc="lower right")
 plt.grid(True)
 
