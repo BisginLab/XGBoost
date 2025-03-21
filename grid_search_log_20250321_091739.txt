@@ -1,0 +1,66 @@
+
+Loading data...
+Shape after dropping NaNs: (724160, 50)
+
+DEBUG - Starting Grid Search Setup
+
+Initial Memory Status:
+RAM Usage: 1.25 GB
+RAM Available: 25.62 GB
+
+Encoding categorical features...
+Encoding ContentRating...
+Encoding highest_android_version...
+Encoding CurrentVersion...
+Encoding lowest_android_version...
+Encoding AndroidVersion...
+Encoding DeveloperCategory...
+Encoding Genre...
+
+Encoded shapes:
+X_train: (506912, 1632)
+X_val: (108624, 637)
+
+Parameter grid:
+n_estimators: [256, 512]
+max_depth: [2, 3]
+learning_rate: [0.01, 0.1]
+
+Total parameter combinations to try: 8
+
+Trying combination 1/8
+Parameters: n_estimators=256, max_depth=2, learning_rate=0.01
+
+DEBUG - Detailed error information:
+Error type: XGBoostError
+Error message: [09:18:05] /workspace/src/data/iterative_dmatrix.cc:93: Check failed: ref->Info().num_col_ == n_features (1632 vs. 637) : Invalid ref DMatrix, different number of features.
+Stack trace:
+  [bt] (0) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3effba) [0x743d313effba]
+  [bt] (1) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3f35ce) [0x743d313f35ce]
+  [bt] (2) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3f5b01) [0x743d313f5b01]
+  [bt] (3) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3f8858) [0x743d313f8858]
+  [bt] (4) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3a2a07) [0x743d313a2a07]
+  [bt] (5) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(XGQuantileDMatrixCreateFromCallback+0x2b0) [0x743d31165c40]
+  [bt] (6) /lib/x86_64-linux-gnu/libffi.so.8(+0x7b16) [0x743df9d80b16]
+  [bt] (7) /lib/x86_64-linux-gnu/libffi.so.8(+0x43ef) [0x743df9d7d3ef]
+  [bt] (8) /lib/x86_64-linux-gnu/libffi.so.8(ffi_call+0x12e) [0x743df9d800be]
+
+
+
+Traceback:
+
+Fatal error in main:
+Error type: XGBoostError
+Error message: [09:18:05] /workspace/src/data/iterative_dmatrix.cc:93: Check failed: ref->Info().num_col_ == n_features (1632 vs. 637) : Invalid ref DMatrix, different number of features.
+Stack trace:
+  [bt] (0) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3effba) [0x743d313effba]
+  [bt] (1) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3f35ce) [0x743d313f35ce]
+  [bt] (2) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3f5b01) [0x743d313f5b01]
+  [bt] (3) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3f8858) [0x743d313f8858]
+  [bt] (4) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x3a2a07) [0x743d313a2a07]
+  [bt] (5) /home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(XGQuantileDMatrixCreateFromCallback+0x2b0) [0x743d31165c40]
+  [bt] (6) /lib/x86_64-linux-gnu/libffi.so.8(+0x7b16) [0x743df9d80b16]
+  [bt] (7) /lib/x86_64-linux-gnu/libffi.so.8(+0x43ef) [0x743df9d7d3ef]
+  [bt] (8) /lib/x86_64-linux-gnu/libffi.so.8(ffi_call+0x12e) [0x743df9d800be]
+
+

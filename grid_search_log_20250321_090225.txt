@@ -1,0 +1,29 @@
+XGBoost GPU support: {'BUILTIN_PREFETCH_PRESENT': True, 'CUDA_VERSION': [11, 8], 'DEBUG': False, 'GCC_VERSION': [9, 3, 1], 'MM_PREFETCH_PRESENT': True, 'NCCL_VERSION': [2, 19, 3], 'THRUST_VERSION': [1, 15, 1], 'USE_CUDA': True, 'USE_FEDERATED': True, 'USE_NCCL': True, 'USE_OPENMP': True, 'USE_RMM': False, 'libxgboost': '/home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so'}
+CUDA available: True
+CUDA device count: 1
+GPU 0: NVIDIA GeForce RTX 4090
+
+Loading data...
+Shape after dropping NaNs: (724160, 50)
+
+Data split sizes:
+Train: 506912
+Validation: 108624
+
+Debug - Data Info:
+X_train shape: (506912, 25)
+X_val shape: (108624, 25)
+y_train unique values: {1: 275837, 0: 231075}
+y_val unique values: {1: 59108, 0: 49516}
+
+Debug - Parameter Grid:
+Total combinations: 2
+
+Debug - Features:
+Numerical features: ['privacy_policy_link', 'developer_website', 'days_since_last_update', 'isSpamming', 'max_downloads_log', 'LenWhatsNew', 'PHONE', 'OneStarRatings', 'developer_address', 'FourStarRatings', 'intent', 'ReviewsAverage', 'STORAGE', 'LastUpdated', 'TwoStarRatings', 'LOCATION', 'FiveStarRatings', 'ThreeStarRatings']
+Categorical features: ['ContentRating', 'highest_android_version', 'CurrentVersion', 'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre']
+
+DEBUG - Detailed error information:
+Error type: TypeError
+Error message: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+Traceback:

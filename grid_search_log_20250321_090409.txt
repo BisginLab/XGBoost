@@ -1,0 +1,100 @@
+XGBoost GPU support: {'BUILTIN_PREFETCH_PRESENT': True, 'CUDA_VERSION': [11, 8], 'DEBUG': False, 'GCC_VERSION': [9, 3, 1], 'MM_PREFETCH_PRESENT': True, 'NCCL_VERSION': [2, 19, 3], 'THRUST_VERSION': [1, 15, 1], 'USE_CUDA': True, 'USE_FEDERATED': True, 'USE_NCCL': True, 'USE_OPENMP': True, 'USE_RMM': False, 'libxgboost': '/home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so'}
+CUDA available: True
+CUDA device count: 1
+GPU 0: NVIDIA GeForce RTX 4090
+
+Loading data...
+Shape after dropping NaNs: (724160, 50)
+
+Data split sizes:
+Train: 506912
+Validation: 108624
+
+DEBUG - Starting Grid Search Setup
+
+Validating training data...
+
+DEBUG - Data Validation:
+
+Columns with NaN values:
+Series([], dtype: int64)
+
+Data types:
+ContentRating               object
+Genre                       object
+CurrentVersion              object
+AndroidVersion              object
+DeveloperCategory           object
+lowest_android_version      object
+highest_android_version     object
+privacy_policy_link          int64
+developer_website            int64
+days_since_last_update       int64
+isSpamming                   int64
+max_downloads_log          float64
+LenWhatsNew                  int64
+PHONE                        int64
+OneStarRatings             float64
+developer_address            int64
+FourStarRatings            float64
+intent                       int64
+ReviewsAverage             float64
+STORAGE                      int64
+LastUpdated                  int64
+TwoStarRatings             float64
+LOCATION                     int64
+FiveStarRatings            float64
+ThreeStarRatings           float64
+dtype: object
+
+Unique values in categorical columns:
+ContentRating: 6 unique values
+highest_android_version: 5 unique values
+CurrentVersion: 1337 unique values
+lowest_android_version: 13 unique values
+AndroidVersion: 84 unique values
+DeveloperCategory: 4 unique values
+Genre: 165 unique values
+
+Data shapes:
+X_train: (506912, 25)
+y_train: (506912,)
+X_val: (108624, 25)
+y_val: (108624,)
+
+Class distribution:
+Training set:
+status
+1    0.544152
+0    0.455848
+Name: proportion, dtype: float64
+
+Validation set:
+status
+1    0.544152
+0    0.455848
+Name: proportion, dtype: float64
+
+Testing pipeline on small subset...
+
+DEBUG - Pipeline Configuration:
+GPU Available: True
+GPU Device: NVIDIA GeForce RTX 4090
+GPU Memory: 25.28 GB
+
+Feature counts:
+Total features: 25
+Numerical features: 18
+Categorical features: 7
+
+Pipeline creation error:
+Error type: TypeError
+Error message: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+
+DEBUG - Error in grid search:
+Error type: TypeError
+Error message: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+
+Traceback:
+
+Memory usage:

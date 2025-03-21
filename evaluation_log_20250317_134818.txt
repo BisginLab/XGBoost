@@ -1,0 +1,46 @@
+Loading data...
+
+Loading models from: /home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_2025_03_04_run_20250304_120249.joblib
+
+Evaluating saved models...
+
+VALIDATION SET METRICS:
+ROC AUC: 0.7851
+Accuracy: 0.7104
+
+TEST SET METRICS:
+ROC AUC: 0.7833
+Accuracy: 0.7098
+
+Saved evaluation plot as: evaluation_roc_curve_20250317_134824.png
+
+Calculating feature importance from trained models...
+
+Saved top 25 features to: top_25_xgboost_features_20250317_134824.npy
+ContentRating: 0.2843
+privacy_policy_link: 0.1580
+Genre: 0.1425
+CurrentVersion: 0.0693
+developer_website: 0.0487
+days_since_last_update: 0.0441
+AndroidVersion: 0.0358
+isSpamming: 0.0283
+max_downloads_log: 0.0283
+DeveloperCategory: 0.0282
+LenWhatsNew: 0.0243
+lowest_android_version: 0.0230
+developer_address: 0.0141
+PHONE: 0.0133
+OneStarRatings: 0.0124
+LastUpdated: 0.0101
+FourStarRatings: 0.0083
+highest_android_version: 0.0069
+intent: 0.0060
+STORAGE: 0.0035
+ReviewsAverage: 0.0030
+ThreeStarRatings: 0.0026
+LOCATION: 0.0025
+FiveStarRatings: 0.0012
+TwoStarRatings: 0.0011
+
+Saved feature importance to: feature_importance_20250317_134824.txt

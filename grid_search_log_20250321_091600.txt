@@ -1,0 +1,53 @@
+
+Loading data...
+Shape after dropping NaNs: (724160, 50)
+
+DEBUG - Starting Grid Search Setup
+
+Initial Memory Status:
+RAM Usage: 1.23 GB
+RAM Available: 24.68 GB
+
+Encoding categorical features...
+Encoding ContentRating...
+Encoding highest_android_version...
+Encoding CurrentVersion...
+Encoding lowest_android_version...
+Encoding AndroidVersion...
+Encoding DeveloperCategory...
+Encoding Genre...
+
+Encoded shapes:
+X_train: (506912, 1632)
+X_val: (108624, 637)
+
+Creating classifier...
+
+DEBUG - Pipeline Configuration:
+GPU Available: True
+GPU Device: NVIDIA GeForce RTX 4090
+GPU Memory: 25.28 GB
+Current GPU Memory Usage:
+  Allocated: 0.00 GB
+  Cached: 0.00 GB
+CUDA test successful
+
+Using device: cuda:0
+
+Preparing combined dataset...
+
+Final dataset shapes:
+X_combined: (615536, 1866)
+y_combined: (615536,)
+
+Starting grid search fit...
+
+DEBUG - Detailed error information:
+Error type: AttributeError
+Error message: 'super' object has no attribute '__sklearn_tags__'
+
+Traceback:
+
+Fatal error in main:
+Error type: AttributeError
+Error message: 'super' object has no attribute '__sklearn_tags__'
