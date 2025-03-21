@@ -1,0 +1,66 @@
+
+Loading data...
+Shape after dropping NaNs: (724160, 50)
+
+DEBUG - Starting Grid Search Setup
+
+Initial Memory Status:
+RAM Usage: 1.26 GB
+RAM Available: 24.81 GB
+
+Validating data types and memory usage...
+X_train memory: 0.31 GB
+X_val memory: 0.07 GB
+
+Checking for problematic values:
+Infinite values in X_train: 0
+NaN values in X_train: 0
+
+Creating pipeline...
+
+DEBUG - Pipeline Configuration:
+GPU Available: True
+GPU Device: NVIDIA GeForce RTX 4090
+GPU Memory: 25.28 GB
+Current GPU Memory Usage:
+  Allocated: 0.00 GB
+  Cached: 0.00 GB
+CUDA test successful
+
+Using device: cuda:0
+
+Testing pipeline on tiny subset...
+[ColumnTransformer] ........... (1 of 2) Processing num, total=   0.0s
+[ColumnTransformer] ........... (2 of 2) Processing cat, total=   0.0s
+Tiny subset test successful
+
+Preparing combined dataset...
+
+Final dataset shapes:
+X_combined: (615536, 25)
+y_combined: (615536,)
+
+Starting grid search fit...
+Fitting 1 folds for each of 1 candidates, totalling 1 fits
+[ColumnTransformer] ........... (1 of 2) Processing num, total=   0.0s
+[ColumnTransformer] ........... (2 of 2) Processing cat, total=   1.0s
+
+DEBUG - Detailed error information:
+Error type: ValueError
+Error message: could not convert string to float: 'Everyone'
+
+Traceback:
+
+Memory status at error:
+RAM Usage: 10.48 GB
+RAM Available: 15.41 GB
+
+GPU Memory status:
+Allocated: 0.00 GB
+Reserved: 0.00 GB
+
+Attempting to clear GPU memory...
+
+Fatal error in main:
+Error type: ValueError
+Error message: could not convert string to float: 'Everyone'

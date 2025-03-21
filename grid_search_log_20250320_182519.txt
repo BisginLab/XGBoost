@@ -1,0 +1,16 @@
+XGBoost GPU support: {'BUILTIN_PREFETCH_PRESENT': True, 'CUDA_VERSION': [11, 8], 'DEBUG': False, 'GCC_VERSION': [9, 3, 1], 'MM_PREFETCH_PRESENT': True, 'NCCL_VERSION': [2, 19, 3], 'THRUST_VERSION': [1, 15, 1], 'USE_CUDA': True, 'USE_FEDERATED': True, 'USE_NCCL': True, 'USE_OPENMP': True, 'USE_RMM': False, 'libxgboost': '/home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so'}
+CUDA available: True
+CUDA device count: 1
+GPU 0: NVIDIA GeForce RTX 4090
+
+Loading data...
+Shape after dropping NaNs: (724160, 50)
+
+Data split sizes:
+Train: 506912
+Validation: 108624
+
+Starting grid search...
+Training size: 506912
+Validation size: 108624
+Fitting 1 folds for each of 648 candidates, totalling 648 fits

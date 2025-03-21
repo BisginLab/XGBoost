@@ -37,6 +37,9 @@ def get_latest_model_path():
         raise FileNotFoundError("No saved models found in saved_models directory")
     return max(model_files)  # Gets most recent by filename
 
+# Define the specific model path
+MODEL_PATH = '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_2025_03_04_run_20250304_120249.joblib'
+
 def evaluate_models(models, X, y, set_name):
     try:
         # Get predictions from all models
@@ -174,10 +177,9 @@ def main():
     X_test = X.loc[test_indices]
     y_test = y.loc[test_indices]
     
-    # Load saved models
-    model_path = get_latest_model_path()
-    print(f"\nLoading models from: {model_path}")
-    models = joblib.load(model_path)
+    # Load saved models - using specific path instead of get_latest_model_path()
+    print(f"\nLoading models from: {MODEL_PATH}")
+    models = joblib.load(MODEL_PATH)
     
     # Evaluate and plot
     print("\nEvaluating saved models...")
@@ -193,7 +195,7 @@ def main():
     plt.ylim([0.0, 1.05])
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
-    plt.title('ROC Curves (Evaluation of Saved Models)')
+    plt.title('XGBoost ROC Curves - Top 25 Mutual Information Features')
     plt.legend(loc="lower right")
     plt.grid(True)
     

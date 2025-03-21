@@ -1,0 +1,68 @@
+
+Loading data...
+Shape after dropping NaNs: (724160, 50)
+
+DEBUG - Starting Grid Search Setup
+
+Initial Memory Status:
+RAM Usage: 1.30 GB
+RAM Available: 24.62 GB
+
+Validating data types and memory usage...
+X_train memory: 0.31 GB
+X_val memory: 0.07 GB
+
+Checking for problematic values:
+Infinite values in X_train: 0
+NaN values in X_train: 0
+
+Creating pipeline...
+
+DEBUG - Pipeline Configuration:
+GPU Available: True
+GPU Device: NVIDIA GeForce RTX 4090
+GPU Memory: 25.28 GB
+Current GPU Memory Usage:
+  Allocated: 0.00 GB
+  Cached: 0.00 GB
+CUDA test successful
+
+Using device: cuda:0
+
+Pipeline configuration:
+Number of numerical features: 18
+Number of categorical features: 7
+Numerical features: ['privacy_policy_link', 'developer_website', 'days_since_last_update', 'isSpamming', 'max_downloads_log', 'LenWhatsNew', 'PHONE', 'OneStarRatings', 'developer_address', 'FourStarRatings', 'intent', 'ReviewsAverage', 'STORAGE', 'LastUpdated', 'TwoStarRatings', 'LOCATION', 'FiveStarRatings', 'ThreeStarRatings']
+Categorical features: ['ContentRating', 'highest_android_version', 'CurrentVersion', 'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre']
+
+Testing pipeline on tiny subset...
+Tiny subset test successful
+
+Preparing combined dataset...
+
+Final dataset shapes:
+X_combined: (615536, 25)
+y_combined: (615536,)
+
+Starting grid search fit...
+Fitting 1 folds for each of 1 candidates, totalling 1 fits
+
+DEBUG - Detailed error information:
+Error type: ValueError
+Error message: could not convert string to float: 'Everyone'
+
+Traceback:
+
+Memory status at error:
+RAM Usage: 10.61 GB
+RAM Available: 14.13 GB
+
+GPU Memory status:
+Allocated: 0.00 GB
+Reserved: 0.00 GB
+
+Attempting to clear GPU memory...
+
+Fatal error in main:
+Error type: ValueError
+Error message: could not convert string to float: 'Everyone'

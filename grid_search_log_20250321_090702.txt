@@ -1,0 +1,21 @@
+XGBoost GPU support: {'BUILTIN_PREFETCH_PRESENT': True, 'CUDA_VERSION': [11, 8], 'DEBUG': False, 'GCC_VERSION': [9, 3, 1], 'MM_PREFETCH_PRESENT': True, 'NCCL_VERSION': [2, 19, 3], 'THRUST_VERSION': [1, 15, 1], 'USE_CUDA': True, 'USE_FEDERATED': True, 'USE_NCCL': True, 'USE_OPENMP': True, 'USE_RMM': False, 'libxgboost': '/home/umflint.edu/koernerg/xgboost/env/lib/python3.10/site-packages/xgboost/lib/libxgboost.so'}
+CUDA available: True
+CUDA device count: 1
+GPU 0: NVIDIA GeForce RTX 4090
+
+Loading data...
+Shape after dropping NaNs: (724160, 50)
+
+DEBUG - Starting Grid Search Setup
+
+DEBUG - Detailed error information:
+Error type: ModuleNotFoundError
+Error message: No module named 'psutil'
+
+Traceback:
+
+Memory status at error:
+
+Fatal error in main:
+Error type: UnboundLocalError
+Error message: local variable 'psutil' referenced before assignment

@@ -76,7 +76,7 @@ print(f"Initial DataFrame shape: {df.shape}")
 df = df.dropna(ignore_index=False)
 print(f"Shape after dropping NaNs: {df.shape}")
 
-# Define features based on XGBoost importance ranking
+# Define features based on MI ranking
 selected_features = [
     'ContentRating', 'Genre', 'CurrentVersion', 'AndroidVersion', 
     'DeveloperCategory', 'lowest_android_version', 'highest_android_version',
