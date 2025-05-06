@@ -1,0 +1,218 @@
+Top 25 Features by Importance:
+1. ContentRating_Unrated: 0.1074
+2. LastUpdated: 0.0307
+3. developer_website: 0.0230
+4. privacy_policy_link: 0.0220
+5. ContentRating_Everyone: 0.0199
+6. days_since_last_update: 0.0175
+7. isSpamming: 0.0167
+8. max_downloads_log: 0.0143
+9. LenWhatsNew: 0.0126
+10. Genre_Casual: 0.0118
+11. Genre_Puzzle: 0.0112
+12. Genre_Lifestyle: 0.0111
+13. PHONE: 0.0109
+14. Genre_Simulation: 0.0108
+15. Genre_Education: 0.0103
+16. DeveloperCategory_Aggressive: 0.0102
+17. Genre_Personalization: 0.0096
+18. Genre_Business: 0.0096
+19. CurrentVersion_5: 0.0095
+20. Genre_Entertainment: 0.0094
+21. Genre_Music & Audio: 0.0094
+22. DeveloperCategory_Active: 0.0093
+23. Genre_Educational: 0.0093
+24. Genre_Racing: 0.0091
+25. AndroidVersion_1.6 and up: 0.0090
+26. Genre_Tools: 0.0089
+27. intent: 0.0089
+28. Genre_Adventure: 0.0088
+29. AndroidVersion_2.3 and up: 0.0088
+30. Genre_Books & Reference: 0.0088
+31. CurrentVersion_alpha: 0.0087
+32. ContentRating_Teen: 0.0087
+33. AndroidVersion_Varies with device: 0.0086
+34. Genre_Finance: 0.0085
+35. CurrentVersion_3: 0.0085
+36. AndroidVersion_3.0 and up: 0.0084
+37. CurrentVersion_4: 0.0084
+38. Genre_Video Players & Editors: 0.0084
+39. lowest_android_version_Donut: 0.0084
+40. DeveloperCategory_Conservative: 0.0082
+41. CurrentVersion_0: 0.0082
+42. FourStarRatings: 0.0082
+43. AndroidVersion_4.1 and up: 0.0082
+44. ThreeStarRatings: 0.0081
+45. OneStarRatings: 0.0081
+46. TwoStarRatings: 0.0081
+47. Genre_News & Magazines: 0.0080
+48. lowest_android_version_Varies with device: 0.0079
+49. Genre_Arcade: 0.0079
+50. lowest_android_version_Eclair: 0.0078
+51. FiveStarRatings: 0.0078
+52. CurrentVersion_1: 0.0077
+53. Genre_Health & Fitness: 0.0077
+54. Genre_Travel & Local: 0.0077
+55. AndroidVersion_1.5 and up: 0.0076
+56. AndroidVersion_2.3.3 and up: 0.0076
+57. Genre_Maps & Navigation: 0.0075
+58. Genre_Communication: 0.0075
+59. AndroidVersion_4.0 and up: 0.0075
+60. developer_address: 0.0074
+61. lowest_android_version_Honeycomb: 0.0074
+62. Genre_Productivity: 0.0073
+63. AndroidVersion_2.0 and up: 0.0072
+64. ContentRating_Mature 17+: 0.0072
+65. lowest_android_version_Ice Cream Sandwich: 0.0072
+66. Genre_Sports: 0.0070
+67. Genre_Photography: 0.0070
+68. DeveloperCategory_Moderate: 0.0069
+69. CurrentVersion_2: 0.0069
+70. lowest_android_version_Froyo: 0.0069
+71. CurrentVersion_6: 0.0069
+72. ReviewsAverage: 0.0068
+73. AndroidVersion_4.0.3 and up: 0.0068
+74. Genre_Casino: 0.0068
+75. STORAGE: 0.0067
+76. Genre_Trivia: 0.0066
+77. Genre_Social: 0.0066
+78. lowest_android_version_Gingerbread: 0.0065
+79. ContentRating_Everyone 10+: 0.0065
+80. Genre_Action: 0.0065
+81. AndroidVersion_2.1 and up: 0.0065
+82. Genre_Art & Design: 0.0065
+83. lowest_android_version_Cupcake: 0.0064
+84. AndroidVersion_2.2 and up: 0.0064
+85. LOCATION: 0.0063
+86. Genre_Food & Drink: 0.0063
+87. Genre_Card: 0.0061
+88. AndroidVersion_3.1 and up: 0.0061
+89. lowest_android_version_Jelly Bean: 0.0061
+90. AndroidVersion_3.2 and up: 0.0061
+91. highest_android_version_inf: 0.0058
+92. Genre_Board: 0.0058
+93. CurrentVersion_11: 0.0058
+94. Genre_Medical: 0.0057
+95. Genre_Auto & Vehicles: 0.0056
+96. Genre_Weather: 0.0056
+97. CurrentVersion_7: 0.0055
+98. CurrentVersion_10: 0.0055
+99. Genre_Word: 0.0054
+100. highest_android_version_Varies with device: 0.0054
+101. Genre_Role Playing: 0.0053
+102. Genre_Libraries & Demo: 0.0051
+103. Genre_House & Home: 0.0051
+104. Genre_Shopping: 0.0048
+105. Genre_Events: 0.0045
+106. CurrentVersion_8: 0.0044
+107. Genre_Educational', 'Education: 0.0037
+108. CurrentVersion_20160216: 0.0000
+109. CurrentVersion_22: 0.0000
+110. CurrentVersion_216825: 0.0000
+111. CurrentVersion_21: 0.0000
+112. CurrentVersion_201704: 0.0000
+113. CurrentVersion_2017: 0.0000
+114. CurrentVersion_20140801: 0.0000
+115. CurrentVersion_2016: 0.0000
+116. CurrentVersion_2224: 0.0000
+117. CurrentVersion_26: 0.0000
+118. CurrentVersion_235: 0.0000
+119. CurrentVersion_231113: 0.0000
+120. CurrentVersion_229: 0.0000
+121. CurrentVersion_23: 0.0000
+122. highest_android_version_Lollipop: 0.0000
+123. CurrentVersion_116: 0.0000
+124. CurrentVersion_1819: 0.0000
+125. CurrentVersion_18: 0.0000
+126. CurrentVersion_17031718: 0.0000
+127. CurrentVersion_17581: 0.0000
+128. CurrentVersion_17: 0.0000
+129. CurrentVersion_16: 0.0000
+130. CurrentVersion_130: 0.0000
+131. CurrentVersion_15121008: 0.0000
+132. CurrentVersion_15: 0.0000
+133. CurrentVersion_14: 0.0000
+134. CurrentVersion_12022015: 0.0000
+135. CurrentVersion_13: 0.0000
+136. CurrentVersion_12017: 0.0000
+137. CurrentVersion_12: 0.0000
+138. CurrentVersion_100: 0.0000
+139. CurrentVersion_1003: 0.0000
+140. CurrentVersion_111: 0.0000
+141. CurrentVersion_101: 0.0000
+142. CurrentVersion_10001003: 0.0000
+143. CurrentVersion_1000: 0.0000
+144. CurrentVersion_10001: 0.0000
+145. highest_android_version_KitKat: 0.0000
+146. highest_android_version_Jelly Bean: 0.0000
+147. CurrentVersion_20140215: 0.0000
+148. CurrentVersion_201505250153: 0.0000
+149. CurrentVersion_2015: 0.0000
+150. CurrentVersion_2014: 0.0000
+151. CurrentVersion_20127: 0.0000
+152. CurrentVersion_19: 0.0000
+153. CurrentVersion_20: 0.0000
+154. CurrentVersion_35: 0.0000
+155. CurrentVersion_34: 0.0000
+156. CurrentVersion_33: 0.0000
+157. CurrentVersion_32: 0.0000
+158. CurrentVersion_30: 0.0000
+159. CurrentVersion_300000: 0.0000
+160. CurrentVersion_28: 0.0000
+161. CurrentVersion_29: 0.0000
+162. CurrentVersion_250: 0.0000
+163. CurrentVersion_24: 0.0000
+164. CurrentVersion_2638: 0.0000
+165. AndroidVersion_2.3.3 - 4.4: 0.0000
+166. AndroidVersion_2.0.1 and up: 0.0000
+167. AndroidVersion_2.3 - 5.0: 0.0000
+168. AndroidVersion_2.3 - 4.2.2: 0.0000
+169. AndroidVersion_2.2 - 4.2.2: 0.0000
+170. CurrentVersion_43: 0.0000
+171. lowest_android_version_1.1: 0.0000
+172. CurrentVersion_9: 0.0000
+173. lowest_android_version_1.0: 0.0000
+174. CurrentVersion_71: 0.0000
+175. CurrentVersion_4711: 0.0000
+176. CurrentVersion_53: 0.0000
+177. CurrentVersion_6012015: 0.0000
+178. AndroidVersion_1.0 and up: 0.0000
+179. CurrentVersion_41: 0.0000
+180. CurrentVersion_4805: 0.0000
+181. CurrentVersion_72: 0.0000
+182. lowest_android_version_Lollipop: 0.0000
+183. AndroidVersion_3.0 - 4.4W: 0.0000
+184. lowest_android_version_KitKat: 0.0000
+185. AndroidVersion_1.1 and up: 0.0000
+186. Genre_Arcade', 'Action & Adventure: 0.0000
+187. Genre_Adventure', 'Action & Adventure: 0.0000
+188. AndroidVersion_5.0 and up: 0.0000
+189. AndroidVersion_4.4 and up: 0.0000
+190. AndroidVersion_4.3 and up: 0.0000
+191. AndroidVersion_4.2 and up: 0.0000
+192. AndroidVersion_3.0 - 4.2.2: 0.0000
+193. AndroidVersion_3.0 - 4.4: 0.0000
+194. Genre_Casual', 'Creativity: 0.0000
+195. Genre_Beauty: 0.0000
+196. Genre_Arcade', 'Creativity: 0.0000
+197. Genre_Casual', 'Brain Games: 0.0000
+198. Genre_Comics: 0.0000
+199. Genre_Casual', 'Pretend Play: 0.0000
+200. Genre_Educational', 'Creativity: 0.0000
+201. Genre_Dating: 0.0000
+202. Genre_Educational', 'Music & Video: 0.0000
+203. Genre_Entertainment', 'Music & Video: 0.0000
+204. Genre_Educational', 'Brain Games: 0.0000
+205. Genre_Education', 'Creativity: 0.0000
+206. Genre_Education', 'Music & Video: 0.0000
+207. Genre_Education', 'Education: 0.0000
+208. Genre_Music: 0.0000
+209. Genre_Music', 'Music & Video: 0.0000
+210. Genre_Puzzle', 'Brain Games: 0.0000
+211. Genre_Puzzle', 'Action & Adventure: 0.0000
+212. Genre_Parenting: 0.0000
+213. Genre_Simulation', 'Action & Adventure: 0.0000
+214. Genre_Simulation', 'Creativity: 0.0000
+215. Genre_Simulation', 'Pretend Play: 0.0000
+216. Genre_Strategy: 0.0000
+217. Genre_Word', 'Brain Games: 0.0000
