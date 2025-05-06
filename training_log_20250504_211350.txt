@@ -1,0 +1,91 @@
+Loading data...
+Initial DataFrame shape: (870514, 50)
+Shape after dropping NaNs: (724160, 50)
+
+Training with these features:
+
+Numerical features:
+1. privacy_policy_link
+2. developer_website
+3. days_since_last_update
+4. isSpamming
+5. max_downloads_log
+6. LenWhatsNew
+7. PHONE
+8. OneStarRatings
+9. developer_address
+10. FourStarRatings
+11. intent
+12. ReviewsAverage
+13. STORAGE
+14. LastUpdated
+15. TwoStarRatings
+16. LOCATION
+17. FiveStarRatings
+18. ThreeStarRatings
+
+Categorical features:
+1. ContentRating
+2. highest_android_version
+3. CurrentVersion
+4. lowest_android_version
+5. AndroidVersion
+6. DeveloperCategory
+7. Genre
+
+Total feature count: 25
+
+Features to be used in training:
+1. ContentRating
+2. Genre
+3. CurrentVersion
+4. AndroidVersion
+5. DeveloperCategory
+6. lowest_android_version
+7. highest_android_version
+8. privacy_policy_link
+9. developer_website
+10. days_since_last_update
+11. isSpamming
+12. max_downloads_log
+13. LenWhatsNew
+14. PHONE
+15. OneStarRatings
+16. developer_address
+17. FourStarRatings
+18. intent
+19. ReviewsAverage
+20. STORAGE
+21. LastUpdated
+22. TwoStarRatings
+23. LOCATION
+24. FiveStarRatings
+25. ThreeStarRatings
+
+Starting training...
+
+Feature counts:
+Total selected features: 25
+Numerical features: 18
+Categorical features: 7
+
+Indices info:
+Number of train indices: 506912
+Number of val indices: 108624
+Number of test indices: 108624
+Min/Max train indices: 0, 870513
+Min/Max val indices: 6, 870509
+Min/Max test indices: 9, 870512
+
+Created and saved 5000 sample indices
+
+Created and saved 10000 sample indices
+
+Created and saved 100000 sample indices
+
+==================================================
+Training with sample size: 5000
+==================================================
+
+Training with 5000 samples
+Encoding ContentRating...

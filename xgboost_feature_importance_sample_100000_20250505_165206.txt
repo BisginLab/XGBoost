@@ -1,0 +1,519 @@
+Top 25 Features by Importance:
+1. ContentRating_Unrated: 0.3321
+2. privacy_policy_link: 0.0389
+3. developer_website: 0.0290
+4. ContentRating_Everyone: 0.0263
+5. isSpamming: 0.0218
+6. LastUpdated: 0.0167
+7. max_downloads_log: 0.0147
+8. days_since_last_update: 0.0131
+9. Genre_Personalization: 0.0098
+10. PHONE: 0.0089
+11. LenWhatsNew: 0.0087
+12. Genre_Casual: 0.0082
+13. DeveloperCategory_Aggressive: 0.0080
+14. DeveloperCategory_Active: 0.0072
+15. Genre_Education: 0.0071
+16. Genre_Books & Reference: 0.0068
+17. Genre_Action: 0.0065
+18. Genre_Entertainment: 0.0064
+19. Genre_Puzzle: 0.0063
+20. ContentRating_Mature 17+: 0.0062
+21. DeveloperCategory_Conservative: 0.0062
+22. CurrentVersion_4: 0.0062
+23. intent: 0.0061
+24. AndroidVersion_2.3 and up: 0.0060
+25. developer_address: 0.0059
+26. Genre_Travel & Local: 0.0059
+27. Genre_Maps & Navigation: 0.0059
+28. Genre_Educational: 0.0058
+29. Genre_Medical: 0.0057
+30. Genre_Music & Audio: 0.0056
+31. Genre_Simulation: 0.0056
+32. Genre_Productivity: 0.0055
+33. Genre_Tools: 0.0054
+34. CurrentVersion_alpha: 0.0054
+35. Genre_News & Magazines: 0.0052
+36. Genre_Social: 0.0051
+37. Genre_Business: 0.0051
+38. Genre_Casino: 0.0051
+39. CurrentVersion_0: 0.0050
+40. ContentRating_Teen: 0.0049
+41. Genre_Adventure: 0.0048
+42. AndroidVersion_2.3.3 and up: 0.0048
+43. AndroidVersion_2.1 and up: 0.0047
+44. OneStarRatings: 0.0047
+45. highest_android_version_Varies with device: 0.0047
+46. AndroidVersion_4.4 and up: 0.0047
+47. DeveloperCategory_Moderate: 0.0045
+48. Genre_Dating: 0.0044
+49. Genre_Trivia: 0.0044
+50. highest_android_version_inf: 0.0044
+51. CurrentVersion_1: 0.0044
+52. Genre_Food & Drink: 0.0043
+53. Genre_Finance: 0.0043
+54. CurrentVersion_8: 0.0043
+55. ContentRating_Everyone 10+: 0.0042
+56. CurrentVersion_3: 0.0042
+57. Genre_Racing: 0.0042
+58. Genre_Role Playing: 0.0041
+59. Genre_Photography: 0.0041
+60. Genre_Auto & Vehicles: 0.0041
+61. lowest_android_version_KitKat: 0.0040
+62. AndroidVersion_4.0.3 and up: 0.0040
+63. FourStarRatings: 0.0040
+64. CurrentVersion_7: 0.0040
+65. CurrentVersion_71: 0.0040
+66. Genre_Arcade: 0.0040
+67. Genre_Board: 0.0039
+68. AndroidVersion_4.1 and up: 0.0039
+69. CurrentVersion_11: 0.0038
+70. Genre_Beauty: 0.0038
+71. Genre_Video Players & Editors: 0.0038
+72. Genre_Lifestyle: 0.0038
+73. lowest_android_version_Ice Cream Sandwich: 0.0037
+74. Genre_Communication: 0.0037
+75. lowest_android_version_Jelly Bean: 0.0037
+76. Genre_Weather: 0.0037
+77. LOCATION: 0.0037
+78. CurrentVersion_17: 0.0036
+79. CurrentVersion_6: 0.0036
+80. AndroidVersion_3.0 and up: 0.0036
+81. AndroidVersion_1.6 and up: 0.0036
+82. lowest_android_version_Eclair: 0.0036
+83. Genre_Health & Fitness: 0.0035
+84. lowest_android_version_Honeycomb: 0.0035
+85. ReviewsAverage: 0.0034
+86. AndroidVersion_4.0 and up: 0.0034
+87. Genre_Events: 0.0034
+88. Genre_Shopping: 0.0033
+89. Genre_Word: 0.0033
+90. ThreeStarRatings: 0.0033
+91. AndroidVersion_1.5 and up: 0.0033
+92. TwoStarRatings: 0.0033
+93. Genre_Libraries & Demo: 0.0033
+94. CurrentVersion_9: 0.0033
+95. AndroidVersion_2.0.1 and up: 0.0033
+96. AndroidVersion_3.1 and up: 0.0032
+97. CurrentVersion_5: 0.0032
+98. Genre_Card: 0.0032
+99. lowest_android_version_Cupcake: 0.0031
+100. AndroidVersion_2.0 and up: 0.0031
+101. Genre_Sports: 0.0031
+102. AndroidVersion_4.2 and up: 0.0030
+103. lowest_android_version_Varies with device: 0.0030
+104. Genre_Strategy: 0.0030
+105. Genre_Parenting: 0.0030
+106. CurrentVersion_16: 0.0030
+107. lowest_android_version_Donut: 0.0029
+108. CurrentVersion_21: 0.0029
+109. STORAGE: 0.0028
+110. CurrentVersion_2: 0.0028
+111. CurrentVersion_26: 0.0028
+112. FiveStarRatings: 0.0028
+113. Genre_Music: 0.0027
+114. lowest_android_version_Gingerbread: 0.0027
+115. AndroidVersion_3.2 and up: 0.0027
+116. AndroidVersion_2.2 and up: 0.0027
+117. CurrentVersion_14: 0.0026
+118. lowest_android_version_Froyo: 0.0026
+119. Genre_Casual', 'Pretend Play: 0.0026
+120. AndroidVersion_4.3 and up: 0.0026
+121. CurrentVersion_10: 0.0025
+122. CurrentVersion_72: 0.0025
+123. CurrentVersion_15: 0.0024
+124. CurrentVersion_10001: 0.0024
+125. Genre_Arcade', 'Action & Adventure: 0.0024
+126. highest_android_version_KitKat: 0.0023
+127. CurrentVersion_34: 0.0022
+128. Genre_House & Home: 0.0020
+129. AndroidVersion_2.2 - 4.4: 0.0000
+130. AndroidVersion_2.2 - 4.2.2: 0.0000
+131. AndroidVersion_2.1 - 4.3: 0.0000
+132. AndroidVersion_2.1 - 4.2.2: 0.0000
+133. AndroidVersion_2.1 - 4.1.1: 0.0000
+134. AndroidVersion_2.0 - 4.4: 0.0000
+135. AndroidVersion_1.6 - 4.2.2: 0.0000
+136. AndroidVersion_1.6 - 4.1.1: 0.0000
+137. AndroidVersion_1.1 and up: 0.0000
+138. AndroidVersion_1.1 - 4.1.1: 0.0000
+139. AndroidVersion_1.0 and up: 0.0000
+140. lowest_android_version_Lollipop: 0.0000
+141. AndroidVersion_2.0 - 4.1.1: 0.0000
+142. CurrentVersion_62: 0.0000
+143. CurrentVersion_600010: 0.0000
+144. CurrentVersion_60: 0.0000
+145. CurrentVersion_58: 0.0000
+146. CurrentVersion_57: 0.0000
+147. CurrentVersion_56: 0.0000
+148. CurrentVersion_5430: 0.0000
+149. CurrentVersion_53: 0.0000
+150. CurrentVersion_52: 0.0000
+151. CurrentVersion_51: 0.0000
+152. AndroidVersion_2.2 - 4.3: 0.0000
+153. CurrentVersion_50: 0.0000
+154. CurrentVersion_492: 0.0000
+155. CurrentVersion_49: 0.0000
+156. CurrentVersion_48: 0.0000
+157. CurrentVersion_4694: 0.0000
+158. CurrentVersion_46: 0.0000
+159. CurrentVersion_45: 0.0000
+160. CurrentVersion_446: 0.0000
+161. CurrentVersion_44: 0.0000
+162. CurrentVersion_43: 0.0000
+163. CurrentVersion_4288: 0.0000
+164. CurrentVersion_50417: 0.0000
+165. lowest_android_version_1.1: 0.0000
+166. lowest_android_version_1.0: 0.0000
+167. CurrentVersion_97: 0.0000
+168. CurrentVersion_96: 0.0000
+169. CurrentVersion_95: 0.0000
+170. CurrentVersion_92: 0.0000
+171. CurrentVersion_90317: 0.0000
+172. CurrentVersion_901: 0.0000
+173. CurrentVersion_90: 0.0000
+174. CurrentVersion_88: 0.0000
+175. CurrentVersion_853: 0.0000
+176. CurrentVersion_62525: 0.0000
+177. CurrentVersion_82: 0.0000
+178. CurrentVersion_814510: 0.0000
+179. CurrentVersion_81: 0.0000
+180. CurrentVersion_786: 0.0000
+181. CurrentVersion_76: 0.0000
+182. CurrentVersion_75: 0.0000
+183. CurrentVersion_70317: 0.0000
+184. CurrentVersion_70: 0.0000
+185. CurrentVersion_68: 0.0000
+186. CurrentVersion_66: 0.0000
+187. CurrentVersion_65: 0.0000
+188. CurrentVersion_84: 0.0000
+189. Genre_Music & Audio', 'Music & Video: 0.0000
+190. Genre_Lifestyle', 'Pretend Play: 0.0000
+191. Genre_Lifestyle', 'Creativity: 0.0000
+192. Genre_Entertainment', 'Pretend Play: 0.0000
+193. Genre_Entertainment', 'Music & Video: 0.0000
+194. Genre_Entertainment', 'Education: 0.0000
+195. Genre_Entertainment', 'Creativity: 0.0000
+196. Genre_Entertainment', 'Brain Games: 0.0000
+197. Genre_Educational', 'Pretend Play: 0.0000
+198. Genre_Educational', 'Education: 0.0000
+199. Genre_Arcade', 'Brain Games: 0.0000
+200. Genre_Educational', 'Brain Games: 0.0000
+201. Genre_Educational', 'Action & Adventure: 0.0000
+202. Genre_Education', 'Pretend Play: 0.0000
+203. Genre_Education', 'Music & Video: 0.0000
+204. Genre_Education', 'Education: 0.0000
+205. Genre_Education', 'Creativity: 0.0000
+206. Genre_Education', 'Brain Games: 0.0000
+207. Genre_Education', 'Action & Adventure: 0.0000
+208. Genre_Communication', 'Education: 0.0000
+209. Genre_Comics: 0.0000
+210. Genre_Educational', 'Creativity: 0.0000
+211. Genre_Word', 'Brain Games: 0.0000
+212. Genre_Video Players & Editors', 'Music & Video: 0.0000
+213. Genre_Video Players & Editors', 'Creativity: 0.0000
+214. Genre_Trivia', 'Music & Video: 0.0000
+215. Genre_Trivia', 'Education: 0.0000
+216. Genre_Trivia', 'Brain Games: 0.0000
+217. Genre_Tools', 'Creativity: 0.0000
+218. Genre_Strategy', 'Education: 0.0000
+219. Genre_Sports', 'Pretend Play: 0.0000
+220. Genre_Sports', 'Action & Adventure: 0.0000
+221. Genre_Music', 'Music & Video: 0.0000
+222. Genre_Simulation', 'Creativity: 0.0000
+223. Genre_Simulation', 'Action & Adventure: 0.0000
+224. Genre_Role Playing', 'Pretend Play: 0.0000
+225. Genre_Role Playing', 'Education: 0.0000
+226. Genre_Role Playing', 'Brain Games: 0.0000
+227. Genre_Role Playing', 'Action & Adventure: 0.0000
+228. Genre_Racing', 'Action & Adventure: 0.0000
+229. Genre_Puzzle', 'Education: 0.0000
+230. Genre_Puzzle', 'Creativity: 0.0000
+231. Genre_Puzzle', 'Brain Games: 0.0000
+232. Genre_Parenting', 'Education: 0.0000
+233. Genre_Simulation', 'Pretend Play: 0.0000
+234. AndroidVersion_4.0.3 - 4.4W: 0.0000
+235. AndroidVersion_4.0.3 - 4.4: 0.0000
+236. AndroidVersion_4.0.3 - 4.2.2: 0.0000
+237. AndroidVersion_4.0 - 5.0: 0.0000
+238. AndroidVersion_4.0 - 4.4W: 0.0000
+239. AndroidVersion_4.0 - 4.4: 0.0000
+240. AndroidVersion_4.0 - 4.3: 0.0000
+241. AndroidVersion_3.2 - 4.4: 0.0000
+242. AndroidVersion_3.0 - 5.0: 0.0000
+243. AndroidVersion_3.0 - 4.4W: 0.0000
+244. Genre_Casual', 'Education: 0.0000
+245. AndroidVersion_2.3.3 - 5.0: 0.0000
+246. AndroidVersion_2.3.3 - 4.4: 0.0000
+247. AndroidVersion_2.3.3 - 4.3: 0.0000
+248. AndroidVersion_2.3.3 - 4.2.2: 0.0000
+249. AndroidVersion_2.3.3 - 4.1.1: 0.0000
+250. AndroidVersion_2.3 - 5.0: 0.0000
+251. AndroidVersion_2.3 - 4.4: 0.0000
+252. AndroidVersion_2.3 - 4.2.2: 0.0000
+253. AndroidVersion_2.2 - 5.0: 0.0000
+254. AndroidVersion_2.2 - 4.4W: 0.0000
+255. AndroidVersion_3.0 - 4.4: 0.0000
+256. Genre_Casual', 'Creativity: 0.0000
+257. Genre_Casual', 'Brain Games: 0.0000
+258. Genre_Casual', 'Action & Adventure: 0.0000
+259. Genre_Card', 'Brain Games: 0.0000
+260. Genre_Books & Reference', 'Education: 0.0000
+261. Genre_Books & Reference', 'Creativity: 0.0000
+262. Genre_Board', 'Education: 0.0000
+263. Genre_Board', 'Brain Games: 0.0000
+264. Genre_Board', 'Action & Adventure: 0.0000
+265. Genre_Art & Design', 'Creativity: 0.0000
+266. AndroidVersion_4.0.3 - 5.0: 0.0000
+267. Genre_Arcade', 'Pretend Play: 0.0000
+268. Genre_Arcade', 'Education: 0.0000
+269. Genre_Arcade', 'Creativity: 0.0000
+270. CurrentVersion_4286: 0.0000
+271. Genre_Adventure', 'Action & Adventure: 0.0000
+272. Genre_Action', 'Creativity: 0.0000
+273. Genre_Action', 'Action & Adventure: 0.0000
+274. AndroidVersion_Varies with device: 0.0000
+275. AndroidVersion_5.0 and up: 0.0000
+276. AndroidVersion_4.1 - 5.0: 0.0000
+277. AndroidVersion_4.1 - 4.4: 0.0000
+278. Genre_Art & Design: 0.0000
+279. CurrentVersion_20: 0.0000
+280. CurrentVersion_196088: 0.0000
+281. CurrentVersion_192755: 0.0000
+282. CurrentVersion_191186: 0.0000
+283. CurrentVersion_19: 0.0000
+284. CurrentVersion_1819: 0.0000
+285. CurrentVersion_181215: 0.0000
+286. CurrentVersion_1802: 0.0000
+287. CurrentVersion_180: 0.0000
+288. CurrentVersion_18: 0.0000
+289. CurrentVersion_17040201: 0.0000
+290. CurrentVersion_17032713: 0.0000
+291. CurrentVersion_17022017: 0.0000
+292. CurrentVersion_170213: 0.0000
+293. CurrentVersion_347: 0.0000
+294. CurrentVersion_16123107: 0.0000
+295. CurrentVersion_16112901: 0.0000
+296. CurrentVersion_16102705: 0.0000
+297. CurrentVersion_16092414: 0.0000
+298. CurrentVersion_16081811: 0.0000
+299. CurrentVersion_16071205: 0.0000
+300. CurrentVersion_16042314: 0.0000
+301. CurrentVersion_16031305: 0.0000
+302. CurrentVersion_16011710: 0.0000
+303. CurrentVersion_16011520: 0.0000
+304. CurrentVersion_1591: 0.0000
+305. CurrentVersion_15611: 0.0000
+306. CurrentVersion_1517: 0.0000
+307. CurrentVersion_15120408: 0.0000
+308. CurrentVersion_17011512: 0.0000
+309. CurrentVersion_20141030: 0.0000
+310. CurrentVersion_201410040: 0.0000
+311. CurrentVersion_20140824: 0.0000
+312. CurrentVersion_20140819: 0.0000
+313. CurrentVersion_20140719: 0.0000
+314. CurrentVersion_20140329: 0.0000
+315. CurrentVersion_20140119: 0.0000
+316. CurrentVersion_2014: 0.0000
+317. CurrentVersion_2013112112: 0.0000
+318. CurrentVersion_20130419: 0.0000
+319. CurrentVersion_20130102: 0.0000
+320. CurrentVersion_2013: 0.0000
+321. CurrentVersion_20127: 0.0000
+322. CurrentVersion_20121001: 0.0000
+323. CurrentVersion_200: 0.0000
+324. CurrentVersion_20120307: 0.0000
+325. CurrentVersion_20120208: 0.0000
+326. CurrentVersion_20120114: 0.0000
+327. CurrentVersion_2012: 0.0000
+328. CurrentVersion_20110312: 0.0000
+329. CurrentVersion_20110220: 0.0000
+330. CurrentVersion_2011: 0.0000
+331. CurrentVersion_20107: 0.0000
+332. CurrentVersion_20100905: 0.0000
+333. CurrentVersion_20100523: 0.0000
+334. CurrentVersion_200500: 0.0000
+335. CurrentVersion_200400: 0.0000
+336. CurrentVersion_20028: 0.0000
+337. CurrentVersion_2002: 0.0000
+338. CurrentVersion_20120327: 0.0000
+339. CurrentVersion_113: 0.0000
+340. CurrentVersion_1111: 0.0000
+341. CurrentVersion_111: 0.0000
+342. CurrentVersion_110: 0.0000
+343. CurrentVersion_109: 0.0000
+344. CurrentVersion_108: 0.0000
+345. CurrentVersion_107: 0.0000
+346. CurrentVersion_106405: 0.0000
+347. CurrentVersion_106: 0.0000
+348. CurrentVersion_105: 0.0000
+349. CurrentVersion_103: 0.0000
+350. CurrentVersion_102: 0.0000
+351. CurrentVersion_101: 0.0000
+352. CurrentVersion_1002: 0.0000
+353. CurrentVersion_151203: 0.0000
+354. CurrentVersion_10001005: 0.0000
+355. CurrentVersion_10001004: 0.0000
+356. CurrentVersion_10001003: 0.0000
+357. CurrentVersion_10001002: 0.0000
+358. CurrentVersion_10001001: 0.0000
+359. CurrentVersion_1000015: 0.0000
+360. CurrentVersion_1000: 0.0000
+361. CurrentVersion_100: 0.0000
+362. highest_android_version_Lollipop: 0.0000
+363. highest_android_version_Jelly Bean: 0.0000
+364. ContentRating_Adults only 18+: 0.0000
+365. Genre_Word', 'Education: 0.0000
+366. Genre_Strategy', 'Brain Games: 0.0000
+367. Genre_Racing', 'Pretend Play: 0.0000
+368. CurrentVersion_1001: 0.0000
+369. CurrentVersion_15092504: 0.0000
+370. CurrentVersion_15092109: 0.0000
+371. CurrentVersion_150815: 0.0000
+372. CurrentVersion_1470: 0.0000
+373. CurrentVersion_146: 0.0000
+374. CurrentVersion_1422: 0.0000
+375. CurrentVersion_142: 0.0000
+376. CurrentVersion_14182049901: 0.0000
+377. CurrentVersion_14120511: 0.0000
+378. CurrentVersion_14083116: 0.0000
+379. CurrentVersion_14060701: 0.0000
+380. CurrentVersion_14040: 0.0000
+381. CurrentVersion_140322: 0.0000
+382. CurrentVersion_14018: 0.0000
+383. CurrentVersion_116: 0.0000
+384. CurrentVersion_139: 0.0000
+385. CurrentVersion_13534: 0.0000
+386. CurrentVersion_13021505: 0.0000
+387. CurrentVersion_13: 0.0000
+388. CurrentVersion_12464655: 0.0000
+389. CurrentVersion_1236: 0.0000
+390. CurrentVersion_12345: 0.0000
+391. CurrentVersion_1224: 0.0000
+392. CurrentVersion_12121901: 0.0000
+393. CurrentVersion_12022015: 0.0000
+394. CurrentVersion_12000000: 0.0000
+395. CurrentVersion_120: 0.0000
+396. CurrentVersion_12: 0.0000
+397. CurrentVersion_119: 0.0000
+398. CurrentVersion_14012: 0.0000
+399. CurrentVersion_30: 0.0000
+400. CurrentVersion_29: 0.0000
+401. CurrentVersion_2817: 0.0000
+402. CurrentVersion_280814: 0.0000
+403. CurrentVersion_28: 0.0000
+404. CurrentVersion_272010: 0.0000
+405. CurrentVersion_27: 0.0000
+406. CurrentVersion_2635: 0.0000
+407. CurrentVersion_261: 0.0000
+408. CurrentVersion_26042017: 0.0000
+409. CurrentVersion_260: 0.0000
+410. CurrentVersion_254564: 0.0000
+411. CurrentVersion_254084: 0.0000
+412. CurrentVersion_252: 0.0000
+413. CurrentVersion_20141207: 0.0000
+414. CurrentVersion_251: 0.0000
+415. CurrentVersion_25022015: 0.0000
+416. CurrentVersion_250: 0.0000
+417. CurrentVersion_25: 0.0000
+418. CurrentVersion_249960: 0.0000
+419. CurrentVersion_24: 0.0000
+420. CurrentVersion_237: 0.0000
+421. CurrentVersion_236: 0.0000
+422. CurrentVersion_235: 0.0000
+423. CurrentVersion_2316: 0.0000
+424. CurrentVersion_23: 0.0000
+425. CurrentVersion_2224: 0.0000
+426. CurrentVersion_220287: 0.0000
+427. CurrentVersion_220008: 0.0000
+428. CurrentVersion_2510: 0.0000
+429. CurrentVersion_42: 0.0000
+430. CurrentVersion_4165: 0.0000
+431. CurrentVersion_4109: 0.0000
+432. CurrentVersion_41: 0.0000
+433. CurrentVersion_4061: 0.0000
+434. CurrentVersion_4048: 0.0000
+435. CurrentVersion_4024: 0.0000
+436. CurrentVersion_401: 0.0000
+437. CurrentVersion_400: 0.0000
+438. CurrentVersion_40: 0.0000
+439. CurrentVersion_39: 0.0000
+440. CurrentVersion_382: 0.0000
+441. CurrentVersion_3811: 0.0000
+442. CurrentVersion_38: 0.0000
+443. CurrentVersion_300000: 0.0000
+444. CurrentVersion_36: 0.0000
+445. CurrentVersion_35629: 0.0000
+446. CurrentVersion_35: 0.0000
+447. CurrentVersion_332016: 0.0000
+448. CurrentVersion_33: 0.0000
+449. CurrentVersion_32: 0.0000
+450. CurrentVersion_3188: 0.0000
+451. CurrentVersion_312016: 0.0000
+452. CurrentVersion_31: 0.0000
+453. CurrentVersion_306: 0.0000
+454. CurrentVersion_305348: 0.0000
+455. CurrentVersion_3024: 0.0000
+456. CurrentVersion_3017: 0.0000
+457. CurrentVersion_30092016: 0.0000
+458. CurrentVersion_37: 0.0000
+459. CurrentVersion_20160907178258: 0.0000
+460. CurrentVersion_2016052387: 0.0000
+461. CurrentVersion_20160517: 0.0000
+462. CurrentVersion_20160506: 0.0000
+463. CurrentVersion_20160418: 0.0000
+464. CurrentVersion_2016041684: 0.0000
+465. CurrentVersion_201603263230: 0.0000
+466. CurrentVersion_20160314: 0.0000
+467. CurrentVersion_201603: 0.0000
+468. CurrentVersion_20160223: 0.0000
+469. CurrentVersion_20160212: 0.0000
+470. CurrentVersion_201602: 0.0000
+471. CurrentVersion_20160118: 0.0000
+472. CurrentVersion_2016: 0.0000
+473. CurrentVersion_22: 0.0000
+474. CurrentVersion_20151214: 0.0000
+475. CurrentVersion_20151115: 0.0000
+476. CurrentVersion_2015110500: 0.0000
+477. CurrentVersion_201509: 0.0000
+478. CurrentVersion_20150820: 0.0000
+479. CurrentVersion_20150731: 0.0000
+480. CurrentVersion_20150723: 0.0000
+481. CurrentVersion_2015071701: 0.0000
+482. CurrentVersion_20150616: 0.0000
+483. CurrentVersion_20150416: 0.0000
+484. CurrentVersion_201502251: 0.0000
+485. CurrentVersion_20150218: 0.0000
+486. CurrentVersion_2015: 0.0000
+487. CurrentVersion_20141219: 0.0000
+488. CurrentVersion_20151510: 0.0000
+489. CurrentVersion_218328: 0.0000
+490. CurrentVersion_217963: 0.0000
+491. CurrentVersion_217068: 0.0000
+492. CurrentVersion_215571: 0.0000
+493. CurrentVersion_215: 0.0000
+494. CurrentVersion_211640: 0.0000
+495. CurrentVersion_211: 0.0000
+496. CurrentVersion_21012015: 0.0000
+497. CurrentVersion_207: 0.0000
+498. CurrentVersion_203: 0.0000
+499. CurrentVersion_202: 0.0000
+500. CurrentVersion_201736: 0.0000
+501. CurrentVersion_20170419: 0.0000
+502. CurrentVersion_20170414: 0.0000
+503. CurrentVersion_201609137486: 0.0000
+504. CurrentVersion_20170319: 0.0000
+505. CurrentVersion_20170315: 0.0000
+506. CurrentVersion_20170310: 0.0000
+507. CurrentVersion_2017030140803: 0.0000
+508. CurrentVersion_20170221114221: 0.0000
+509. CurrentVersion_2017020801: 0.0000
+510. CurrentVersion_2017010996: 0.0000
+511. CurrentVersion_201701040: 0.0000
+512. CurrentVersion_2017: 0.0000
+513. CurrentVersion_20161225: 0.0000
+514. CurrentVersion_20161118: 0.0000
+515. CurrentVersion_201611: 0.0000
+516. CurrentVersion_20161018: 0.0000
+517. CurrentVersion_201610: 0.0000
+518. CurrentVersion_20170403: 0.0000

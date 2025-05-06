@@ -13,6 +13,7 @@ import pandas as pd
 import numpy as np
 import sys
 from datetime import datetime
+import json
 
 import xgboost as xgb
 import torch
@@ -23,6 +24,19 @@ from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 import os
 import joblib
+
+def encode_and_bind(original_dataframe, feature_to_encode, categories=None):
+    """One-hot encode a categorical feature and bind it to the original dataframe"""
+    dummies = pd.get_dummies(original_dataframe[[feature_to_encode]], prefix=feature_to_encode)
+    if categories is not None:
+        # Ensure all categories are present
+        for cat in categories:
+            col_name = f"{feature_to_encode}_{cat}"
+            if col_name not in dummies.columns:
+                dummies[col_name] = 0
+        # Reorder columns to match categories
+        dummies = dummies.reindex(columns=[f"{feature_to_encode}_{cat}" for cat in categories])
+    return dummies
 
 # Check XGBoost GPU support
 print("XGBoost GPU support:", xgb.build_info())
@@ -136,49 +150,11 @@ print(f"Min/Max train indices: {train_indices.min()}, {train_indices.max()}")
 print(f"Min/Max val indices: {val_indices.min()}, {val_indices.max()}")
 print(f"Min/Max test indices: {test_indices.min()}, {test_indices.max()}")
 
-# Check DataFrame index
-print("\nDataFrame info:")
-print(f"DataFrame index range: {df.index.min()}, {df.index.max()}")
-print(f"DataFrame index is continuous: {df.index.is_monotonic_increasing}")
-print(f"Sample of indices:", train_indices[:5])
-print(f"Sample of df index:", df.index[:5].tolist())
-
-# After loading data and before splitting
-print("\nDetailed Index Analysis:")
-print("1. DataFrame properties:")
-print(f"- Index type: {type(df.index)}")
-print(f"- Index dtype: {df.index.dtype}")
-print(f"- Number of unique indices: {len(df.index.unique())}")
-print(f"- Any duplicates in index? {df.index.duplicated().any()}")
-
-print("\n2. Loaded indices properties:")
-print(f"- Train indices type: {type(train_indices)}")
-print(f"- Train indices dtype: {train_indices.dtype}")
-print(f"- Number of unique train indices: {len(np.unique(train_indices))}")
-print(f"- Any duplicates in train indices? {len(train_indices) != len(np.unique(train_indices))}")
-
-print("\n3. Index overlap analysis:")
-print(f"- Train indices in DataFrame index: {np.all(np.isin(train_indices, df.index))}")
-print(f"- Val indices in DataFrame index: {np.all(np.isin(val_indices, df.index))}")
-print(f"- Test indices in DataFrame index: {np.all(np.isin(test_indices, df.index))}")
-
-# Print a few example rows where indices don't match
-missing_indices = train_indices[~np.isin(train_indices, df.index)]
-if len(missing_indices) > 0:
-    print("\nFirst few missing indices:", missing_indices[:5])
-
-# Split the data using the saved indices with loc instead of iloc
-X_train = X.loc[train_indices]
-y_train = y.loc[train_indices]
+# Create validation and test sets
 X_val = X.loc[val_indices]
 y_val = y.loc[val_indices]
 X_test = X.loc[test_indices]
 y_test = y.loc[test_indices]
-
-print("\nData split sizes:")
-print(f"Train: {len(X_train)} ({len(X_train)/len(df)*100:.1f}%)")
-print(f"Val: {len(X_val)} ({len(X_val)/len(df)*100:.1f}%)")
-print(f"Test: {len(X_test)} ({len(X_test)/len(df)*100:.1f}%)")
 
 # Create preprocessing pipeline
 preprocessor = ColumnTransformer(
@@ -191,100 +167,206 @@ preprocessor = ColumnTransformer(
 xgb_pipeline = Pipeline([
     ('preprocessor', preprocessor),
     ('classifier', xgb.XGBClassifier(
+        n_estimators=1000,
+        max_depth=6,
+        learning_rate=0.01,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        min_child_weight=1,
+        gamma=0,
         enable_categorical=True,
         device='cuda:0' if torch.cuda.is_available() else 'cpu',
         n_jobs=-1,
-        max_bin=256,
-        gamma=0.1,
-        subsample=0.8,
-        colsample_bytree=0.8
+        max_bin=256
     ))
 ])
 
-# Train ensemble of models
-n_classifiers = 11
-max_depth_values = [2, 3]
-n_trees_values = [256, 512]
+# Create directory for sample indices if it doesn't exist
+os.makedirs('sample_indices', exist_ok=True)
 
-models = []
-for i in range(n_classifiers):
-    print(f"\nTraining model {i+1}/{n_classifiers}")
-    max_depth = np.random.choice(max_depth_values)
-    n_trees = np.random.choice(n_trees_values)
-    model = xgb_pipeline.set_params(
-        classifier__n_estimators=n_trees,
-        classifier__max_depth=max_depth,
-        classifier__random_state=42
-    )
-    model.fit(X_train, y_train)
-    models.append(model)
+# Create fixed sample sizes for consistent training across models
+sample_sizes = [10000, 50000, 100000]
+np.random.seed(42)  # Set random seed for reproducibility
 
-# Evaluate models
-def evaluate_models(models, X, y, set_name):
-    try:
-        # Get predictions from all models
-        y_preds_proba = []
-        for model in models:
-            # Get preprocessor and classifier separately
-            preprocessor = model.named_steps['preprocessor']
-            classifier = model.named_steps['classifier']
+# Training loop
+for size in sample_sizes:
+    print(f"\n{'='*50}")
+    print(f"Training with sample size: {size}")
+    print(f"{'='*50}\n")
+    
+    # Load or create sample indices with train/val/test split
+    train_indices_file = f'sample_indices/train_indices_{size}.npy'
+    val_indices_file = f'sample_indices/val_indices_{size}.npy'
+    test_indices_file = f'sample_indices/test_indices_{size}.npy'
+    
+    if os.path.exists(train_indices_file) and os.path.exists(val_indices_file) and os.path.exists(test_indices_file):
+        # Load existing splits
+        train_sample_indices = np.load(train_indices_file)
+        val_sample_indices = np.load(val_indices_file)
+        test_sample_indices = np.load(test_indices_file)
+        print(f"\nLoaded existing train/val/test splits for {size} samples")
+    else:
+        # Create new splits
+        # First sample from the full training set
+        sample_indices = np.random.choice(train_indices, size=size, replace=False)
+        
+        # Split into train/val/test (70/15/15)
+        train_size = int(size * 0.7)
+        val_size = int(size * 0.15)
+        
+        train_sample_indices = sample_indices[:train_size]
+        val_sample_indices = sample_indices[train_size:train_size + val_size]
+        test_sample_indices = sample_indices[train_size + val_size:]
+        
+        # Save the splits
+        np.save(train_indices_file, train_sample_indices)
+        np.save(val_indices_file, val_sample_indices)
+        np.save(test_indices_file, test_sample_indices)
+        print(f"\nCreated and saved train/val/test splits for {size} samples")
+    
+    print(f"\nTraining with {size} samples")
+    print(f"Train set size: {len(train_sample_indices)}")
+    print(f"Validation set size: {len(val_sample_indices)}")
+    print(f"Test set size: {len(test_sample_indices)}")
+    
+    # Create sampled training set
+    X_train_sampled = X.loc[train_sample_indices]
+    y_train_sampled = y.loc[train_sample_indices]
+    
+    # Create sampled validation and test sets
+    X_val_sampled = X.loc[val_sample_indices]
+    y_val_sampled = y.loc[val_sample_indices]
+    X_test_sampled = X.loc[test_sample_indices]
+    y_test_sampled = y.loc[test_sample_indices]
+    
+    # Train ensemble of models
+    models = []
+    for i in range(11):  # Train 11 models
+        print(f"\nTraining model {i+1}/11")
+        model = xgb_pipeline.set_params(
+            classifier__n_estimators=1000,
+            classifier__max_depth=6,
+            classifier__learning_rate=0.01,
+            classifier__subsample=0.8,
+            classifier__colsample_bytree=0.8,
+            classifier__min_child_weight=1,
+            classifier__gamma=0,
+            classifier__random_state=42 + i
+        )
+        
+        model.fit(X_train_sampled, y_train_sampled)
+        models.append(model)
+    
+    # Evaluate models
+    def evaluate_models(models, X, y, set_name):
+        try:
+            # Get predictions from all models
+            y_preds_proba = []
+            for model in models:
+                # Get preprocessor and classifier separately
+                preprocessor = model.named_steps['preprocessor']
+                classifier = model.named_steps['classifier']
+                
+                # Transform data first
+                X_transformed = preprocessor.transform(X)
+                
+                # Then predict with classifier directly
+                classifier.set_params(device='cpu')  # Force CPU prediction
+                y_pred = classifier.predict_proba(X_transformed)[:, 1]
+                y_preds_proba.append(y_pred)
             
-            # Transform data first
-            X_transformed = preprocessor.transform(X)
+            y_pred_proba = np.mean(y_preds_proba, axis=0)
             
-            # Then predict with classifier directly
-            classifier.set_params(device='cpu')  # Force CPU prediction
-            y_pred = classifier.predict_proba(X_transformed)[:, 1]
-            y_preds_proba.append(y_pred)
-        
-        y_pred_proba = np.mean(y_preds_proba, axis=0)
-        
-        # Calculate metrics
-        fpr, tpr, _ = roc_curve(y, y_pred_proba)
-        auc_score = auc(fpr, tpr)
-        
-        y_pred = (y_pred_proba > 0.5).astype(int)
-        accuracy = np.mean(y_pred == y)
-        
-        print(f'\n{set_name.upper()} SET METRICS:')
-        print(f'ROC AUC: {auc_score:.4f}')
-        print(f'Accuracy: {accuracy:.4f}')
-        
-        return fpr, tpr, auc_score
-    except Exception as e:
-        print(f"Error in evaluate_models: {str(e)}")
-        raise
+            # Calculate metrics
+            fpr, tpr, _ = roc_curve(y, y_pred_proba)
+            auc_score = auc(fpr, tpr)
+            
+            y_pred = (y_pred_proba > 0.5).astype(int)
+            accuracy = np.mean(y_pred == y)
+            
+            print(f'\n{set_name.upper()} SET METRICS:')
+            print(f'ROC AUC: {auc_score:.4f}')
+            print(f'Accuracy: {accuracy:.4f}')
+            
+            return {'fpr': fpr, 'tpr': tpr, 'auc': auc_score, 'predictions': y_pred_proba}
+        except Exception as e:
+            print(f"Error in evaluate_models: {str(e)}")
+            raise
+    
+    val_metrics = evaluate_models(models, X_val_sampled, y_val_sampled, "VALIDATION SET")
+    test_metrics = evaluate_models(models, X_test_sampled, y_test_sampled, "TEST SET")
+    
+    # Save models
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    model_filename = f'saved_models/xgboost_ensemble_{size}_run_{timestamp}.joblib'
+    joblib.dump(models, model_filename)
+    print(f"\nSaved trained models as: {model_filename}")
+    
+    # Calculate and plot ROC curve
+    plt.figure(figsize=(10, 8))
+    plt.plot(val_metrics['fpr'], val_metrics['tpr'], 
+             label=f'Validation (AUC = {val_metrics["auc"]:.4f})', color='blue')
+    plt.plot(test_metrics['fpr'], test_metrics['tpr'], 
+             label=f'Test (AUC = {test_metrics["auc"]:.4f})', color='red')
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title(f'XGBoost ROC Curve - {size} Samples')
+    plt.legend()
+    plt.grid(True)
+    
+    # Save plot
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    plot_filename = f'xgboost_roc_curve_sample_{size}_{timestamp}.png'
+    plt.savefig(plot_filename)
+    plt.close()
+    print(f"\nSaved ROC curve plot as: {plot_filename}")
+    
+    # Calculate feature importance
+    print("\nCalculating feature importance from trained models...")
+    # Get feature names from preprocessor
+    preprocessor = models[0].named_steps['preprocessor']
+    cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
+    feature_names = numerical_features + list(cat_feature_names)
+    
+    feature_importance = np.zeros(len(feature_names))
+    for model in models:
+        feature_importance += model.named_steps['classifier'].feature_importances_
+    feature_importance /= len(models)
+    
+    # Create feature importance DataFrame
+    importance_df = pd.DataFrame({
+        'Feature': feature_names,
+        'Importance': feature_importance
+    })
+    importance_df = importance_df.sort_values('Importance', ascending=False)
+    
+    # Save feature importance to file
+    importance_filename = f'xgboost_feature_importance_sample_{size}_{timestamp}.txt'
+    with open(importance_filename, 'w') as f:
+        f.write("Top 25 Features by Importance:\n")
+        for i, (feature, importance) in enumerate(zip(importance_df['Feature'], importance_df['Importance']), 1):
+            f.write(f"{i}. {feature}: {importance:.4f}\n")
+    print(f"Saved feature importance to: {importance_filename}")
+    
+    # Plot feature importance
+    plt.figure(figsize=(12, 8))
+    plt.barh(range(25), importance_df['Importance'][:25])
+    plt.yticks(range(25), importance_df['Feature'][:25])
+    plt.xlabel('Importance')
+    plt.title(f'XGBoost - Top 25 Feature Importance - {size} Samples')
+    plt.tight_layout()
+    
+    # Save plot
+    plot_filename = f'xgboost_feature_importance_sample_{size}_{timestamp}.png'
+    plt.savefig(plot_filename)
+    plt.close()
+    print(f"Saved feature importance plot as: {plot_filename}")
 
-# Save models
-timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-date = datetime.now().strftime('%Y_%m_%d')  # Add date format
-model_filename = f'xgboost_ensemble_{date}_run_{timestamp}.joblib'
-os.makedirs('saved_models', exist_ok=True)
-joblib.dump(models, f'saved_models/{model_filename}')
-print(f"Saved trained models as: saved_models/{model_filename}")
-
-# Evaluate and plot results
-val_fpr, val_tpr, val_auc = evaluate_models(models, X_val, y_val, "validation")
-test_fpr, test_tpr, test_auc = evaluate_models(models, X_test, y_test, "test")
-
-plt.figure(figsize=(10, 8))
-plt.plot(val_fpr, val_tpr, color='blue', lw=2, label=f'Validation (AUC = {val_auc:.4f})')
-plt.plot(test_fpr, test_tpr, color='red', lw=2, label=f'Test (AUC = {test_auc:.4f})')
-plt.plot([0, 1], [0, 1], color='gray', lw=2, linestyle='--')
-plt.xlim([0.0, 1.0])
-plt.ylim([0.0, 1.05])
-plt.xlabel('False Positive Rate')
-plt.ylabel('True Positive Rate')
-plt.title('XGBoost ROC Curves - Top 25 XGBoost Features')
-plt.legend(loc="lower right")
-plt.grid(True)
-
-# Modify the plot saving section
-timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-plot_filename = f'xgboost_roc_curve_{timestamp}.png'
-plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
-plt.close()
-print(f"\nSaved ROC curve plot as: {plot_filename}")
+# Save training log
+with open(f'xgboost_training_log_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt', 'w') as f:
+    f.write("Training completed successfully\n")
+print(f"Training log saved to: xgboost_training_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
 
 # FEATURE IMPORTANCE
 # After training models...
@@ -303,34 +385,91 @@ for model in models:
 # Average feature importance across all models
 feature_importance /= len(models)
 
-# Map feature importance back to original features
-preprocessor = models[0].named_steps['preprocessor']
-cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
-feature_names = numerical_features + list(cat_feature_names)
+# Get feature names from the encoded data
+feature_names = X_train_sampled.columns.tolist()
 
 # Create a dictionary of feature importances
 feature_importance_dict = dict(zip(feature_names, feature_importance))
 
-# Aggregate importance for categorical features
+# Sort features by importance
+sorted_features = sorted(feature_importance_dict.items(), 
+                        key=lambda x: x[1], 
+                        reverse=True)
+
+# Print top 25 features with their importance (non-aggregated)
+print("\nTop 25 Features by Importance (Non-aggregated):")
+for i, (feature, importance) in enumerate(sorted_features[:25], 1):
+    print(f"{i}. {feature}: {importance:.4f}")
+
+# Aggregate feature importance for categorical features
 aggregated_importance = {}
+for feature, importance in feature_importance_dict.items():
+    # Extract base feature name (remove the _category suffix)
+    base_feature = feature.split('_')[0]
+    if base_feature in categorical_features:
+        if base_feature not in aggregated_importance:
+            aggregated_importance[base_feature] = 0
+        aggregated_importance[base_feature] += importance
+    else:
+        # For non-categorical features, keep as is
+        aggregated_importance[feature] = importance
 
-# Add numerical features directly
-for feat in numerical_features:
-    aggregated_importance[feat] = feature_importance_dict[feat]
+# Sort aggregated features by importance
+sorted_aggregated = sorted(aggregated_importance.items(), 
+                         key=lambda x: x[1], 
+                         reverse=True)
 
-# Sum importance for each categorical feature's encoded versions
-for cat_feat in categorical_features:
-    cat_importance = sum(
-        importance for fname, importance in feature_importance_dict.items() 
-        if fname.startswith(cat_feat + '_')
-    )
-    aggregated_importance[cat_feat] = cat_importance
+# Print top 25 aggregated features
+print("\nTop 25 Features by Importance (Aggregated):")
+for i, (feature, importance) in enumerate(sorted_aggregated[:25], 1):
+    print(f"{i}. {feature}: {importance:.4f}")
 
-# Print aggregated feature importance
-print("\nFeature Importance (aggregated for categorical features):")
-for feat, importance in sorted(aggregated_importance.items(), 
-                             key=lambda x: x[1], reverse=True):
-    print(f"{feat}: {importance:.4f}")
+# Save feature importance to file
+timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+filename = f'feature_importance_{timestamp}.txt'
+with open(filename, 'w') as f:
+    f.write("Non-aggregated Feature Importance:\n")
+    for feature, importance in sorted_features:
+        f.write(f"{feature}: {importance:.4f}\n")
+    f.write("\nAggregated Feature Importance:\n")
+    for feature, importance in sorted_aggregated:
+        f.write(f"{feature}: {importance:.4f}\n")
+print(f"\nSaved feature importance to: {filename}")
+
+# Plot feature importance (non-aggregated)
+plt.figure(figsize=(12, 10))
+top_n = 25
+top_features = [x[0] for x in sorted_features[:top_n]]
+top_importance = [x[1] for x in sorted_features[:top_n]]
+
+plt.barh(range(len(top_features)), top_importance)
+plt.yticks(range(len(top_features)), top_features)
+plt.xlabel('Feature Importance')
+plt.title(f'Top 25 Features by Importance (Non-aggregated)')
+plt.tight_layout()
+
+# Save non-aggregated plot
+plot_filename = f'feature_importance_plot_{timestamp}.png'
+plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
+plt.close()
+print(f"Saved non-aggregated feature importance plot as: {plot_filename}")
+
+# Plot aggregated feature importance
+plt.figure(figsize=(12, 10))
+top_agg_features = [x[0] for x in sorted_aggregated[:top_n]]
+top_agg_importance = [x[1] for x in sorted_aggregated[:top_n]]
+
+plt.barh(range(len(top_agg_features)), top_agg_importance)
+plt.yticks(range(len(top_agg_features)), top_agg_features)
+plt.xlabel('Feature Importance')
+plt.title('Top 25 Features by Importance (Aggregated)')
+plt.tight_layout()
+
+# Save aggregated plot
+plot_filename = f'feature_importance_plot_aggregated_{timestamp}.png'
+plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
+plt.close()
+print(f"Saved aggregated feature importance plot as: {plot_filename}")
 
 # LLM-BASED PREDICTION EXPLANATION
 '''
@@ -342,11 +481,11 @@ import os
 
 def visualize_decision_path(models, sample_idx=0):
     """Create a readable decision tree visualization by setting feature names directly"""
-    model = models[0].named_steps['classifier']
+    model = models[0]
 
     # Get feature names
-    preprocessor = models[0].named_steps['preprocessor']
-    cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
+    preprocessor = models[0]
+    cat_feature_names = preprocessor.get_booster().feature_names
     feature_names = numerical_features + list(cat_feature_names)
 
     # Set feature names directly on the booster
@@ -367,16 +506,16 @@ def create_feature_contribution_map(models, X_sample):
     contributions = []
 
     for model in models:
-        X_transformed = model.named_steps['preprocessor'].transform(X_sample)
-        contribution = model.named_steps['classifier'].feature_importances_
+        X_transformed = model.transform(X_sample)
+        contribution = model.feature_importances_
         contributions.append(contribution)
 
     # Average contributions across models
     avg_contribution = np.mean(contributions, axis=0)
 
     # Get feature names
-    preprocessor = models[0].named_steps['preprocessor']
-    cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
+    preprocessor = models[0]
+    cat_feature_names = preprocessor.get_booster().feature_names
     feature_names = numerical_features + list(cat_feature_names)
 
     # Sort features by contribution magnitude
@@ -421,11 +560,11 @@ genai.configure(api_key=userdata.get('GEMINI_API_KEY'))
 
 def visualize_decision_path(models, sample_idx):
     """Create a readable decision tree visualization by setting feature names directly"""
-    model = models[0].named_steps['classifier']
+    model = models[0]
 
     # Get feature names
-    preprocessor = models[0].named_steps['preprocessor']
-    cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
+    preprocessor = models[0]
+    cat_feature_names = preprocessor.get_booster().feature_names
     feature_names = numerical_features + list(cat_feature_names)
 
     # Set feature names directly on the booster
@@ -453,8 +592,8 @@ def save_visualizations(models, X_sample, sample_idx, output_dir='explanation_pl
     plt.close()
 
     # Get feature names
-    preprocessor = models[0].named_steps['preprocessor']
-    cat_feature_names = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features)
+    preprocessor = models[0]
+    cat_feature_names = preprocessor.get_booster().feature_names
     feature_names = numerical_features + list(cat_feature_names)
 
     return {
@@ -476,8 +615,8 @@ def generate_model_explanation(models, X_sample, sample_idx):
     # Get feature contributions
     contributions = []
     for model in models:
-        X_transformed = model.named_steps['preprocessor'].transform(X_sample)
-        contribution = model.named_steps['classifier'].feature_importances_
+        X_transformed = model.transform(X_sample)
+        contribution = model.feature_importances_
         contributions.append(contribution)
     avg_contribution = np.mean(contributions, axis=0)
 
