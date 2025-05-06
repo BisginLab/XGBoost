@@ -1,0 +1,274 @@
+Loading data...
+Initial DataFrame shape: (870514, 50)
+Shape after dropping NaNs: (724160, 50)
+
+Training with these features:
+
+Numerical features:
+1. privacy_policy_link
+2. developer_website
+3. days_since_last_update
+4. isSpamming
+5. max_downloads_log
+6. LenWhatsNew
+7. PHONE
+8. OneStarRatings
+9. developer_address
+10. FourStarRatings
+11. intent
+12. ReviewsAverage
+13. STORAGE
+14. LastUpdated
+15. TwoStarRatings
+16. LOCATION
+17. FiveStarRatings
+18. ThreeStarRatings
+
+Categorical features:
+1. ContentRating
+2. highest_android_version
+3. CurrentVersion
+4. lowest_android_version
+5. AndroidVersion
+6. DeveloperCategory
+7. Genre
+
+Total feature count: 25
+
+Features to be used in training:
+1. ContentRating
+2. Genre
+3. CurrentVersion
+4. AndroidVersion
+5. DeveloperCategory
+6. lowest_android_version
+7. highest_android_version
+8. privacy_policy_link
+9. developer_website
+10. days_since_last_update
+11. isSpamming
+12. max_downloads_log
+13. LenWhatsNew
+14. PHONE
+15. OneStarRatings
+16. developer_address
+17. FourStarRatings
+18. intent
+19. ReviewsAverage
+20. STORAGE
+21. LastUpdated
+22. TwoStarRatings
+23. LOCATION
+24. FiveStarRatings
+25. ThreeStarRatings
+
+Starting training...
+
+Feature counts:
+Total selected features: 25
+Numerical features: 18
+Categorical features: 7
+
+Indices info:
+Number of train indices: 506912
+Number of val indices: 108624
+Number of test indices: 108624
+Min/Max train indices: 0, 870513
+Min/Max val indices: 6, 870509
+Min/Max test indices: 9, 870512
+
+==================================================
+Training with sample size: 5000
+==================================================
+
+
+Training with 5000 samples
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7653
+Accuracy: 0.6938
+
+TEST SET SET METRICS:
+ROC AUC: 0.7635
+Accuracy: 0.6926
+
+Saved trained models as: saved_models/xgboost_ensemble_5000_run_20250504_212309.joblib
+
+Saved ROC curve plot as: roc_curve_sample_5000_20250504_212309.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: feature_importance_sample_5000_20250504_212309.txt
+Saved feature importance plot as: feature_importance_sample_5000_20250504_212309.png
+
+==================================================
+Training with sample size: 10000
+==================================================
+
+
+Training with 10000 samples
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7765
+Accuracy: 0.7021
+
+TEST SET SET METRICS:
+ROC AUC: 0.7760
+Accuracy: 0.7024
+
+Saved trained models as: saved_models/xgboost_ensemble_10000_run_20250504_212331.joblib
+
+Saved ROC curve plot as: roc_curve_sample_10000_20250504_212331.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: feature_importance_sample_10000_20250504_212331.txt
+Saved feature importance plot as: feature_importance_sample_10000_20250504_212331.png
+
+==================================================
+Training with sample size: 100000
+==================================================
+
+
+Training with 100000 samples
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7946
+Accuracy: 0.7179
+
+TEST SET SET METRICS:
+ROC AUC: 0.7930
+Accuracy: 0.7161
+
+Saved trained models as: saved_models/xgboost_ensemble_100000_run_20250504_213818.joblib
+
+Saved ROC curve plot as: roc_curve_sample_100000_20250504_213818.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: feature_importance_sample_100000_20250504_213818.txt
+Saved feature importance plot as: feature_importance_sample_100000_20250504_213818.png
+Training log saved to: training_log_20250504_213818.txt
+
+Calculating feature importance from trained models...
+
+Top 25 Features by Importance (Non-aggregated):
+1. FiveStarRatings: 0.2840
+2. ContentRating: 0.0454
+3. STORAGE: 0.0356
+4. PHONE: 0.0308
+5. Genre: 0.0290
+6. AndroidVersion: 0.0233
+7. DeveloperCategory: 0.0169
+8. CurrentVersion: 0.0157
+9. highest_android_version: 0.0098
+10. lowest_android_version: 0.0093
+11. LastUpdated: 0.0065
+12. TwoStarRatings: 0.0064
+13. isSpamming: 0.0061
+14. developer_website: 0.0059
+15. LOCATION: 0.0049
+16. privacy_policy_link: 0.0048
+17. days_since_last_update: 0.0043
+18. max_downloads_log: 0.0036
+19. LenWhatsNew: 0.0034
+20. developer_address: 0.0034
+21. OneStarRatings: 0.0030
+22. ThreeStarRatings: 0.0028
+23. intent: 0.0026
+24. FourStarRatings: 0.0024
+25. ReviewsAverage: 0.0000
+
+Top 25 Features by Importance (Aggregated):
+1. FiveStarRatings: 0.2840
+2. ContentRating: 0.0454
+3. STORAGE: 0.0356
+4. PHONE: 0.0308
+5. Genre: 0.0290
+6. AndroidVersion: 0.0233
+7. DeveloperCategory: 0.0169
+8. CurrentVersion: 0.0157
+9. highest_android_version: 0.0098
+10. lowest_android_version: 0.0093
+11. LastUpdated: 0.0065
+12. TwoStarRatings: 0.0064
+13. isSpamming: 0.0061
+14. developer_website: 0.0059
+15. LOCATION: 0.0049
+16. privacy_policy_link: 0.0048
+17. days_since_last_update: 0.0043
+18. max_downloads_log: 0.0036
+19. LenWhatsNew: 0.0034
+20. developer_address: 0.0034
+21. OneStarRatings: 0.0030
+22. ThreeStarRatings: 0.0028
+23. intent: 0.0026
+24. FourStarRatings: 0.0024
+25. ReviewsAverage: 0.0000
+
+Saved feature importance to: feature_importance_20250504_213818.txt
+Saved non-aggregated feature importance plot as: feature_importance_plot_20250504_213818.png
+Saved aggregated feature importance plot as: feature_importance_plot_aggregated_20250504_213818.png

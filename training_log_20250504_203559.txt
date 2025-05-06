@@ -1,0 +1,651 @@
+Loading data...
+Initial DataFrame shape: (870514, 50)
+Shape after dropping NaNs: (724160, 50)
+
+Training with these features:
+
+Numerical features:
+1. privacy_policy_link
+2. developer_website
+3. days_since_last_update
+4. isSpamming
+5. max_downloads_log
+6. LenWhatsNew
+7. PHONE
+8. OneStarRatings
+9. developer_address
+10. FourStarRatings
+11. intent
+12. ReviewsAverage
+13. STORAGE
+14. LastUpdated
+15. TwoStarRatings
+16. LOCATION
+17. FiveStarRatings
+18. ThreeStarRatings
+
+Categorical features:
+1. ContentRating
+2. highest_android_version
+3. CurrentVersion
+4. lowest_android_version
+5. AndroidVersion
+6. DeveloperCategory
+7. Genre
+
+Total feature count: 25
+
+Features to be used in training:
+1. ContentRating
+2. Genre
+3. CurrentVersion
+4. AndroidVersion
+5. DeveloperCategory
+6. lowest_android_version
+7. highest_android_version
+8. privacy_policy_link
+9. developer_website
+10. days_since_last_update
+11. isSpamming
+12. max_downloads_log
+13. LenWhatsNew
+14. PHONE
+15. OneStarRatings
+16. developer_address
+17. FourStarRatings
+18. intent
+19. ReviewsAverage
+20. STORAGE
+21. LastUpdated
+22. TwoStarRatings
+23. LOCATION
+24. FiveStarRatings
+25. ThreeStarRatings
+
+Starting training...
+
+Feature counts:
+Total selected features: 25
+Numerical features: 18
+Categorical features: 7
+
+Indices info:
+Number of train indices: 506912
+Number of val indices: 108624
+Number of test indices: 108624
+Min/Max train indices: 0, 870513
+Min/Max val indices: 6, 870509
+Min/Max test indices: 9, 870512
+
+DataFrame info:
+DataFrame index range: 0, 870513
+DataFrame index is continuous: True
+Sample of indices: [ 98326 469033 379988 387371 496174]
+Sample of df index: [0, 1, 2, 3, 4]
+
+Detailed Index Analysis:
+1. DataFrame properties:
+- Index type: <class 'pandas.core.indexes.base.Index'>
+- Index dtype: int64
+- Number of unique indices: 724160
+- Any duplicates in index? False
+
+2. Loaded indices properties:
+- Train indices type: <class 'numpy.ndarray'>
+- Train indices dtype: int64
+- Number of unique train indices: 506912
+- Any duplicates in train indices? False
+
+3. Index overlap analysis:
+- Train indices in DataFrame index: True
+- Val indices in DataFrame index: True
+- Test indices in DataFrame index: True
+
+Data split sizes:
+Train: 506912 (70.0%)
+Val: 108624 (15.0%)
+Test: 108624 (15.0%)
+
+Encoding categorical features...
+Encoding ContentRating...
+Encoding highest_android_version...
+Encoding CurrentVersion...
+Encoding lowest_android_version...
+Encoding AndroidVersion...
+Encoding DeveloperCategory...
+Encoding Genre...
+
+Encoded shapes:
+X_train: (506912, 1632)
+X_val: (108624, 1632)
+X_test: (108624, 1632)
+
+Verifying column alignment...
+Column alignment verified
+
+Loaded best parameters from grid search:
+{
+  "n_estimators": 512,
+  "max_depth": 3,
+  "learning_rate": 0.1,
+  "subsample": 0.8,
+  "colsample_bytree": 0.8,
+  "min_child_weight": 1,
+  "gamma": 0.1
+}
+
+Training model 1/11
+[0]	validation_0-auc:0.69705
+[1]	validation_0-auc:0.73397
+[2]	validation_0-auc:0.73977
+[3]	validation_0-auc:0.74067
+[4]	validation_0-auc:0.74135
+[5]	validation_0-auc:0.74276
+[6]	validation_0-auc:0.74372
+[7]	validation_0-auc:0.74506
+[8]	validation_0-auc:0.74552
+[9]	validation_0-auc:0.74738
+[10]	validation_0-auc:0.74762
+[11]	validation_0-auc:0.74902
+[12]	validation_0-auc:0.74990
+[13]	validation_0-auc:0.75047
+[14]	validation_0-auc:0.75127
+[15]	validation_0-auc:0.75205
+[16]	validation_0-auc:0.75293
+[17]	validation_0-auc:0.75385
+[18]	validation_0-auc:0.75462
+[19]	validation_0-auc:0.75548
+[20]	validation_0-auc:0.75579
+[21]	validation_0-auc:0.75660
+[22]	validation_0-auc:0.75732
+[23]	validation_0-auc:0.75863
+[24]	validation_0-auc:0.75931
+[25]	validation_0-auc:0.76010
+[26]	validation_0-auc:0.76066
+[27]	validation_0-auc:0.76105
+[28]	validation_0-auc:0.76173
+[29]	validation_0-auc:0.76242
+[30]	validation_0-auc:0.76267
+[31]	validation_0-auc:0.76301
+[32]	validation_0-auc:0.76381
+[33]	validation_0-auc:0.76445
+[34]	validation_0-auc:0.76512
+[35]	validation_0-auc:0.76576
+[36]	validation_0-auc:0.76599
+[37]	validation_0-auc:0.76631
+[38]	validation_0-auc:0.76657
+[39]	validation_0-auc:0.76687
+[40]	validation_0-auc:0.76714
+[41]	validation_0-auc:0.76762
+[42]	validation_0-auc:0.76805
+[43]	validation_0-auc:0.76862
+[44]	validation_0-auc:0.76920
+[45]	validation_0-auc:0.76949
+[46]	validation_0-auc:0.76980
+[47]	validation_0-auc:0.76991
+[48]	validation_0-auc:0.77061
+[49]	validation_0-auc:0.77089
+[50]	validation_0-auc:0.77106
+[51]	validation_0-auc:0.77132
+[52]	validation_0-auc:0.77168
+[53]	validation_0-auc:0.77190
+[54]	validation_0-auc:0.77206
+[55]	validation_0-auc:0.77235
+[56]	validation_0-auc:0.77264
+[57]	validation_0-auc:0.77291
+[58]	validation_0-auc:0.77315
+[59]	validation_0-auc:0.77341
+[60]	validation_0-auc:0.77378
+[61]	validation_0-auc:0.77405
+[62]	validation_0-auc:0.77435
+[63]	validation_0-auc:0.77458
+[64]	validation_0-auc:0.77470
+[65]	validation_0-auc:0.77487
+[66]	validation_0-auc:0.77513
+[67]	validation_0-auc:0.77532
+[68]	validation_0-auc:0.77547
+[69]	validation_0-auc:0.77554
+[70]	validation_0-auc:0.77572
+[71]	validation_0-auc:0.77592
+[72]	validation_0-auc:0.77606
+[73]	validation_0-auc:0.77613
+[74]	validation_0-auc:0.77630
+[75]	validation_0-auc:0.77636
+[76]	validation_0-auc:0.77657
+[77]	validation_0-auc:0.77667
+[78]	validation_0-auc:0.77679
+[79]	validation_0-auc:0.77698
+[80]	validation_0-auc:0.77722
+[81]	validation_0-auc:0.77734
+[82]	validation_0-auc:0.77746
+[83]	validation_0-auc:0.77762
+[84]	validation_0-auc:0.77773
+[85]	validation_0-auc:0.77794
+[86]	validation_0-auc:0.77801
+[87]	validation_0-auc:0.77804
+[88]	validation_0-auc:0.77821
+[89]	validation_0-auc:0.77830
+[90]	validation_0-auc:0.77839
+[91]	validation_0-auc:0.77850
+[92]	validation_0-auc:0.77855
+[93]	validation_0-auc:0.77884
+[94]	validation_0-auc:0.77905
+[95]	validation_0-auc:0.77918
+[96]	validation_0-auc:0.77925
+[97]	validation_0-auc:0.77942
+[98]	validation_0-auc:0.77954
+[99]	validation_0-auc:0.77971
+[100]	validation_0-auc:0.77983
+[101]	validation_0-auc:0.77988
+[102]	validation_0-auc:0.77999
+[103]	validation_0-auc:0.78002
+[104]	validation_0-auc:0.78005
+[105]	validation_0-auc:0.78012
+[106]	validation_0-auc:0.78018
+[107]	validation_0-auc:0.78027
+[108]	validation_0-auc:0.78040
+[109]	validation_0-auc:0.78046
+[110]	validation_0-auc:0.78054
+[111]	validation_0-auc:0.78062
+[112]	validation_0-auc:0.78069
+[113]	validation_0-auc:0.78077
+[114]	validation_0-auc:0.78080
+[115]	validation_0-auc:0.78090
+[116]	validation_0-auc:0.78102
+[117]	validation_0-auc:0.78109
+[118]	validation_0-auc:0.78115
+[119]	validation_0-auc:0.78123
+[120]	validation_0-auc:0.78137
+[121]	validation_0-auc:0.78151
+[122]	validation_0-auc:0.78156
+[123]	validation_0-auc:0.78161
+[124]	validation_0-auc:0.78187
+[125]	validation_0-auc:0.78192
+[126]	validation_0-auc:0.78199
+[127]	validation_0-auc:0.78204
+[128]	validation_0-auc:0.78211
+[129]	validation_0-auc:0.78228
+[130]	validation_0-auc:0.78231
+[131]	validation_0-auc:0.78241
+[132]	validation_0-auc:0.78257
+[133]	validation_0-auc:0.78263
+[134]	validation_0-auc:0.78269
+[135]	validation_0-auc:0.78275
+[136]	validation_0-auc:0.78279
+[137]	validation_0-auc:0.78286
+[138]	validation_0-auc:0.78297
+[139]	validation_0-auc:0.78299
+[140]	validation_0-auc:0.78304
+[141]	validation_0-auc:0.78311
+[142]	validation_0-auc:0.78319
+[143]	validation_0-auc:0.78330
+[144]	validation_0-auc:0.78338
+[145]	validation_0-auc:0.78341
+[146]	validation_0-auc:0.78347
+[147]	validation_0-auc:0.78352
+[148]	validation_0-auc:0.78355
+[149]	validation_0-auc:0.78359
+[150]	validation_0-auc:0.78363
+[151]	validation_0-auc:0.78370
+[152]	validation_0-auc:0.78376
+[153]	validation_0-auc:0.78378
+[154]	validation_0-auc:0.78383
+[155]	validation_0-auc:0.78386
+[156]	validation_0-auc:0.78389
+[157]	validation_0-auc:0.78391
+[158]	validation_0-auc:0.78408
+[159]	validation_0-auc:0.78418
+[160]	validation_0-auc:0.78429
+[161]	validation_0-auc:0.78432
+[162]	validation_0-auc:0.78438
+[163]	validation_0-auc:0.78442
+[164]	validation_0-auc:0.78445
+[165]	validation_0-auc:0.78449
+[166]	validation_0-auc:0.78453
+[167]	validation_0-auc:0.78458
+[168]	validation_0-auc:0.78462
+[169]	validation_0-auc:0.78465
+[170]	validation_0-auc:0.78471
+[171]	validation_0-auc:0.78474
+[172]	validation_0-auc:0.78477
+[173]	validation_0-auc:0.78481
+[174]	validation_0-auc:0.78488
+[175]	validation_0-auc:0.78491
+[176]	validation_0-auc:0.78497
+[177]	validation_0-auc:0.78504
+[178]	validation_0-auc:0.78507
+[179]	validation_0-auc:0.78512
+[180]	validation_0-auc:0.78516
+[181]	validation_0-auc:0.78517
+[182]	validation_0-auc:0.78529
+[183]	validation_0-auc:0.78532
+[184]	validation_0-auc:0.78536
+[185]	validation_0-auc:0.78539
+[186]	validation_0-auc:0.78545
+[187]	validation_0-auc:0.78546
+[188]	validation_0-auc:0.78550
+[189]	validation_0-auc:0.78554
+[190]	validation_0-auc:0.78557
+[191]	validation_0-auc:0.78559
+[192]	validation_0-auc:0.78561
+[193]	validation_0-auc:0.78562
+[194]	validation_0-auc:0.78567
+[195]	validation_0-auc:0.78567
+[196]	validation_0-auc:0.78568
+[197]	validation_0-auc:0.78572
+[198]	validation_0-auc:0.78575
+[199]	validation_0-auc:0.78576
+[200]	validation_0-auc:0.78579
+[201]	validation_0-auc:0.78581
+[202]	validation_0-auc:0.78582
+[203]	validation_0-auc:0.78588
+[204]	validation_0-auc:0.78592
+[205]	validation_0-auc:0.78597
+[206]	validation_0-auc:0.78600
+[207]	validation_0-auc:0.78602
+[208]	validation_0-auc:0.78603
+[209]	validation_0-auc:0.78607
+[210]	validation_0-auc:0.78610
+[211]	validation_0-auc:0.78612
+[212]	validation_0-auc:0.78615
+[213]	validation_0-auc:0.78620
+[214]	validation_0-auc:0.78623
+[215]	validation_0-auc:0.78623
+[216]	validation_0-auc:0.78626
+[217]	validation_0-auc:0.78630
+[218]	validation_0-auc:0.78634
+[219]	validation_0-auc:0.78636
+[220]	validation_0-auc:0.78639
+[221]	validation_0-auc:0.78644
+[222]	validation_0-auc:0.78649
+[223]	validation_0-auc:0.78651
+[224]	validation_0-auc:0.78653
+[225]	validation_0-auc:0.78655
+[226]	validation_0-auc:0.78657
+[227]	validation_0-auc:0.78659
+[228]	validation_0-auc:0.78660
+[229]	validation_0-auc:0.78662
+[230]	validation_0-auc:0.78664
+[231]	validation_0-auc:0.78666
+[232]	validation_0-auc:0.78667
+[233]	validation_0-auc:0.78668
+[234]	validation_0-auc:0.78668
+[235]	validation_0-auc:0.78670
+[236]	validation_0-auc:0.78690
+[237]	validation_0-auc:0.78692
+[238]	validation_0-auc:0.78693
+[239]	validation_0-auc:0.78697
+[240]	validation_0-auc:0.78699
+[241]	validation_0-auc:0.78700
+[242]	validation_0-auc:0.78700
+[243]	validation_0-auc:0.78705
+[244]	validation_0-auc:0.78710
+[245]	validation_0-auc:0.78713
+[246]	validation_0-auc:0.78714
+[247]	validation_0-auc:0.78720
+[248]	validation_0-auc:0.78722
+[249]	validation_0-auc:0.78725
+[250]	validation_0-auc:0.78731
+[251]	validation_0-auc:0.78732
+[252]	validation_0-auc:0.78734
+[253]	validation_0-auc:0.78735
+[254]	validation_0-auc:0.78736
+[255]	validation_0-auc:0.78741
+[256]	validation_0-auc:0.78743
+[257]	validation_0-auc:0.78745
+[258]	validation_0-auc:0.78748
+[259]	validation_0-auc:0.78750
+[260]	validation_0-auc:0.78752
+[261]	validation_0-auc:0.78754
+[262]	validation_0-auc:0.78755
+[263]	validation_0-auc:0.78756
+[264]	validation_0-auc:0.78760
+[265]	validation_0-auc:0.78761
+[266]	validation_0-auc:0.78762
+[267]	validation_0-auc:0.78764
+[268]	validation_0-auc:0.78766
+[269]	validation_0-auc:0.78767
+[270]	validation_0-auc:0.78769
+[271]	validation_0-auc:0.78770
+[272]	validation_0-auc:0.78772
+[273]	validation_0-auc:0.78773
+[274]	validation_0-auc:0.78775
+[275]	validation_0-auc:0.78783
+[276]	validation_0-auc:0.78785
+[277]	validation_0-auc:0.78787
+[278]	validation_0-auc:0.78789
+[279]	validation_0-auc:0.78790
+[280]	validation_0-auc:0.78792
+[281]	validation_0-auc:0.78794
+[282]	validation_0-auc:0.78795
+[283]	validation_0-auc:0.78796
+[284]	validation_0-auc:0.78797
+[285]	validation_0-auc:0.78798
+[286]	validation_0-auc:0.78800
+[287]	validation_0-auc:0.78800
+[288]	validation_0-auc:0.78801
+[289]	validation_0-auc:0.78802
+[290]	validation_0-auc:0.78804
+[291]	validation_0-auc:0.78807
+[292]	validation_0-auc:0.78811
+[293]	validation_0-auc:0.78812
+[294]	validation_0-auc:0.78817
+[295]	validation_0-auc:0.78819
+[296]	validation_0-auc:0.78826
+[297]	validation_0-auc:0.78833
+[298]	validation_0-auc:0.78835
+[299]	validation_0-auc:0.78835
+[300]	validation_0-auc:0.78836
+[301]	validation_0-auc:0.78836
+[302]	validation_0-auc:0.78838
+[303]	validation_0-auc:0.78838
+[304]	validation_0-auc:0.78841
+[305]	validation_0-auc:0.78843
+[306]	validation_0-auc:0.78845
+[307]	validation_0-auc:0.78846
+[308]	validation_0-auc:0.78846
+[309]	validation_0-auc:0.78848
+[310]	validation_0-auc:0.78849
+[311]	validation_0-auc:0.78850
+[312]	validation_0-auc:0.78852
+[313]	validation_0-auc:0.78853
+[314]	validation_0-auc:0.78853
+[315]	validation_0-auc:0.78855
+[316]	validation_0-auc:0.78855
+[317]	validation_0-auc:0.78858
+[318]	validation_0-auc:0.78859
+[319]	validation_0-auc:0.78859
+[320]	validation_0-auc:0.78861
+[321]	validation_0-auc:0.78863
+[322]	validation_0-auc:0.78874
+[323]	validation_0-auc:0.78875
+[324]	validation_0-auc:0.78876
+[325]	validation_0-auc:0.78877
+[326]	validation_0-auc:0.78880
+[327]	validation_0-auc:0.78882
+[328]	validation_0-auc:0.78884
+[329]	validation_0-auc:0.78892
+[330]	validation_0-auc:0.78892
+[331]	validation_0-auc:0.78897
+[332]	validation_0-auc:0.78899
+[333]	validation_0-auc:0.78901
+[334]	validation_0-auc:0.78902
+[335]	validation_0-auc:0.78905
+[336]	validation_0-auc:0.78905
+[337]	validation_0-auc:0.78906
+[338]	validation_0-auc:0.78906
+[339]	validation_0-auc:0.78908
+[340]	validation_0-auc:0.78911
+[341]	validation_0-auc:0.78910
+[342]	validation_0-auc:0.78911
+[343]	validation_0-auc:0.78912
+[344]	validation_0-auc:0.78913
+[345]	validation_0-auc:0.78914
+[346]	validation_0-auc:0.78916
+[347]	validation_0-auc:0.78918
+[348]	validation_0-auc:0.78919
+[349]	validation_0-auc:0.78919
+[350]	validation_0-auc:0.78920
+[351]	validation_0-auc:0.78921
+[352]	validation_0-auc:0.78928
+[353]	validation_0-auc:0.78930
+[354]	validation_0-auc:0.78930
+[355]	validation_0-auc:0.78932
+[356]	validation_0-auc:0.78932
+[357]	validation_0-auc:0.78933
+[358]	validation_0-auc:0.78938
+[359]	validation_0-auc:0.78941
+[360]	validation_0-auc:0.78941
+[361]	validation_0-auc:0.78942
+[362]	validation_0-auc:0.78942
+[363]	validation_0-auc:0.78943
+[364]	validation_0-auc:0.78945
+[365]	validation_0-auc:0.78950
+[366]	validation_0-auc:0.78952
+[367]	validation_0-auc:0.78957
+[368]	validation_0-auc:0.78957
+[369]	validation_0-auc:0.78960
+[370]	validation_0-auc:0.78961
+[371]	validation_0-auc:0.78961
+[372]	validation_0-auc:0.78964
+[373]	validation_0-auc:0.78964
+[374]	validation_0-auc:0.78964
+[375]	validation_0-auc:0.78966
+[376]	validation_0-auc:0.78968
+[377]	validation_0-auc:0.78970
+[378]	validation_0-auc:0.78973
+[379]	validation_0-auc:0.78974
+[380]	validation_0-auc:0.78977
+[381]	validation_0-auc:0.78982
+[382]	validation_0-auc:0.78990
+[383]	validation_0-auc:0.78991
+[384]	validation_0-auc:0.78993
+[385]	validation_0-auc:0.78993
+[386]	validation_0-auc:0.78996
+[387]	validation_0-auc:0.78996
+[388]	validation_0-auc:0.78997
+[389]	validation_0-auc:0.78997
+[390]	validation_0-auc:0.79003
+[391]	validation_0-auc:0.79004
+[392]	validation_0-auc:0.79005
+[393]	validation_0-auc:0.79005
+[394]	validation_0-auc:0.79006
+[395]	validation_0-auc:0.79007
+[396]	validation_0-auc:0.79009
+[397]	validation_0-auc:0.79009
+[398]	validation_0-auc:0.79010
+[399]	validation_0-auc:0.79012
+[400]	validation_0-auc:0.79012
+[401]	validation_0-auc:0.79012
+[402]	validation_0-auc:0.79012
+[403]	validation_0-auc:0.79013
+[404]	validation_0-auc:0.79015
+[405]	validation_0-auc:0.79017
+[406]	validation_0-auc:0.79020
+[407]	validation_0-auc:0.79020
+[408]	validation_0-auc:0.79020
+[409]	validation_0-auc:0.79020
+[410]	validation_0-auc:0.79021
+[411]	validation_0-auc:0.79021
+[412]	validation_0-auc:0.79025
+[413]	validation_0-auc:0.79026
+[414]	validation_0-auc:0.79029
+[415]	validation_0-auc:0.79030
+[416]	validation_0-auc:0.79031
+[417]	validation_0-auc:0.79031
+[418]	validation_0-auc:0.79032
+[419]	validation_0-auc:0.79035
+[420]	validation_0-auc:0.79036
+[421]	validation_0-auc:0.79040
+[422]	validation_0-auc:0.79041
+[423]	validation_0-auc:0.79042
+[424]	validation_0-auc:0.79043
+[425]	validation_0-auc:0.79043
+[426]	validation_0-auc:0.79046
+[427]	validation_0-auc:0.79047
+[428]	validation_0-auc:0.79049
+[429]	validation_0-auc:0.79050
+[430]	validation_0-auc:0.79049
+[431]	validation_0-auc:0.79050
+[432]	validation_0-auc:0.79050
+[433]	validation_0-auc:0.79051
+[434]	validation_0-auc:0.79051
+[435]	validation_0-auc:0.79052
+[436]	validation_0-auc:0.79056
+[437]	validation_0-auc:0.79058
+[438]	validation_0-auc:0.79058
+[439]	validation_0-auc:0.79059
+[440]	validation_0-auc:0.79061
+[441]	validation_0-auc:0.79063
+[442]	validation_0-auc:0.79064
+[443]	validation_0-auc:0.79064
+[444]	validation_0-auc:0.79067
+[445]	validation_0-auc:0.79067
+[446]	validation_0-auc:0.79068
+[447]	validation_0-auc:0.79069
+[448]	validation_0-auc:0.79070
+[449]	validation_0-auc:0.79071
+[450]	validation_0-auc:0.79078
+[451]	validation_0-auc:0.79080
+[452]	validation_0-auc:0.79081
+[453]	validation_0-auc:0.79081
+[454]	validation_0-auc:0.79082
+[455]	validation_0-auc:0.79082
+[456]	validation_0-auc:0.79084
+[457]	validation_0-auc:0.79084
+[458]	validation_0-auc:0.79084
+[459]	validation_0-auc:0.79084
+[460]	validation_0-auc:0.79085
+[461]	validation_0-auc:0.79087
+[462]	validation_0-auc:0.79088
+[463]	validation_0-auc:0.79088
+[464]	validation_0-auc:0.79089
+[465]	validation_0-auc:0.79089
+[466]	validation_0-auc:0.79090
+[467]	validation_0-auc:0.79091
+[468]	validation_0-auc:0.79091
+[469]	validation_0-auc:0.79093
+[470]	validation_0-auc:0.79094
+[471]	validation_0-auc:0.79094
+[472]	validation_0-auc:0.79096
+[473]	validation_0-auc:0.79101
+[474]	validation_0-auc:0.79101
+[475]	validation_0-auc:0.79101
+[476]	validation_0-auc:0.79102
+[477]	validation_0-auc:0.79103
+[478]	validation_0-auc:0.79106
+[479]	validation_0-auc:0.79106
+[480]	validation_0-auc:0.79109
+[481]	validation_0-auc:0.79110
+[482]	validation_0-auc:0.79113
+[483]	validation_0-auc:0.79113
+[484]	validation_0-auc:0.79113
+[485]	validation_0-auc:0.79113
+[486]	validation_0-auc:0.79115
+[487]	validation_0-auc:0.79115
+[488]	validation_0-auc:0.79115
+[489]	validation_0-auc:0.79117
+[490]	validation_0-auc:0.79117
+[491]	validation_0-auc:0.79118
+[492]	validation_0-auc:0.79118
+[493]	validation_0-auc:0.79119
+[494]	validation_0-auc:0.79120
+[495]	validation_0-auc:0.79120
+[496]	validation_0-auc:0.79120
+[497]	validation_0-auc:0.79120
+[498]	validation_0-auc:0.79123
+[499]	validation_0-auc:0.79123
+[500]	validation_0-auc:0.79123
+[501]	validation_0-auc:0.79124
+[502]	validation_0-auc:0.79124
+[503]	validation_0-auc:0.79125
+[504]	validation_0-auc:0.79125
+[505]	validation_0-auc:0.79126
+[506]	validation_0-auc:0.79126
+[507]	validation_0-auc:0.79126
+[508]	validation_0-auc:0.79126
+[509]	validation_0-auc:0.79127
+[510]	validation_0-auc:0.79127
+[511]	validation_0-auc:0.79128
+
+Training model 2/11

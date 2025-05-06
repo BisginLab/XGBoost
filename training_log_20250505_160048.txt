@@ -1,0 +1,289 @@
+Loading data...
+Initial DataFrame shape: (870514, 50)
+Shape after dropping NaNs: (724160, 50)
+
+Training with these features:
+
+Numerical features:
+1. privacy_policy_link
+2. developer_website
+3. days_since_last_update
+4. isSpamming
+5. max_downloads_log
+6. LenWhatsNew
+7. PHONE
+8. OneStarRatings
+9. developer_address
+10. FourStarRatings
+11. intent
+12. ReviewsAverage
+13. STORAGE
+14. LastUpdated
+15. TwoStarRatings
+16. LOCATION
+17. FiveStarRatings
+18. ThreeStarRatings
+
+Categorical features:
+1. ContentRating
+2. highest_android_version
+3. CurrentVersion
+4. lowest_android_version
+5. AndroidVersion
+6. DeveloperCategory
+7. Genre
+
+Total feature count: 25
+
+Features to be used in training:
+1. ContentRating
+2. Genre
+3. CurrentVersion
+4. AndroidVersion
+5. DeveloperCategory
+6. lowest_android_version
+7. highest_android_version
+8. privacy_policy_link
+9. developer_website
+10. days_since_last_update
+11. isSpamming
+12. max_downloads_log
+13. LenWhatsNew
+14. PHONE
+15. OneStarRatings
+16. developer_address
+17. FourStarRatings
+18. intent
+19. ReviewsAverage
+20. STORAGE
+21. LastUpdated
+22. TwoStarRatings
+23. LOCATION
+24. FiveStarRatings
+25. ThreeStarRatings
+
+Starting training...
+
+Feature counts:
+Total selected features: 25
+Numerical features: 18
+Categorical features: 7
+
+Indices info:
+Number of train indices: 506912
+Number of val indices: 108624
+Number of test indices: 108624
+Min/Max train indices: 0, 870513
+Min/Max val indices: 6, 870509
+Min/Max test indices: 9, 870512
+
+==================================================
+Training with sample size: 10000
+==================================================
+
+
+Loaded existing train/val/test splits for 10000 samples
+
+Training with 10000 samples
+Train set size: 7000
+Validation set size: 1500
+Test set size: 1500
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7509
+Accuracy: 0.6747
+
+TEST SET SET METRICS:
+ROC AUC: 0.7676
+Accuracy: 0.6913
+
+Saved trained models as: saved_models/xgboost_ensemble_10000_run_20250505_160101.joblib
+
+Saved ROC curve plot as: xgboost_roc_curve_sample_10000_20250505_160101.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: xgboost_feature_importance_sample_10000_20250505_160101.txt
+Saved feature importance plot as: xgboost_feature_importance_sample_10000_20250505_160101.png
+
+==================================================
+Training with sample size: 50000
+==================================================
+
+
+Created and saved train/val/test splits for 50000 samples
+
+Training with 50000 samples
+Train set size: 35000
+Validation set size: 7500
+Test set size: 7500
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7918
+Accuracy: 0.7115
+
+TEST SET SET METRICS:
+ROC AUC: 0.7871
+Accuracy: 0.7129
+
+Saved trained models as: saved_models/xgboost_ensemble_50000_run_20250505_161514.joblib
+
+Saved ROC curve plot as: xgboost_roc_curve_sample_50000_20250505_161514.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: xgboost_feature_importance_sample_50000_20250505_161514.txt
+Saved feature importance plot as: xgboost_feature_importance_sample_50000_20250505_161514.png
+
+==================================================
+Training with sample size: 100000
+==================================================
+
+
+Loaded existing train/val/test splits for 100000 samples
+
+Training with 100000 samples
+Train set size: 70000
+Validation set size: 15000
+Test set size: 15000
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7947
+Accuracy: 0.7192
+
+TEST SET SET METRICS:
+ROC AUC: 0.7862
+Accuracy: 0.7126
+
+Saved trained models as: saved_models/xgboost_ensemble_100000_run_20250505_165206.joblib
+
+Saved ROC curve plot as: xgboost_roc_curve_sample_100000_20250505_165206.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: xgboost_feature_importance_sample_100000_20250505_165206.txt
+Saved feature importance plot as: xgboost_feature_importance_sample_100000_20250505_165206.png
+Training log saved to: xgboost_training_log_20250505_165206.txt
+
+Calculating feature importance from trained models...
+
+Top 25 Features by Importance (Non-aggregated):
+1. FiveStarRatings: 0.3321
+2. ContentRating: 0.0389
+3. Genre: 0.0290
+4. STORAGE: 0.0263
+5. AndroidVersion: 0.0218
+6. PHONE: 0.0167
+7. DeveloperCategory: 0.0147
+8. CurrentVersion: 0.0131
+9. highest_android_version: 0.0089
+10. lowest_android_version: 0.0087
+11. TwoStarRatings: 0.0062
+12. isSpamming: 0.0061
+13. developer_website: 0.0059
+14. LOCATION: 0.0049
+15. privacy_policy_link: 0.0047
+16. LastUpdated: 0.0042
+17. days_since_last_update: 0.0040
+18. developer_address: 0.0037
+19. max_downloads_log: 0.0034
+20. intent: 0.0033
+21. OneStarRatings: 0.0033
+22. LenWhatsNew: 0.0028
+23. FourStarRatings: 0.0028
+24. ReviewsAverage: 0.0000
+25. ThreeStarRatings: 0.0000
+
+Top 25 Features by Importance (Aggregated):
+1. FiveStarRatings: 0.3321
+2. ContentRating: 0.0389
+3. Genre: 0.0290
+4. STORAGE: 0.0263
+5. AndroidVersion: 0.0218
+6. PHONE: 0.0167
+7. DeveloperCategory: 0.0147
+8. CurrentVersion: 0.0131
+9. highest_android_version: 0.0089
+10. lowest_android_version: 0.0087
+11. TwoStarRatings: 0.0062
+12. isSpamming: 0.0061
+13. developer_website: 0.0059
+14. LOCATION: 0.0049
+15. privacy_policy_link: 0.0047
+16. LastUpdated: 0.0042
+17. days_since_last_update: 0.0040
+18. developer_address: 0.0037
+19. max_downloads_log: 0.0034
+20. intent: 0.0033
+21. OneStarRatings: 0.0033
+22. LenWhatsNew: 0.0028
+23. FourStarRatings: 0.0028
+24. ReviewsAverage: 0.0000
+25. ThreeStarRatings: 0.0000
+
+Saved feature importance to: feature_importance_20250505_165206.txt
+Saved non-aggregated feature importance plot as: feature_importance_plot_20250505_165206.png
+Saved aggregated feature importance plot as: feature_importance_plot_aggregated_20250505_165206.png
