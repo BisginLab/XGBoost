@@ -35,12 +35,33 @@ def get_latest_model_path():
     model_files = glob.glob('saved_models/xgboost_ensemble_*.joblib')
     if not model_files:
         raise FileNotFoundError("No saved models found in saved_models directory")
-    return max(model_files)  # Gets most recent by filename
+    
+    # Group models by size
+    size_models = {}
+    for model_file in model_files:
+        # Extract size from filename
+        if 'full' in model_file:
+            size = 'full'
+        else:
+            # Extract number from filename
+            size = ''.join(filter(str.isdigit, model_file.split('_')[2]))
+        size_models[size] = model_file
+    
+    # Return the most recent model for each size
+    latest_models = {}
+    for size, files in size_models.items():
+        latest_models[size] = max(files)
+    
+    return latest_models
 
-# Define the specific model path
-MODEL_PATH = '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_2025_03_04_run_20250304_120249.joblib'
+# Define the specific model paths for each size
+MODEL_PATHS = {
+    '10000': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_10000_run_20250304_120249.joblib',
+    '100000': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_100000_run_20250304_120249.joblib',
+    'full': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_full_run_20250304_120249.joblib'
+}
 
-def evaluate_models(models, X, y, set_name):
+def evaluate_models(models, X, y, set_name, size):
     try:
         # Get predictions from all models
         y_preds_proba = []
@@ -66,7 +87,7 @@ def evaluate_models(models, X, y, set_name):
         y_pred = (y_pred_proba > 0.5).astype(int)
         accuracy = np.mean(y_pred == y)
         
-        print(f'\n{set_name.upper()} SET METRICS:')
+        print(f'\n{set_name.upper()} SET METRICS (Size: {size}):')
         print(f'ROC AUC: {auc_score:.4f}')
         print(f'Accuracy: {accuracy:.4f}')
         
@@ -76,8 +97,8 @@ def evaluate_models(models, X, y, set_name):
         print("Model structure:", model.named_steps.keys())
         raise
 
-def plot_feature_importance(models, numerical_features, categorical_features, save_to_file=True):
-    print("\nCalculating feature importance from trained models...")
+def plot_feature_importance(models, numerical_features, categorical_features, size, save_to_file=True):
+    print(f"\nCalculating feature importance for size: {size}")
     # Get the correct shape from the first model
     first_model = models[0]
     xgb_feature_importance = first_model.named_steps['classifier'].feature_importances_
@@ -123,12 +144,12 @@ def plot_feature_importance(models, numerical_features, categorical_features, sa
     
     # Save to npy file
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    np_filename = f'top_25_xgboost_features_{timestamp}.npy'
+    np_filename = f'top_25_xgboost_features_{size}_{timestamp}.npy'
     np.save(np_filename, np.array(top_25_features))
     print(f"\nSaved top 25 features to: {np_filename}")
     
     if save_to_file:
-        filename = f'feature_importance_{timestamp}.txt'
+        filename = f'feature_importance_{size}_{timestamp}.txt'
         with open(filename, 'w') as f:
             for feat, importance in sorted_features:
                 line = f"{feat}: {importance:.4f}"
@@ -177,37 +198,38 @@ def main():
     X_test = X.loc[test_indices]
     y_test = y.loc[test_indices]
     
-    # Load saved models - using specific path instead of get_latest_model_path()
-    print(f"\nLoading models from: {MODEL_PATH}")
-    models = joblib.load(MODEL_PATH)
-    
-    # Evaluate and plot
-    print("\nEvaluating saved models...")
-    val_fpr, val_tpr, val_auc = evaluate_models(models, X_val, y_val, "validation")
-    test_fpr, test_tpr, test_auc = evaluate_models(models, X_test, y_test, "test")
-    
-    # Plot ROC curves
-    plt.figure(figsize=(10, 8))
-    plt.plot(val_fpr, val_tpr, color='blue', lw=2, label=f'Validation (AUC = {val_auc:.4f})')
-    plt.plot(test_fpr, test_tpr, color='red', lw=2, label=f'Test (AUC = {test_auc:.4f})')
-    plt.plot([0, 1], [0, 1], color='gray', lw=2, linestyle='--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('XGBoost ROC Curves - Top 25 Mutual Information Features')
-    plt.legend(loc="lower right")
-    plt.grid(True)
-    
-    # Save plot
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    plot_filename = f'evaluation_roc_curve_{timestamp}.png'
-    plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
-    plt.close()
-    print(f"\nSaved evaluation plot as: {plot_filename}")
+    # Evaluate models for each size
+    for size, model_path in MODEL_PATHS.items():
+        print(f"\nEvaluating models for size: {size}")
+        print(f"Loading models from: {model_path}")
+        models = joblib.load(model_path)
+        
+        # Evaluate and plot
+        val_fpr, val_tpr, val_auc = evaluate_models(models, X_val, y_val, "validation", size)
+        test_fpr, test_tpr, test_auc = evaluate_models(models, X_test, y_test, "test", size)
+        
+        # Plot ROC curves
+        plt.figure(figsize=(10, 8))
+        plt.plot(val_fpr, val_tpr, color='blue', lw=2, label=f'Validation (AUC = {val_auc:.4f})')
+        plt.plot(test_fpr, test_tpr, color='red', lw=2, label=f'Test (AUC = {test_auc:.4f})')
+        plt.plot([0, 1], [0, 1], color='gray', lw=2, linestyle='--')
+        plt.xlim([0.0, 1.0])
+        plt.ylim([0.0, 1.05])
+        plt.xlabel('False Positive Rate')
+        plt.ylabel('True Positive Rate')
+        plt.title(f'XGBoost ROC Curves - {size} Samples')
+        plt.legend(loc="lower right")
+        plt.grid(True)
+        
+        # Save plot
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        plot_filename = f'evaluation_roc_curve_{size}_{timestamp}.png'
+        plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"\nSaved evaluation plot as: {plot_filename}")
 
-    # Fix the call to plot_feature_importance
-    plot_feature_importance(models, numerical_features, categorical_features)
+        # Plot feature importance
+        plot_feature_importance(models, numerical_features, categorical_features, size)
 
     sys.stdout = sys.stdout.terminal  # Restore normal stdout
     print(f"Evaluation log saved to: {log_filename}")

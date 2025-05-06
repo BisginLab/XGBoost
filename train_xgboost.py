@@ -185,7 +185,7 @@ xgb_pipeline = Pipeline([
 os.makedirs('sample_indices', exist_ok=True)
 
 # Create fixed sample sizes for consistent training across models
-sample_sizes = [10000, 50000, 100000]
+sample_sizes = [10000, 100000, 'full']  # Changed to include full dataset
 np.random.seed(42)  # Set random seed for reproducibility
 
 # Training loop
@@ -194,35 +194,42 @@ for size in sample_sizes:
     print(f"Training with sample size: {size}")
     print(f"{'='*50}\n")
     
-    # Load or create sample indices with train/val/test split
-    train_indices_file = f'sample_indices/train_indices_{size}.npy'
-    val_indices_file = f'sample_indices/val_indices_{size}.npy'
-    test_indices_file = f'sample_indices/test_indices_{size}.npy'
-    
-    if os.path.exists(train_indices_file) and os.path.exists(val_indices_file) and os.path.exists(test_indices_file):
-        # Load existing splits
-        train_sample_indices = np.load(train_indices_file)
-        val_sample_indices = np.load(val_indices_file)
-        test_sample_indices = np.load(test_indices_file)
-        print(f"\nLoaded existing train/val/test splits for {size} samples")
+    if size == 'full':
+        # Use the full training set
+        train_sample_indices = train_indices
+        val_sample_indices = val_indices
+        test_sample_indices = test_indices
+        print("\nUsing full dataset for training")
     else:
-        # Create new splits
-        # First sample from the full training set
-        sample_indices = np.random.choice(train_indices, size=size, replace=False)
+        # Load or create sample indices with train/val/test split
+        train_indices_file = f'sample_indices/train_indices_{size}.npy'
+        val_indices_file = f'sample_indices/val_indices_{size}.npy'
+        test_indices_file = f'sample_indices/test_indices_{size}.npy'
         
-        # Split into train/val/test (70/15/15)
-        train_size = int(size * 0.7)
-        val_size = int(size * 0.15)
-        
-        train_sample_indices = sample_indices[:train_size]
-        val_sample_indices = sample_indices[train_size:train_size + val_size]
-        test_sample_indices = sample_indices[train_size + val_size:]
-        
-        # Save the splits
-        np.save(train_indices_file, train_sample_indices)
-        np.save(val_indices_file, val_sample_indices)
-        np.save(test_indices_file, test_sample_indices)
-        print(f"\nCreated and saved train/val/test splits for {size} samples")
+        if os.path.exists(train_indices_file) and os.path.exists(val_indices_file) and os.path.exists(test_indices_file):
+            # Load existing splits
+            train_sample_indices = np.load(train_indices_file)
+            val_sample_indices = np.load(val_indices_file)
+            test_sample_indices = np.load(test_indices_file)
+            print(f"\nLoaded existing train/val/test splits for {size} samples")
+        else:
+            # Create new splits
+            # First sample from the full training set
+            sample_indices = np.random.choice(train_indices, size=size, replace=False)
+            
+            # Split into train/val/test (70/15/15)
+            train_size = int(size * 0.7)
+            val_size = int(size * 0.15)
+            
+            train_sample_indices = sample_indices[:train_size]
+            val_sample_indices = sample_indices[train_size:train_size + val_size]
+            test_sample_indices = sample_indices[train_size + val_size:]
+            
+            # Save the splits
+            np.save(train_indices_file, train_sample_indices)
+            np.save(val_indices_file, val_sample_indices)
+            np.save(test_indices_file, test_sample_indices)
+            print(f"\nCreated and saved train/val/test splits for {size} samples")
     
     print(f"\nTraining with {size} samples")
     print(f"Train set size: {len(train_sample_indices)}")

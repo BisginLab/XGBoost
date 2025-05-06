@@ -1,0 +1,1633 @@
+Top 25 Features by Importance:
+1. ContentRating_Unrated: 0.3899
+2. privacy_policy_link: 0.0518
+3. ContentRating_Everyone: 0.0368
+4. developer_website: 0.0277
+5. isSpamming: 0.0253
+6. LastUpdated: 0.0176
+7. max_downloads_log: 0.0173
+8. days_since_last_update: 0.0156
+9. LenWhatsNew: 0.0100
+10. Genre_Casual: 0.0089
+11. Genre_Personalization: 0.0086
+12. PHONE: 0.0083
+13. Genre_Entertainment: 0.0076
+14. Genre_Education: 0.0075
+15. AndroidVersion_2.3 and up: 0.0068
+16. DeveloperCategory_Active: 0.0063
+17. DeveloperCategory_Aggressive: 0.0061
+18. Genre_Puzzle: 0.0061
+19. Genre_Productivity: 0.0057
+20. Genre_Books & Reference: 0.0056
+21. ContentRating_Everyone 10+: 0.0056
+22. developer_address: 0.0055
+23. Genre_Tools: 0.0054
+24. CurrentVersion_4: 0.0054
+25. Genre_Simulation: 0.0054
+26. Genre_Action: 0.0053
+27. Genre_Travel & Local: 0.0053
+28. DeveloperCategory_Conservative: 0.0052
+29. intent: 0.0051
+30. Genre_Finance: 0.0051
+31. Genre_Medical: 0.0050
+32. AndroidVersion_2.1 and up: 0.0047
+33. Genre_Maps & Navigation: 0.0046
+34. Genre_Adventure: 0.0045
+35. ContentRating_Teen: 0.0045
+36. CurrentVersion_1: 0.0045
+37. OneStarRatings: 0.0044
+38. Genre_Educational: 0.0044
+39. DeveloperCategory_Moderate: 0.0044
+40. Genre_Social: 0.0044
+41. Genre_Music & Audio: 0.0044
+42. CurrentVersion_0: 0.0043
+43. AndroidVersion_2.3.3 and up: 0.0043
+44. ContentRating_Mature 17+: 0.0042
+45. lowest_android_version_KitKat: 0.0041
+46. AndroidVersion_4.4 and up: 0.0040
+47. Genre_Business: 0.0039
+48. lowest_android_version_Ice Cream Sandwich: 0.0039
+49. Genre_Photography: 0.0039
+50. Genre_Casino: 0.0039
+51. CurrentVersion_17: 0.0038
+52. highest_android_version_Varies with device: 0.0038
+53. CurrentVersion_alpha: 0.0037
+54. Genre_Trivia: 0.0035
+55. lowest_android_version_Varies with device: 0.0035
+56. FourStarRatings: 0.0034
+57. CurrentVersion_8: 0.0034
+58. AndroidVersion_4.0.3 and up: 0.0034
+59. CurrentVersion_3: 0.0034
+60. AndroidVersion_1.5 and up: 0.0033
+61. Genre_Video Players & Editors: 0.0033
+62. Genre_News & Magazines: 0.0032
+63. Genre_Communication: 0.0031
+64. lowest_android_version_Jelly Bean: 0.0031
+65. Genre_Auto & Vehicles: 0.0030
+66. CurrentVersion_21: 0.0030
+67. Genre_Lifestyle: 0.0030
+68. Genre_Casual', 'Pretend Play: 0.0030
+69. AndroidVersion_4.2 and up: 0.0029
+70. AndroidVersion_4.0 and up: 0.0029
+71. Genre_Racing: 0.0029
+72. Genre_Educational', 'Education: 0.0027
+73. ReviewsAverage: 0.0027
+74. Genre_Shopping: 0.0027
+75. CurrentVersion_30: 0.0027
+76. Genre_Role Playing: 0.0027
+77. STORAGE: 0.0026
+78. Genre_Card: 0.0026
+79. AndroidVersion_3.1 and up: 0.0025
+80. CurrentVersion_120: 0.0025
+81. Genre_Education', 'Education: 0.0025
+82. CurrentVersion_26: 0.0025
+83. highest_android_version_inf: 0.0025
+84. Genre_Arcade: 0.0024
+85. CurrentVersion_5: 0.0024
+86. Genre_Board: 0.0024
+87. Genre_Puzzle', 'Brain Games: 0.0024
+88. Genre_Weather: 0.0023
+89. Genre_Comics: 0.0023
+90. Genre_Food & Drink: 0.0023
+91. LOCATION: 0.0022
+92. lowest_android_version_Cupcake: 0.0022
+93. lowest_android_version_Honeycomb: 0.0021
+94. AndroidVersion_3.0 and up: 0.0021
+95. AndroidVersion_3.2 and up: 0.0021
+96. CurrentVersion_22: 0.0021
+97. lowest_android_version_Gingerbread: 0.0021
+98. AndroidVersion_4.1 and up: 0.0021
+99. CurrentVersion_20150217: 0.0020
+100. CurrentVersion_71: 0.0020
+101. CurrentVersion_6: 0.0019
+102. Genre_Events: 0.0019
+103. TwoStarRatings: 0.0019
+104. CurrentVersion_20: 0.0019
+105. CurrentVersion_10: 0.0019
+106. Genre_Dating: 0.0018
+107. AndroidVersion_1.6 and up: 0.0018
+108. lowest_android_version_Eclair: 0.0018
+109. highest_android_version_Lollipop: 0.0018
+110. CurrentVersion_15: 0.0017
+111. ThreeStarRatings: 0.0017
+112. CurrentVersion_2: 0.0017
+113. lowest_android_version_Donut: 0.0016
+114. AndroidVersion_2.2 and up: 0.0016
+115. Genre_Sports: 0.0016
+116. lowest_android_version_Froyo: 0.0015
+117. CurrentVersion_11: 0.0014
+118. CurrentVersion_116: 0.0014
+119. Genre_Health & Fitness: 0.0014
+120. CurrentVersion_2015: 0.0013
+121. Genre_Music: 0.0013
+122. CurrentVersion_7: 0.0013
+123. CurrentVersion_32: 0.0013
+124. AndroidVersion_2.0 and up: 0.0012
+125. Genre_Casual', 'Action & Adventure: 0.0012
+126. CurrentVersion_12: 0.0012
+127. CurrentVersion_72: 0.0011
+128. Genre_Art & Design: 0.0011
+129. Genre_Word: 0.0011
+130. FiveStarRatings: 0.0011
+131. Genre_Beauty: 0.0010
+132. CurrentVersion_9: 0.0010
+133. lowest_android_version_1.0: 0.0009
+134. Genre_Strategy: 0.0008
+135. Genre_Libraries & Demo: 0.0008
+136. CurrentVersion_16: 0.0006
+137. CurrentVersion_100: 0.0006
+138. CurrentVersion_18: 0.0006
+139. AndroidVersion_2.0.1 and up: 0.0005
+140. AndroidVersion_2.2 - 5.0: 0.0005
+141. AndroidVersion_4.0 - 4.4: 0.0003
+142. AndroidVersion_2.3.3 - 5.0: 0.0002
+143. AndroidVersion_4.0.3 - 5.0: 0.0000
+144. CurrentVersion_2737: 0.0000
+145. CurrentVersion_3024: 0.0000
+146. CurrentVersion_30317: 0.0000
+147. CurrentVersion_2731: 0.0000
+148. CurrentVersion_3032015: 0.0000
+149. CurrentVersion_2725: 0.0000
+150. CurrentVersion_300417: 0.0000
+151. CurrentVersion_305348: 0.0000
+152. CurrentVersion_272010: 0.0000
+153. CurrentVersion_2705: 0.0000
+154. CurrentVersion_306: 0.0000
+155. CurrentVersion_3004: 0.0000
+156. CurrentVersion_270: 0.0000
+157. CurrentVersion_27: 0.0000
+158. CurrentVersion_2668: 0.0000
+159. CurrentVersion_265184734: 0.0000
+160. CurrentVersion_265184731: 0.0000
+161. CurrentVersion_3086: 0.0000
+162. CurrentVersion_309: 0.0000
+163. CurrentVersion_2638: 0.0000
+164. CurrentVersion_2635: 0.0000
+165. CurrentVersion_31: 0.0000
+166. CurrentVersion_263: 0.0000
+167. CurrentVersion_2620: 0.0000
+168. CurrentVersion_2615: 0.0000
+169. CurrentVersion_3102016: 0.0000
+170. CurrentVersion_312: 0.0000
+171. CurrentVersion_2611: 0.0000
+172. CurrentVersion_300000: 0.0000
+173. CurrentVersion_3000: 0.0000
+174. CurrentVersion_29858: 0.0000
+175. CurrentVersion_29814: 0.0000
+176. CurrentVersion_29102015: 0.0000
+177. CurrentVersion_30092016: 0.0000
+178. CurrentVersion_301: 0.0000
+179. CurrentVersion_3013944: 0.0000
+180. CurrentVersion_29082016: 0.0000
+181. CurrentVersion_290317005: 0.0000
+182. CurrentVersion_290280: 0.0000
+183. CurrentVersion_3014: 0.0000
+184. CurrentVersion_29: 0.0000
+185. CurrentVersion_3009003: 0.0000
+186. CurrentVersion_28814: 0.0000
+187. CurrentVersion_300616: 0.0000
+188. CurrentVersion_2743: 0.0000
+189. CurrentVersion_3015: 0.0000
+190. CurrentVersion_2843: 0.0000
+191. CurrentVersion_3017: 0.0000
+192. CurrentVersion_3018: 0.0000
+193. CurrentVersion_312014: 0.0000
+194. CurrentVersion_302: 0.0000
+195. CurrentVersion_3022015: 0.0000
+196. CurrentVersion_2822: 0.0000
+197. CurrentVersion_282017: 0.0000
+198. CurrentVersion_282016: 0.0000
+199. CurrentVersion_2817: 0.0000
+200. CurrentVersion_28082014: 0.0000
+201. CurrentVersion_280814: 0.0000
+202. CurrentVersion_280316: 0.0000
+203. CurrentVersion_28: 0.0000
+204. CurrentVersion_28786: 0.0000
+205. CurrentVersion_4026: 0.0000
+206. CurrentVersion_4024: 0.0000
+207. CurrentVersion_4023: 0.0000
+208. CurrentVersion_4022015: 0.0000
+209. CurrentVersion_4022: 0.0000
+210. CurrentVersion_402: 0.0000
+211. CurrentVersion_4019: 0.0000
+212. CurrentVersion_40100: 0.0000
+213. CurrentVersion_401: 0.0000
+214. CurrentVersion_400160: 0.0000
+215. CurrentVersion_400140: 0.0000
+216. CurrentVersion_2614: 0.0000
+217. CurrentVersion_400000000: 0.0000
+218. CurrentVersion_40000: 0.0000
+219. CurrentVersion_4000: 0.0000
+220. CurrentVersion_400: 0.0000
+221. CurrentVersion_40: 0.0000
+222. CurrentVersion_39936: 0.0000
+223. CurrentVersion_397: 0.0000
+224. CurrentVersion_3953: 0.0000
+225. CurrentVersion_3944: 0.0000
+226. CurrentVersion_390: 0.0000
+227. CurrentVersion_39: 0.0000
+228. CurrentVersion_3867: 0.0000
+229. CurrentVersion_400103: 0.0000
+230. CurrentVersion_4297: 0.0000
+231. CurrentVersion_4288: 0.0000
+232. CurrentVersion_4286: 0.0000
+233. CurrentVersion_424: 0.0000
+234. CurrentVersion_4207: 0.0000
+235. CurrentVersion_42: 0.0000
+236. CurrentVersion_4189: 0.0000
+237. CurrentVersion_4165: 0.0000
+238. CurrentVersion_4159: 0.0000
+239. CurrentVersion_4138: 0.0000
+240. CurrentVersion_4124: 0.0000
+241. CurrentVersion_403: 0.0000
+242. CurrentVersion_4112: 0.0000
+243. CurrentVersion_4109: 0.0000
+244. CurrentVersion_41002: 0.0000
+245. CurrentVersion_41: 0.0000
+246. CurrentVersion_4098: 0.0000
+247. CurrentVersion_4095: 0.0000
+248. CurrentVersion_4072015: 0.0000
+249. CurrentVersion_4062: 0.0000
+250. CurrentVersion_4061: 0.0000
+251. CurrentVersion_4060: 0.0000
+252. CurrentVersion_4048: 0.0000
+253. CurrentVersion_4032: 0.0000
+254. CurrentVersion_4120: 0.0000
+255. CurrentVersion_330: 0.0000
+256. CurrentVersion_33: 0.0000
+257. CurrentVersion_3275: 0.0000
+258. CurrentVersion_3272: 0.0000
+259. CurrentVersion_3265: 0.0000
+260. CurrentVersion_32525: 0.0000
+261. CurrentVersion_3238: 0.0000
+262. CurrentVersion_322: 0.0000
+263. CurrentVersion_32162: 0.0000
+264. CurrentVersion_320167: 0.0000
+265. CurrentVersion_320: 0.0000
+266. CurrentVersion_382: 0.0000
+267. CurrentVersion_3185: 0.0000
+268. CurrentVersion_318: 0.0000
+269. CurrentVersion_317: 0.0000
+270. CurrentVersion_3161: 0.0000
+271. CurrentVersion_3154: 0.0000
+272. CurrentVersion_3153: 0.0000
+273. CurrentVersion_3151: 0.0000
+274. CurrentVersion_315: 0.0000
+275. CurrentVersion_31201701140515: 0.0000
+276. CurrentVersion_312017: 0.0000
+277. CurrentVersion_312016: 0.0000
+278. CurrentVersion_312015: 0.0000
+279. CurrentVersion_3188: 0.0000
+280. CurrentVersion_3811: 0.0000
+281. CurrentVersion_38: 0.0000
+282. CurrentVersion_376: 0.0000
+283. CurrentVersion_37105075: 0.0000
+284. CurrentVersion_37: 0.0000
+285. CurrentVersion_367513853: 0.0000
+286. CurrentVersion_365: 0.0000
+287. CurrentVersion_3623: 0.0000
+288. CurrentVersion_362017050315: 0.0000
+289. CurrentVersion_361: 0.0000
+290. CurrentVersion_36: 0.0000
+291. CurrentVersion_3310: 0.0000
+292. CurrentVersion_352: 0.0000
+293. CurrentVersion_350: 0.0000
+294. CurrentVersion_35: 0.0000
+295. CurrentVersion_347: 0.0000
+296. CurrentVersion_342: 0.0000
+297. CurrentVersion_3404: 0.0000
+298. CurrentVersion_340: 0.0000
+299. CurrentVersion_34: 0.0000
+300. CurrentVersion_3372: 0.0000
+301. CurrentVersion_335: 0.0000
+302. CurrentVersion_334: 0.0000
+303. CurrentVersion_332016: 0.0000
+304. CurrentVersion_35629: 0.0000
+305. CurrentVersion_217730: 0.0000
+306. CurrentVersion_217418: 0.0000
+307. CurrentVersion_217297: 0.0000
+308. CurrentVersion_217277: 0.0000
+309. CurrentVersion_217224: 0.0000
+310. CurrentVersion_217212: 0.0000
+311. CurrentVersion_217069: 0.0000
+312. CurrentVersion_217068: 0.0000
+313. CurrentVersion_217: 0.0000
+314. CurrentVersion_216887: 0.0000
+315. CurrentVersion_4290: 0.0000
+316. CurrentVersion_216825: 0.0000
+317. CurrentVersion_216792: 0.0000
+318. CurrentVersion_216770: 0.0000
+319. CurrentVersion_216564: 0.0000
+320. CurrentVersion_216555: 0.0000
+321. CurrentVersion_216537: 0.0000
+322. CurrentVersion_216463: 0.0000
+323. CurrentVersion_216402: 0.0000
+324. CurrentVersion_2160830: 0.0000
+325. CurrentVersion_215949: 0.0000
+326. CurrentVersion_216859: 0.0000
+327. CurrentVersion_220: 0.0000
+328. CurrentVersion_219941: 0.0000
+329. CurrentVersion_219657: 0.0000
+330. CurrentVersion_219594: 0.0000
+331. CurrentVersion_219520: 0.0000
+332. CurrentVersion_219335: 0.0000
+333. CurrentVersion_219063: 0.0000
+334. CurrentVersion_218860: 0.0000
+335. CurrentVersion_218748: 0.0000
+336. CurrentVersion_218591: 0.0000
+337. CurrentVersion_217776: 0.0000
+338. CurrentVersion_218511: 0.0000
+339. CurrentVersion_218328: 0.0000
+340. CurrentVersion_218157: 0.0000
+341. CurrentVersion_218: 0.0000
+342. CurrentVersion_217963: 0.0000
+343. CurrentVersion_217923: 0.0000
+344. CurrentVersion_217910: 0.0000
+345. CurrentVersion_217895: 0.0000
+346. CurrentVersion_217845: 0.0000
+347. CurrentVersion_217816: 0.0000
+348. CurrentVersion_218572: 0.0000
+349. CurrentVersion_207: 0.0000
+350. CurrentVersion_206: 0.0000
+351. CurrentVersion_20591: 0.0000
+352. CurrentVersion_20510: 0.0000
+353. CurrentVersion_205: 0.0000
+354. CurrentVersion_2048: 0.0000
+355. CurrentVersion_204000000: 0.0000
+356. CurrentVersion_204: 0.0000
+357. CurrentVersion_203: 0.0000
+358. CurrentVersion_2029: 0.0000
+359. CurrentVersion_2159: 0.0000
+360. CurrentVersion_202004: 0.0000
+361. CurrentVersion_202: 0.0000
+362. CurrentVersion_2018: 0.0000
+363. CurrentVersion_20176: 0.0000
+364. CurrentVersion_201736: 0.0000
+365. CurrentVersion_20172: 0.0000
+366. CurrentVersion_20171: 0.0000
+367. CurrentVersion_20170426: 0.0000
+368. CurrentVersion_20170424: 0.0000
+369. CurrentVersion_20170418: 0.0000
+370. CurrentVersion_202512: 0.0000
+371. CurrentVersion_215571: 0.0000
+372. CurrentVersion_215399: 0.0000
+373. CurrentVersion_215251: 0.0000
+374. CurrentVersion_215: 0.0000
+375. CurrentVersion_214898: 0.0000
+376. CurrentVersion_214278: 0.0000
+377. CurrentVersion_214: 0.0000
+378. CurrentVersion_213749: 0.0000
+379. CurrentVersion_213: 0.0000
+380. CurrentVersion_21212: 0.0000
+381. CurrentVersion_20815: 0.0000
+382. CurrentVersion_211640: 0.0000
+383. CurrentVersion_211: 0.0000
+384. CurrentVersion_210900: 0.0000
+385. CurrentVersion_21080164: 0.0000
+386. CurrentVersion_210500: 0.0000
+387. CurrentVersion_21042015: 0.0000
+388. CurrentVersion_210400: 0.0000
+389. CurrentVersion_21012015: 0.0000
+390. CurrentVersion_210100: 0.0000
+391. CurrentVersion_210: 0.0000
+392. CurrentVersion_209806: 0.0000
+393. CurrentVersion_212: 0.0000
+394. CurrentVersion_249960: 0.0000
+395. CurrentVersion_249424: 0.0000
+396. CurrentVersion_249: 0.0000
+397. CurrentVersion_244: 0.0000
+398. CurrentVersion_243673: 0.0000
+399. CurrentVersion_242: 0.0000
+400. CurrentVersion_240816: 0.0000
+401. CurrentVersion_2408143: 0.0000
+402. CurrentVersion_2407: 0.0000
+403. CurrentVersion_240: 0.0000
+404. CurrentVersion_220001: 0.0000
+405. CurrentVersion_238: 0.0000
+406. CurrentVersion_237: 0.0000
+407. CurrentVersion_236586: 0.0000
+408. CurrentVersion_236: 0.0000
+409. CurrentVersion_235: 0.0000
+410. CurrentVersion_234606: 0.0000
+411. CurrentVersion_234544: 0.0000
+412. CurrentVersion_23400000: 0.0000
+413. CurrentVersion_2333: 0.0000
+414. CurrentVersion_232547: 0.0000
+415. CurrentVersion_24: 0.0000
+416. CurrentVersion_261: 0.0000
+417. CurrentVersion_26042017: 0.0000
+418. CurrentVersion_260: 0.0000
+419. CurrentVersion_258: 0.0000
+420. CurrentVersion_254564: 0.0000
+421. CurrentVersion_254539: 0.0000
+422. CurrentVersion_254084: 0.0000
+423. CurrentVersion_254017: 0.0000
+424. CurrentVersion_253607: 0.0000
+425. CurrentVersion_253505: 0.0000
+426. CurrentVersion_25: 0.0000
+427. CurrentVersion_2527: 0.0000
+428. CurrentVersion_252: 0.0000
+429. CurrentVersion_251671: 0.0000
+430. CurrentVersion_2510: 0.0000
+431. CurrentVersion_251: 0.0000
+432. CurrentVersion_250615: 0.0000
+433. CurrentVersion_250417: 0.0000
+434. CurrentVersion_25022015: 0.0000
+435. CurrentVersion_250087: 0.0000
+436. CurrentVersion_250: 0.0000
+437. CurrentVersion_253: 0.0000
+438. CurrentVersion_2211: 0.0000
+439. CurrentVersion_221: 0.0000
+440. CurrentVersion_220810: 0.0000
+441. CurrentVersion_220800: 0.0000
+442. CurrentVersion_220771: 0.0000
+443. CurrentVersion_220705: 0.0000
+444. CurrentVersion_220686: 0.0000
+445. CurrentVersion_220663: 0.0000
+446. CurrentVersion_220539: 0.0000
+447. CurrentVersion_220528: 0.0000
+448. CurrentVersion_2316: 0.0000
+449. CurrentVersion_220479: 0.0000
+450. CurrentVersion_22035098: 0.0000
+451. CurrentVersion_220317: 0.0000
+452. CurrentVersion_220287: 0.0000
+453. CurrentVersion_220267: 0.0000
+454. CurrentVersion_220207: 0.0000
+455. CurrentVersion_22012015: 0.0000
+456. CurrentVersion_220037: 0.0000
+457. CurrentVersion_220008: 0.0000
+458. CurrentVersion_220007: 0.0000
+459. CurrentVersion_220496: 0.0000
+460. CurrentVersion_231113: 0.0000
+461. CurrentVersion_231: 0.0000
+462. CurrentVersion_230814: 0.0000
+463. CurrentVersion_23042015: 0.0000
+464. CurrentVersion_2302: 0.0000
+465. CurrentVersion_230000: 0.0000
+466. CurrentVersion_230: 0.0000
+467. CurrentVersion_23: 0.0000
+468. CurrentVersion_229134: 0.0000
+469. CurrentVersion_229065: 0.0000
+470. CurrentVersion_221100: 0.0000
+471. CurrentVersion_2271: 0.0000
+472. CurrentVersion_224464: 0.0000
+473. CurrentVersion_224: 0.0000
+474. CurrentVersion_223971: 0.0000
+475. CurrentVersion_223: 0.0000
+476. CurrentVersion_2226: 0.0000
+477. CurrentVersion_2224: 0.0000
+478. CurrentVersion_2223: 0.0000
+479. CurrentVersion_22170324: 0.0000
+480. CurrentVersion_2215: 0.0000
+481. CurrentVersion_22112016: 0.0000
+482. CurrentVersion_229: 0.0000
+483. AndroidVersion_4.0.3 - 4.4W: 0.0000
+484. AndroidVersion_4.0.3 - 4.4: 0.0000
+485. AndroidVersion_4.0.3 - 4.3: 0.0000
+486. AndroidVersion_4.0.3 - 4.2.2: 0.0000
+487. AndroidVersion_4.0.3 - 4.1.1: 0.0000
+488. AndroidVersion_4.0 - 5.0: 0.0000
+489. AndroidVersion_4.0 - 4.4W: 0.0000
+490. AndroidVersion_4.0 - 4.3: 0.0000
+491. AndroidVersion_4.0 - 4.2.2: 0.0000
+492. CurrentVersion_20170419: 0.0000
+493. AndroidVersion_3.2 - 5.0: 0.0000
+494. AndroidVersion_3.2 - 4.4: 0.0000
+495. AndroidVersion_3.2 - 4.1.1: 0.0000
+496. AndroidVersion_3.1 - 4.4: 0.0000
+497. AndroidVersion_3.0 - 5.0: 0.0000
+498. AndroidVersion_3.0 - 4.4W: 0.0000
+499. AndroidVersion_3.0 - 4.4: 0.0000
+500. AndroidVersion_3.0 - 4.3: 0.0000
+501. AndroidVersion_3.0 - 4.2.2: 0.0000
+502. AndroidVersion_3.0 - 4.1.1: 0.0000
+503. AndroidVersion_4.0 - 4.1.1: 0.0000
+504. Genre_Board', 'Action & Adventure: 0.0000
+505. Genre_Art & Design', 'Education: 0.0000
+506. Genre_Art & Design', 'Creativity: 0.0000
+507. Genre_Arcade', 'Pretend Play: 0.0000
+508. Genre_Arcade', 'Music & Video: 0.0000
+509. Genre_Arcade', 'Education: 0.0000
+510. Genre_Arcade', 'Creativity: 0.0000
+511. Genre_Arcade', 'Brain Games: 0.0000
+512. Genre_Arcade', 'Action & Adventure: 0.0000
+513. Genre_Adventure', 'Creativity: 0.0000
+514. AndroidVersion_4.1 - 4.1.1: 0.0000
+515. Genre_Adventure', 'Action & Adventure: 0.0000
+516. Genre_Action', 'Pretend Play: 0.0000
+517. Genre_Action', 'Creativity: 0.0000
+518. Genre_Action', 'Action & Adventure: 0.0000
+519. AndroidVersion_Varies with device: 0.0000
+520. AndroidVersion_5.0 and up: 0.0000
+521. AndroidVersion_4.4W and up: 0.0000
+522. AndroidVersion_4.3 and up: 0.0000
+523. AndroidVersion_4.1 - 5.0: 0.0000
+524. AndroidVersion_4.1 - 4.4: 0.0000
+525. Genre_Adventure', 'Brain Games: 0.0000
+526. AndroidVersion_2.0 - 4.2.2: 0.0000
+527. AndroidVersion_2.0 - 4.1.1: 0.0000
+528. AndroidVersion_1.6 - 4.4W: 0.0000
+529. AndroidVersion_1.6 - 4.4: 0.0000
+530. AndroidVersion_1.6 - 4.2.2: 0.0000
+531. AndroidVersion_1.6 - 4.1.1: 0.0000
+532. AndroidVersion_1.5 - 4.4: 0.0000
+533. AndroidVersion_1.5 - 4.3: 0.0000
+534. AndroidVersion_1.5 - 4.2.2: 0.0000
+535. AndroidVersion_1.5 - 4.1.1: 0.0000
+536. AndroidVersion_2.3.3 - 4.4W: 0.0000
+537. AndroidVersion_1.1 - 4.4: 0.0000
+538. AndroidVersion_1.1 - 4.1.1: 0.0000
+539. AndroidVersion_1.0 and up: 0.0000
+540. lowest_android_version_Lollipop: 0.0000
+541. lowest_android_version_1.1: 0.0000
+542. CurrentVersion_99999: 0.0000
+543. CurrentVersion_998: 0.0000
+544. CurrentVersion_993: 0.0000
+545. CurrentVersion_99: 0.0000
+546. CurrentVersion_9881968: 0.0000
+547. AndroidVersion_1.1 and up: 0.0000
+548. AndroidVersion_2.3.3 - 4.4: 0.0000
+549. AndroidVersion_2.3.3 - 4.3: 0.0000
+550. AndroidVersion_2.3.3 - 4.2.2: 0.0000
+551. AndroidVersion_2.3.3 - 4.1.1: 0.0000
+552. AndroidVersion_2.3 - 5.0: 0.0000
+553. AndroidVersion_2.3 - 4.4W: 0.0000
+554. AndroidVersion_2.3 - 4.4: 0.0000
+555. AndroidVersion_2.3 - 4.3: 0.0000
+556. AndroidVersion_2.3 - 4.2.2: 0.0000
+557. AndroidVersion_2.3 - 4.1.1: 0.0000
+558. AndroidVersion_2.0 - 4.4: 0.0000
+559. AndroidVersion_2.2 - 4.4: 0.0000
+560. AndroidVersion_2.2 - 4.3: 0.0000
+561. AndroidVersion_2.2 - 4.2.2: 0.0000
+562. AndroidVersion_2.2 - 4.1.1: 0.0000
+563. AndroidVersion_2.1 - 5.0: 0.0000
+564. AndroidVersion_2.1 - 4.4W: 0.0000
+565. AndroidVersion_2.1 - 4.4: 0.0000
+566. AndroidVersion_2.1 - 4.3: 0.0000
+567. AndroidVersion_2.1 - 4.2.2: 0.0000
+568. AndroidVersion_2.1 - 4.1.1: 0.0000
+569. AndroidVersion_2.2 - 4.4W: 0.0000
+570. Genre_Puzzle', 'Pretend Play: 0.0000
+571. Genre_Puzzle', 'Education: 0.0000
+572. Genre_Puzzle', 'Creativity: 0.0000
+573. Genre_Puzzle', 'Action & Adventure: 0.0000
+574. Genre_Photography', 'Creativity: 0.0000
+575. Genre_Personalization', 'Creativity: 0.0000
+576. Genre_Parenting', 'Music & Video: 0.0000
+577. Genre_Parenting', 'Education: 0.0000
+578. Genre_Parenting', 'Creativity: 0.0000
+579. Genre_Board', 'Brain Games: 0.0000
+580. Genre_News & Magazines', 'Education: 0.0000
+581. Genre_Music', 'Pretend Play: 0.0000
+582. Genre_Music', 'Music & Video: 0.0000
+583. Genre_Music', 'Education: 0.0000
+584. Genre_Music', 'Creativity: 0.0000
+585. Genre_Music', 'Brain Games: 0.0000
+586. Genre_Music & Audio', 'Music & Video: 0.0000
+587. Genre_Music & Audio', 'Creativity: 0.0000
+588. Genre_Medical', 'Education: 0.0000
+589. Genre_Medical', 'Creativity: 0.0000
+590. Genre_Parenting: 0.0000
+591. Genre_Strategy', 'Pretend Play: 0.0000
+592. Genre_Strategy', 'Education: 0.0000
+593. Genre_Strategy', 'Creativity: 0.0000
+594. Genre_Strategy', 'Brain Games: 0.0000
+595. Genre_Strategy', 'Action & Adventure: 0.0000
+596. Genre_Sports', 'Pretend Play: 0.0000
+597. Genre_Sports', 'Brain Games: 0.0000
+598. Genre_Sports', 'Action & Adventure: 0.0000
+599. Genre_Simulation', 'Pretend Play: 0.0000
+600. Genre_Simulation', 'Education: 0.0000
+601. Genre_Racing', 'Action & Adventure: 0.0000
+602. Genre_Simulation', 'Brain Games: 0.0000
+603. Genre_Simulation', 'Action & Adventure: 0.0000
+604. Genre_Role Playing', 'Pretend Play: 0.0000
+605. Genre_Role Playing', 'Education: 0.0000
+606. Genre_Role Playing', 'Creativity: 0.0000
+607. Genre_Role Playing', 'Brain Games: 0.0000
+608. Genre_Role Playing', 'Action & Adventure: 0.0000
+609. Genre_Racing', 'Pretend Play: 0.0000
+610. Genre_Racing', 'Creativity: 0.0000
+611. Genre_Racing', 'Brain Games: 0.0000
+612. Genre_Simulation', 'Creativity: 0.0000
+613. Genre_Education', 'Brain Games: 0.0000
+614. Genre_Education', 'Action & Adventure: 0.0000
+615. Genre_Communication', 'Education: 0.0000
+616. Genre_Comics', 'Music & Video: 0.0000
+617. Genre_Comics', 'Education: 0.0000
+618. Genre_Comics', 'Brain Games: 0.0000
+619. Genre_Comics', 'Action & Adventure: 0.0000
+620. Genre_Casual', 'Music & Video: 0.0000
+621. Genre_Casual', 'Education: 0.0000
+622. Genre_Casual', 'Creativity: 0.0000
+623. Genre_Maps & Navigation', 'Education: 0.0000
+624. Genre_Card', 'Education: 0.0000
+625. Genre_Card', 'Brain Games: 0.0000
+626. Genre_Card', 'Action & Adventure: 0.0000
+627. Genre_Books & Reference', 'Pretend Play: 0.0000
+628. Genre_Books & Reference', 'Music & Video: 0.0000
+629. Genre_Books & Reference', 'Education: 0.0000
+630. Genre_Books & Reference', 'Creativity: 0.0000
+631. Genre_Books & Reference', 'Action & Adventure: 0.0000
+632. Genre_Board', 'Education: 0.0000
+633. Genre_Board', 'Creativity: 0.0000
+634. Genre_Casual', 'Brain Games: 0.0000
+635. Genre_Lifestyle', 'Pretend Play: 0.0000
+636. Genre_Lifestyle', 'Education: 0.0000
+637. Genre_Lifestyle', 'Creativity: 0.0000
+638. Genre_House & Home: 0.0000
+639. Genre_Health & Fitness', 'Education: 0.0000
+640. Genre_Health & Fitness', 'Creativity: 0.0000
+641. Genre_Health & Fitness', 'Action & Adventure: 0.0000
+642. Genre_Events', 'Education: 0.0000
+643. Genre_Entertainment', 'Pretend Play: 0.0000
+644. Genre_Entertainment', 'Music & Video: 0.0000
+645. Genre_Education', 'Creativity: 0.0000
+646. Genre_Entertainment', 'Creativity: 0.0000
+647. Genre_Entertainment', 'Brain Games: 0.0000
+648. Genre_Entertainment', 'Action & Adventure: 0.0000
+649. Genre_Educational', 'Pretend Play: 0.0000
+650. Genre_Educational', 'Music & Video: 0.0000
+651. Genre_Educational', 'Creativity: 0.0000
+652. Genre_Educational', 'Brain Games: 0.0000
+653. Genre_Educational', 'Action & Adventure: 0.0000
+654. Genre_Education', 'Pretend Play: 0.0000
+655. Genre_Education', 'Music & Video: 0.0000
+656. Genre_Entertainment', 'Education: 0.0000
+657. CurrentVersion_51: 0.0000
+658. CurrentVersion_509: 0.0000
+659. CurrentVersion_50620: 0.0000
+660. CurrentVersion_50417: 0.0000
+661. CurrentVersion_504: 0.0000
+662. CurrentVersion_5012015: 0.0000
+663. CurrentVersion_50000008: 0.0000
+664. CurrentVersion_500: 0.0000
+665. CurrentVersion_50: 0.0000
+666. CurrentVersion_988: 0.0000
+667. CurrentVersion_4939: 0.0000
+668. CurrentVersion_4937: 0.0000
+669. CurrentVersion_4926: 0.0000
+670. CurrentVersion_492: 0.0000
+671. CurrentVersion_4917: 0.0000
+672. CurrentVersion_49: 0.0000
+673. CurrentVersion_4891: 0.0000
+674. CurrentVersion_4884: 0.0000
+675. CurrentVersion_4881: 0.0000
+676. CurrentVersion_4870: 0.0000
+677. CurrentVersion_4940: 0.0000
+678. CurrentVersion_60: 0.0000
+679. CurrentVersion_59: 0.0000
+680. CurrentVersion_589: 0.0000
+681. CurrentVersion_58: 0.0000
+682. CurrentVersion_578: 0.0000
+683. CurrentVersion_57: 0.0000
+684. CurrentVersion_56210000: 0.0000
+685. CurrentVersion_562016102801: 0.0000
+686. CurrentVersion_56120000: 0.0000
+687. CurrentVersion_56: 0.0000
+688. CurrentVersion_511: 0.0000
+689. CurrentVersion_55005: 0.0000
+690. CurrentVersion_55: 0.0000
+691. CurrentVersion_5430: 0.0000
+692. CurrentVersion_54: 0.0000
+693. CurrentVersion_530: 0.0000
+694. CurrentVersion_53: 0.0000
+695. CurrentVersion_52016121901: 0.0000
+696. CurrentVersion_52015: 0.0000
+697. CurrentVersion_52: 0.0000
+698. CurrentVersion_517: 0.0000
+699. CurrentVersion_5551: 0.0000
+700. CurrentVersion_4476: 0.0000
+701. CurrentVersion_4473: 0.0000
+702. CurrentVersion_4470: 0.0000
+703. CurrentVersion_4461: 0.0000
+704. CurrentVersion_446: 0.0000
+705. CurrentVersion_4457: 0.0000
+706. CurrentVersion_4454: 0.0000
+707. CurrentVersion_4447: 0.0000
+708. CurrentVersion_4440: 0.0000
+709. CurrentVersion_44: 0.0000
+710. CurrentVersion_4849: 0.0000
+711. CurrentVersion_4363: 0.0000
+712. CurrentVersion_436: 0.0000
+713. CurrentVersion_4357: 0.0000
+714. CurrentVersion_4354: 0.0000
+715. CurrentVersion_4345: 0.0000
+716. CurrentVersion_4342: 0.0000
+717. CurrentVersion_4339: 0.0000
+718. CurrentVersion_43173944: 0.0000
+719. CurrentVersion_4316: 0.0000
+720. CurrentVersion_43: 0.0000
+721. CurrentVersion_4366: 0.0000
+722. CurrentVersion_4811: 0.0000
+723. CurrentVersion_4805: 0.0000
+724. CurrentVersion_48: 0.0000
+725. CurrentVersion_4793: 0.0000
+726. CurrentVersion_4742530: 0.0000
+727. CurrentVersion_472: 0.0000
+728. CurrentVersion_4711: 0.0000
+729. CurrentVersion_47: 0.0000
+730. CurrentVersion_4694: 0.0000
+731. CurrentVersion_463: 0.0000
+732. CurrentVersion_4485: 0.0000
+733. CurrentVersion_4607: 0.0000
+734. CurrentVersion_46: 0.0000
+735. CurrentVersion_4559: 0.0000
+736. CurrentVersion_4550: 0.0000
+737. CurrentVersion_4527: 0.0000
+738. CurrentVersion_4523: 0.0000
+739. CurrentVersion_4518: 0.0000
+740. CurrentVersion_4506: 0.0000
+741. CurrentVersion_4500: 0.0000
+742. CurrentVersion_45: 0.0000
+743. CurrentVersion_4612: 0.0000
+744. CurrentVersion_8859: 0.0000
+745. CurrentVersion_88: 0.0000
+746. CurrentVersion_879: 0.0000
+747. CurrentVersion_8742530: 0.0000
+748. CurrentVersion_87: 0.0000
+749. CurrentVersion_86: 0.0000
+750. CurrentVersion_853: 0.0000
+751. CurrentVersion_85: 0.0000
+752. CurrentVersion_84: 0.0000
+753. CurrentVersion_83: 0.0000
+754. CurrentVersion_60000: 0.0000
+755. CurrentVersion_817: 0.0000
+756. CurrentVersion_814511: 0.0000
+757. CurrentVersion_814510: 0.0000
+758. CurrentVersion_814509: 0.0000
+759. CurrentVersion_8144511: 0.0000
+760. CurrentVersion_814250: 0.0000
+761. CurrentVersion_814: 0.0000
+762. CurrentVersion_81: 0.0000
+763. CurrentVersion_804201712: 0.0000
+764. CurrentVersion_80317: 0.0000
+765. CurrentVersion_82: 0.0000
+766. CurrentVersion_983: 0.0000
+767. CurrentVersion_98: 0.0000
+768. CurrentVersion_976: 0.0000
+769. CurrentVersion_97: 0.0000
+770. CurrentVersion_96210: 0.0000
+771. CurrentVersion_960: 0.0000
+772. CurrentVersion_96: 0.0000
+773. CurrentVersion_95: 0.0000
+774. CurrentVersion_9474: 0.0000
+775. CurrentVersion_94: 0.0000
+776. CurrentVersion_888: 0.0000
+777. CurrentVersion_92015: 0.0000
+778. CurrentVersion_92: 0.0000
+779. CurrentVersion_91016: 0.0000
+780. CurrentVersion_91: 0.0000
+781. CurrentVersion_905: 0.0000
+782. CurrentVersion_90317: 0.0000
+783. CurrentVersion_901: 0.0000
+784. CurrentVersion_9000: 0.0000
+785. CurrentVersion_90: 0.0000
+786. CurrentVersion_89: 0.0000
+787. CurrentVersion_93: 0.0000
+788. CurrentVersion_658: 0.0000
+789. CurrentVersion_6567: 0.0000
+790. CurrentVersion_65: 0.0000
+791. CurrentVersion_64: 0.0000
+792. CurrentVersion_635: 0.0000
+793. CurrentVersion_63: 0.0000
+794. CurrentVersion_62525: 0.0000
+795. CurrentVersion_62: 0.0000
+796. CurrentVersion_6161117: 0.0000
+797. CurrentVersion_612017031601: 0.0000
+798. CurrentVersion_80000000: 0.0000
+799. CurrentVersion_61: 0.0000
+800. CurrentVersion_6059: 0.0000
+801. CurrentVersion_6032015: 0.0000
+802. CurrentVersion_602: 0.0000
+803. CurrentVersion_6012015: 0.0000
+804. CurrentVersion_60117: 0.0000
+805. CurrentVersion_601: 0.0000
+806. CurrentVersion_60006: 0.0000
+807. CurrentVersion_600010: 0.0000
+808. CurrentVersion_60000000: 0.0000
+809. CurrentVersion_612016121501: 0.0000
+810. CurrentVersion_80: 0.0000
+811. CurrentVersion_79: 0.0000
+812. CurrentVersion_789: 0.0000
+813. CurrentVersion_786: 0.0000
+814. CurrentVersion_78: 0.0000
+815. CurrentVersion_77: 0.0000
+816. CurrentVersion_76: 0.0000
+817. CurrentVersion_75: 0.0000
+818. CurrentVersion_74: 0.0000
+819. CurrentVersion_73: 0.0000
+820. CurrentVersion_66: 0.0000
+821. CurrentVersion_708: 0.0000
+822. CurrentVersion_70317: 0.0000
+823. CurrentVersion_70000000: 0.0000
+824. CurrentVersion_70: 0.0000
+825. CurrentVersion_692: 0.0000
+826. CurrentVersion_691: 0.0000
+827. CurrentVersion_69: 0.0000
+828. CurrentVersion_68: 0.0000
+829. CurrentVersion_67: 0.0000
+830. CurrentVersion_666: 0.0000
+831. CurrentVersion_7136: 0.0000
+832. CurrentVersion_160422: 0.0000
+833. CurrentVersion_16041800: 0.0000
+834. CurrentVersion_16032013: 0.0000
+835. CurrentVersion_16031613: 0.0000
+836. CurrentVersion_16031412: 0.0000
+837. CurrentVersion_16031405: 0.0000
+838. CurrentVersion_16031313: 0.0000
+839. CurrentVersion_16031305: 0.0000
+840. CurrentVersion_16031206: 0.0000
+841. CurrentVersion_16022821: 0.0000
+842. CurrentVersion_16022316: 0.0000
+843. CurrentVersion_2017031943: 0.0000
+844. CurrentVersion_16021723: 0.0000
+845. CurrentVersion_16021403: 0.0000
+846. CurrentVersion_16012513: 0.0000
+847. CurrentVersion_16012103: 0.0000
+848. CurrentVersion_160120: 0.0000
+849. CurrentVersion_16011816: 0.0000
+850. CurrentVersion_16011710: 0.0000
+851. CurrentVersion_160116: 0.0000
+852. CurrentVersion_16011520: 0.0000
+853. CurrentVersion_16011216: 0.0000
+854. CurrentVersion_16011214: 0.0000
+855. CurrentVersion_159768: 0.0000
+856. CurrentVersion_16022308: 0.0000
+857. CurrentVersion_160902116: 0.0000
+858. CurrentVersion_16083010: 0.0000
+859. CurrentVersion_16081811: 0.0000
+860. CurrentVersion_16081600: 0.0000
+861. CurrentVersion_16081000: 0.0000
+862. CurrentVersion_16073014: 0.0000
+863. CurrentVersion_16072000: 0.0000
+864. CurrentVersion_16071602: 0.0000
+865. CurrentVersion_16071310: 0.0000
+866. CurrentVersion_16071205: 0.0000
+867. CurrentVersion_16071203: 0.0000
+868. CurrentVersion_16042314: 0.0000
+869. CurrentVersion_16070502: 0.0000
+870. CurrentVersion_16062702: 0.0000
+871. CurrentVersion_16061317: 0.0000
+872. CurrentVersion_16061306: 0.0000
+873. CurrentVersion_16061121: 0.0000
+874. CurrentVersion_16061012: 0.0000
+875. CurrentVersion_16061007: 0.0000
+876. CurrentVersion_1606025: 0.0000
+877. CurrentVersion_160602: 0.0000
+878. CurrentVersion_16053118: 0.0000
+879. CurrentVersion_16042812: 0.0000
+880. CurrentVersion_16042504: 0.0000
+881. CurrentVersion_16070603: 0.0000
+882. CurrentVersion_15092608: 0.0000
+883. CurrentVersion_15092504: 0.0000
+884. CurrentVersion_15092109: 0.0000
+885. CurrentVersion_15092011: 0.0000
+886. CurrentVersion_15090607: 0.0000
+887. CurrentVersion_15090412: 0.0000
+888. CurrentVersion_15090215: 0.0000
+889. CurrentVersion_15083118: 0.0000
+890. CurrentVersion_150815: 0.0000
+891. CurrentVersion_1508132: 0.0000
+892. CurrentVersion_150805: 0.0000
+893. CurrentVersion_1591: 0.0000
+894. CurrentVersion_1505: 0.0000
+895. CurrentVersion_150417: 0.0000
+896. CurrentVersion_15040912: 0.0000
+897. CurrentVersion_150331: 0.0000
+898. CurrentVersion_150315: 0.0000
+899. CurrentVersion_15031207: 0.0000
+900. CurrentVersion_15030806: 0.0000
+901. CurrentVersion_15022017: 0.0000
+902. CurrentVersion_150217: 0.0000
+903. CurrentVersion_150214: 0.0000
+904. CurrentVersion_15021309: 0.0000
+905. CurrentVersion_150129: 0.0000
+906. CurrentVersion_1507192138: 0.0000
+907. CurrentVersion_15611: 0.0000
+908. CurrentVersion_156: 0.0000
+909. CurrentVersion_1550: 0.0000
+910. CurrentVersion_155: 0.0000
+911. CurrentVersion_15481: 0.0000
+912. CurrentVersion_1542: 0.0000
+913. CurrentVersion_154: 0.0000
+914. CurrentVersion_1517: 0.0000
+915. CurrentVersion_15121806: 0.0000
+916. CurrentVersion_15121409: 0.0000
+917. CurrentVersion_15121322: 0.0000
+918. CurrentVersion_151: 0.0000
+919. CurrentVersion_15120408: 0.0000
+920. CurrentVersion_151203: 0.0000
+921. CurrentVersion_15120113: 0.0000
+922. CurrentVersion_15112806: 0.0000
+923. CurrentVersion_15112520: 0.0000
+924. CurrentVersion_15111808: 0.0000
+925. CurrentVersion_151114: 0.0000
+926. CurrentVersion_15110610: 0.0000
+927. CurrentVersion_15110221: 0.0000
+928. CurrentVersion_15102200: 0.0000
+929. CurrentVersion_15100501: 0.0000
+930. CurrentVersion_1510: 0.0000
+931. CurrentVersion_15121008: 0.0000
+932. CurrentVersion_170411364: 0.0000
+933. CurrentVersion_17040201: 0.0000
+934. CurrentVersion_17032905: 0.0000
+935. CurrentVersion_17032713: 0.0000
+936. CurrentVersion_17032203: 0.0000
+937. CurrentVersion_17031807: 0.0000
+938. CurrentVersion_17031718: 0.0000
+939. CurrentVersion_17031006: 0.0000
+940. CurrentVersion_17030722: 0.0000
+941. CurrentVersion_17030500: 0.0000
+942. CurrentVersion_17030416: 0.0000
+943. CurrentVersion_16090706: 0.0000
+944. CurrentVersion_17022211: 0.0000
+945. CurrentVersion_17022017: 0.0000
+946. CurrentVersion_17021812: 0.0000
+947. CurrentVersion_170217: 0.0000
+948. CurrentVersion_17021421: 0.0000
+949. CurrentVersion_170213: 0.0000
+950. CurrentVersion_17020205: 0.0000
+951. CurrentVersion_17020203: 0.0000
+952. CurrentVersion_170200: 0.0000
+953. CurrentVersion_17012907: 0.0000
+954. CurrentVersion_17011923: 0.0000
+955. CurrentVersion_17011810: 0.0000
+956. CurrentVersion_1703: 0.0000
+957. CurrentVersion_182053: 0.0000
+958. CurrentVersion_1819: 0.0000
+959. CurrentVersion_181215: 0.0000
+960. CurrentVersion_18102841: 0.0000
+961. CurrentVersion_181014: 0.0000
+962. CurrentVersion_18060415: 0.0000
+963. CurrentVersion_1802: 0.0000
+964. CurrentVersion_180: 0.0000
+965. CurrentVersion_179208: 0.0000
+966. CurrentVersion_178351: 0.0000
+967. CurrentVersion_176479: 0.0000
+968. CurrentVersion_170412: 0.0000
+969. CurrentVersion_17581: 0.0000
+970. CurrentVersion_1758: 0.0000
+971. CurrentVersion_174: 0.0000
+972. CurrentVersion_17379: 0.0000
+973. CurrentVersion_172: 0.0000
+974. CurrentVersion_171: 0.0000
+975. CurrentVersion_170814: 0.0000
+976. CurrentVersion_170425: 0.0000
+977. CurrentVersion_17042211: 0.0000
+978. CurrentVersion_17042017: 0.0000
+979. CurrentVersion_170419: 0.0000
+980. CurrentVersion_17041616: 0.0000
+981. CurrentVersion_176: 0.0000
+982. CurrentVersion_16120309: 0.0000
+983. CurrentVersion_16112901: 0.0000
+984. CurrentVersion_16112712: 0.0000
+985. CurrentVersion_16112710: 0.0000
+986. CurrentVersion_16112311: 0.0000
+987. CurrentVersion_16112309: 0.0000
+988. CurrentVersion_16112113: 0.0000
+989. CurrentVersion_16111420: 0.0000
+990. CurrentVersion_16111209: 0.0000
+991. CurrentVersion_16102718: 0.0000
+992. CurrentVersion_16102705: 0.0000
+993. CurrentVersion_170117: 0.0000
+994. CurrentVersion_16101923: 0.0000
+995. CurrentVersion_16101809: 0.0000
+996. CurrentVersion_16101612: 0.0000
+997. CurrentVersion_161016: 0.0000
+998. CurrentVersion_16100712: 0.0000
+999. CurrentVersion_16100503: 0.0000
+1000. CurrentVersion_16100411: 0.0000
+1001. CurrentVersion_16100407: 0.0000
+1002. CurrentVersion_161: 0.0000
+1003. CurrentVersion_16092414: 0.0000
+1004. CurrentVersion_16092009: 0.0000
+1005. CurrentVersion_16092000: 0.0000
+1006. CurrentVersion_16102621: 0.0000
+1007. CurrentVersion_17011518: 0.0000
+1008. CurrentVersion_17011512: 0.0000
+1009. CurrentVersion_17011508: 0.0000
+1010. CurrentVersion_17010413: 0.0000
+1011. CurrentVersion_17010217: 0.0000
+1012. CurrentVersion_170101: 0.0000
+1013. CurrentVersion_1701: 0.0000
+1014. CurrentVersion_17001: 0.0000
+1015. CurrentVersion_170: 0.0000
+1016. CurrentVersion_169: 0.0000
+1017. CurrentVersion_167: 0.0000
+1018. CurrentVersion_16121513: 0.0000
+1019. CurrentVersion_16301: 0.0000
+1020. CurrentVersion_1629: 0.0000
+1021. CurrentVersion_16254: 0.0000
+1022. CurrentVersion_162: 0.0000
+1023. CurrentVersion_16175555676: 0.0000
+1024. CurrentVersion_16123107: 0.0000
+1025. CurrentVersion_16123104: 0.0000
+1026. CurrentVersion_16122701: 0.0000
+1027. CurrentVersion_16122520: 0.0000
+1028. CurrentVersion_16122115: 0.0000
+1029. CurrentVersion_16121923: 0.0000
+1030. CurrentVersion_16121514: 0.0000
+1031. CurrentVersion_166: 0.0000
+1032. CurrentVersion_11000000: 0.0000
+1033. CurrentVersion_1100: 0.0000
+1034. CurrentVersion_110: 0.0000
+1035. CurrentVersion_1093: 0.0000
+1036. CurrentVersion_1090: 0.0000
+1037. CurrentVersion_109: 0.0000
+1038. CurrentVersion_108: 0.0000
+1039. CurrentVersion_107: 0.0000
+1040. CurrentVersion_106405: 0.0000
+1041. CurrentVersion_106: 0.0000
+1042. CurrentVersion_10505: 0.0000
+1043. CurrentVersion_1501: 0.0000
+1044. CurrentVersion_1041: 0.0000
+1045. CurrentVersion_104: 0.0000
+1046. CurrentVersion_1032: 0.0000
+1047. CurrentVersion_103: 0.0000
+1048. CurrentVersion_10281056: 0.0000
+1049. CurrentVersion_1027132: 0.0000
+1050. CurrentVersion_1027: 0.0000
+1051. CurrentVersion_10217: 0.0000
+1052. CurrentVersion_1021: 0.0000
+1053. CurrentVersion_1020: 0.0000
+1054. CurrentVersion_102: 0.0000
+1055. CurrentVersion_1018: 0.0000
+1056. CurrentVersion_105: 0.0000
+1057. CurrentVersion_120317: 0.0000
+1058. CurrentVersion_12022015: 0.0000
+1059. CurrentVersion_120170416: 0.0000
+1060. CurrentVersion_12017: 0.0000
+1061. CurrentVersion_12016: 0.0000
+1062. CurrentVersion_12000000: 0.0000
+1063. CurrentVersion_1198: 0.0000
+1064. CurrentVersion_119: 0.0000
+1065. CurrentVersion_117122015: 0.0000
+1066. CurrentVersion_117: 0.0000
+1067. CurrentVersion_116122015: 0.0000
+1068. CurrentVersion_1102: 0.0000
+1069. CurrentVersion_114: 0.0000
+1070. CurrentVersion_1131: 0.0000
+1071. CurrentVersion_113: 0.0000
+1072. CurrentVersion_112122: 0.0000
+1073. CurrentVersion_112017: 0.0000
+1074. CurrentVersion_112: 0.0000
+1075. CurrentVersion_1114131: 0.0000
+1076. CurrentVersion_1111111: 0.0000
+1077. CurrentVersion_1111: 0.0000
+1078. CurrentVersion_111: 0.0000
+1079. CurrentVersion_1104: 0.0000
+1080. CurrentVersion_110317: 0.0000
+1081. CurrentVersion_115122015: 0.0000
+1082. CurrentVersion_10001002: 0.0000
+1083. CurrentVersion_10001001: 0.0000
+1084. CurrentVersion_10001: 0.0000
+1085. CurrentVersion_1000015: 0.0000
+1086. CurrentVersion_100001: 0.0000
+1087. CurrentVersion_1000006: 0.0000
+1088. CurrentVersion_1000005: 0.0000
+1089. CurrentVersion_1000003: 0.0000
+1090. CurrentVersion_1000002: 0.0000
+1091. CurrentVersion_1000: 0.0000
+1092. highest_android_version_KitKat: 0.0000
+1093. CurrentVersion_1015: 0.0000
+1094. ContentRating_Adults only 18+: 0.0000
+1095. Genre_Word', 'Education: 0.0000
+1096. Genre_Word', 'Creativity: 0.0000
+1097. Genre_Word', 'Brain Games: 0.0000
+1098. Genre_Video Players & Editors', 'Music & Video: 0.0000
+1099. Genre_Video Players & Editors', 'Creativity: 0.0000
+1100. Genre_Trivia', 'Music & Video: 0.0000
+1101. Genre_Trivia', 'Education: 0.0000
+1102. Genre_Trivia', 'Creativity: 0.0000
+1103. Genre_Trivia', 'Brain Games: 0.0000
+1104. Genre_Travel & Local', 'Education: 0.0000
+1105. Genre_Tools', 'Education: 0.0000
+1106. highest_android_version_Jelly Bean: 0.0000
+1107. CurrentVersion_1014: 0.0000
+1108. CurrentVersion_1013: 0.0000
+1109. CurrentVersion_1012: 0.0000
+1110. CurrentVersion_101060006: 0.0000
+1111. CurrentVersion_101030170: 0.0000
+1112. CurrentVersion_10102015: 0.0000
+1113. CurrentVersion_10102: 0.0000
+1114. CurrentVersion_10101: 0.0000
+1115. CurrentVersion_10100: 0.0000
+1116. CurrentVersion_101: 0.0000
+1117. CurrentVersion_1008: 0.0000
+1118. CurrentVersion_10001003: 0.0000
+1119. CurrentVersion_1004: 0.0000
+1120. CurrentVersion_1003: 0.0000
+1121. CurrentVersion_10026: 0.0000
+1122. CurrentVersion_1002: 0.0000
+1123. CurrentVersion_1001: 0.0000
+1124. CurrentVersion_100082: 0.0000
+1125. CurrentVersion_10007: 0.0000
+1126. CurrentVersion_1000219: 0.0000
+1127. CurrentVersion_10001007: 0.0000
+1128. CurrentVersion_10001006: 0.0000
+1129. CurrentVersion_10001005: 0.0000
+1130. CurrentVersion_10001004: 0.0000
+1131. CurrentVersion_1005010: 0.0000
+1132. CurrentVersion_140705: 0.0000
+1133. CurrentVersion_14060701: 0.0000
+1134. CurrentVersion_140603: 0.0000
+1135. CurrentVersion_14056: 0.0000
+1136. CurrentVersion_14053113: 0.0000
+1137. CurrentVersion_140518: 0.0000
+1138. CurrentVersion_140516: 0.0000
+1139. CurrentVersion_140514: 0.0000
+1140. CurrentVersion_1405: 0.0000
+1141. CurrentVersion_14047: 0.0000
+1142. CurrentVersion_14040: 0.0000
+1143. CurrentVersion_121: 0.0000
+1144. CurrentVersion_14035: 0.0000
+1145. CurrentVersion_14034: 0.0000
+1146. CurrentVersion_14033: 0.0000
+1147. CurrentVersion_140322: 0.0000
+1148. CurrentVersion_14030110: 0.0000
+1149. CurrentVersion_14018: 0.0000
+1150. CurrentVersion_14013: 0.0000
+1151. CurrentVersion_14012: 0.0000
+1152. CurrentVersion_140: 0.0000
+1153. CurrentVersion_14: 0.0000
+1154. CurrentVersion_1396: 0.0000
+1155. CurrentVersion_139: 0.0000
+1156. CurrentVersion_14039: 0.0000
+1157. CurrentVersion_1496: 0.0000
+1158. CurrentVersion_148361429: 0.0000
+1159. CurrentVersion_148: 0.0000
+1160. CurrentVersion_1470: 0.0000
+1161. CurrentVersion_1463: 0.0000
+1162. CurrentVersion_1462: 0.0000
+1163. CurrentVersion_146: 0.0000
+1164. CurrentVersion_1453: 0.0000
+1165. CurrentVersion_144: 0.0000
+1166. CurrentVersion_1438041419: 0.0000
+1167. CurrentVersion_1438032720: 0.0000
+1168. CurrentVersion_140710: 0.0000
+1169. CurrentVersion_143: 0.0000
+1170. CurrentVersion_1422: 0.0000
+1171. CurrentVersion_142: 0.0000
+1172. CurrentVersion_14182049901: 0.0000
+1173. CurrentVersion_1412837: 0.0000
+1174. CurrentVersion_14120713: 0.0000
+1175. CurrentVersion_14120511: 0.0000
+1176. CurrentVersion_14112116: 0.0000
+1177. CurrentVersion_14110811: 0.0000
+1178. CurrentVersion_141: 0.0000
+1179. CurrentVersion_14091106: 0.0000
+1180. CurrentVersion_14083116: 0.0000
+1181. CurrentVersion_1436: 0.0000
+1182. CurrentVersion_13: 0.0000
+1183. CurrentVersion_129201609302330: 0.0000
+1184. CurrentVersion_129: 0.0000
+1185. CurrentVersion_128: 0.0000
+1186. CurrentVersion_127: 0.0000
+1187. CurrentVersion_126: 0.0000
+1188. CurrentVersion_125: 0.0000
+1189. CurrentVersion_12464655: 0.0000
+1190. CurrentVersion_1246: 0.0000
+1191. CurrentVersion_12444: 0.0000
+1192. CurrentVersion_124: 0.0000
+1193. CurrentVersion_1374: 0.0000
+1194. CurrentVersion_12345: 0.0000
+1195. CurrentVersion_123: 0.0000
+1196. CurrentVersion_1224: 0.0000
+1197. CurrentVersion_1222: 0.0000
+1198. CurrentVersion_12212016: 0.0000
+1199. CurrentVersion_122: 0.0000
+1200. CurrentVersion_1215414: 0.0000
+1201. CurrentVersion_12142015: 0.0000
+1202. CurrentVersion_12121901: 0.0000
+1203. CurrentVersion_12121614: 0.0000
+1204. CurrentVersion_12121402: 0.0000
+1205. CurrentVersion_121016: 0.0000
+1206. CurrentVersion_1236: 0.0000
+1207. CurrentVersion_1371: 0.0000
+1208. CurrentVersion_137: 0.0000
+1209. CurrentVersion_1368016590: 0.0000
+1210. CurrentVersion_13534: 0.0000
+1211. CurrentVersion_13533: 0.0000
+1212. CurrentVersion_13532: 0.0000
+1213. CurrentVersion_13523: 0.0000
+1214. CurrentVersion_13520: 0.0000
+1215. CurrentVersion_13513: 0.0000
+1216. CurrentVersion_13512: 0.0000
+1217. CurrentVersion_13511: 0.0000
+1218. CurrentVersion_130: 0.0000
+1219. CurrentVersion_135: 0.0000
+1220. CurrentVersion_134: 0.0000
+1221. CurrentVersion_13307041500: 0.0000
+1222. CurrentVersion_133: 0.0000
+1223. CurrentVersion_1324: 0.0000
+1224. CurrentVersion_13224711: 0.0000
+1225. CurrentVersion_132: 0.0000
+1226. CurrentVersion_13112015: 0.0000
+1227. CurrentVersion_131: 0.0000
+1228. CurrentVersion_13021505: 0.0000
+1229. CurrentVersion_1301066: 0.0000
+1230. CurrentVersion_13003: 0.0000
+1231. CurrentVersion_13510: 0.0000
+1232. CurrentVersion_20160419: 0.0000
+1233. CurrentVersion_201604183: 0.0000
+1234. CurrentVersion_20160418: 0.0000
+1235. CurrentVersion_2016041684: 0.0000
+1236. CurrentVersion_2016041132921: 0.0000
+1237. CurrentVersion_20160411: 0.0000
+1238. CurrentVersion_201604060: 0.0000
+1239. CurrentVersion_201604055000763: 0.0000
+1240. CurrentVersion_2016040504578: 0.0000
+1241. CurrentVersion_2016040428512: 0.0000
+1242. CurrentVersion_2016040405027: 0.0000
+1243. CurrentVersion_1850: 0.0000
+1244. CurrentVersion_201603267951: 0.0000
+1245. CurrentVersion_201603263230: 0.0000
+1246. CurrentVersion_20160324765: 0.0000
+1247. CurrentVersion_20160324: 0.0000
+1248. CurrentVersion_201603231: 0.0000
+1249. CurrentVersion_20160319: 0.0000
+1250. CurrentVersion_20160318: 0.0000
+1251. CurrentVersion_20160317: 0.0000
+1252. CurrentVersion_20160316: 0.0000
+1253. CurrentVersion_20160315100: 0.0000
+1254. CurrentVersion_20160314: 0.0000
+1255. CurrentVersion_201603111: 0.0000
+1256. CurrentVersion_20160330: 0.0000
+1257. CurrentVersion_20160804: 0.0000
+1258. CurrentVersion_20160803: 0.0000
+1259. CurrentVersion_20160719409771: 0.0000
+1260. CurrentVersion_20160718: 0.0000
+1261. CurrentVersion_201607140459: 0.0000
+1262. CurrentVersion_201607059993471: 0.0000
+1263. CurrentVersion_20160705: 0.0000
+1264. CurrentVersion_201607: 0.0000
+1265. CurrentVersion_20160616619: 0.0000
+1266. CurrentVersion_201606119765: 0.0000
+1267. CurrentVersion_20160608449975: 0.0000
+1268. CurrentVersion_20160420: 0.0000
+1269. CurrentVersion_2016060296870: 0.0000
+1270. CurrentVersion_201606024462: 0.0000
+1271. CurrentVersion_20160602123: 0.0000
+1272. CurrentVersion_20160602029: 0.0000
+1273. CurrentVersion_201606: 0.0000
+1274. CurrentVersion_2016053168: 0.0000
+1275. CurrentVersion_2016053022898: 0.0000
+1276. CurrentVersion_2016052387: 0.0000
+1277. CurrentVersion_20160517: 0.0000
+1278. CurrentVersion_201605077975: 0.0000
+1279. CurrentVersion_201605074: 0.0000
+1280. CurrentVersion_20160506: 0.0000
+1281. CurrentVersion_2016060340019: 0.0000
+1282. CurrentVersion_201601: 0.0000
+1283. CurrentVersion_20160: 0.0000
+1284. CurrentVersion_2016: 0.0000
+1285. CurrentVersion_20154: 0.0000
+1286. CurrentVersion_20151510: 0.0000
+1287. CurrentVersion_20151223: 0.0000
+1288. CurrentVersion_20151220: 0.0000
+1289. CurrentVersion_20151214: 0.0000
+1290. CurrentVersion_20151202: 0.0000
+1291. CurrentVersion_20151201: 0.0000
+1292. CurrentVersion_20151119: 0.0000
+1293. CurrentVersion_20160307: 0.0000
+1294. CurrentVersion_20151115: 0.0000
+1295. CurrentVersion_20151113: 0.0000
+1296. CurrentVersion_2015110500: 0.0000
+1297. CurrentVersion_20151105: 0.0000
+1298. CurrentVersion_20151030: 0.0000
+1299. CurrentVersion_20151027: 0.0000
+1300. CurrentVersion_20151024: 0.0000
+1301. CurrentVersion_20151020: 0.0000
+1302. CurrentVersion_20151013: 0.0000
+1303. CurrentVersion_20151: 0.0000
+1304. CurrentVersion_201509: 0.0000
+1305. CurrentVersion_20150821: 0.0000
+1306. CurrentVersion_20151118: 0.0000
+1307. CurrentVersion_20160306: 0.0000
+1308. CurrentVersion_20160304: 0.0000
+1309. CurrentVersion_20160303: 0.0000
+1310. CurrentVersion_20160301: 0.0000
+1311. CurrentVersion_201603: 0.0000
+1312. CurrentVersion_20160227: 0.0000
+1313. CurrentVersion_20160226: 0.0000
+1314. CurrentVersion_20160224: 0.0000
+1315. CurrentVersion_2016022300: 0.0000
+1316. CurrentVersion_20160223: 0.0000
+1317. CurrentVersion_20160220: 0.0000
+1318. CurrentVersion_201601003: 0.0000
+1319. CurrentVersion_20160216: 0.0000
+1320. CurrentVersion_20160215: 0.0000
+1321. CurrentVersion_20160212: 0.0000
+1322. CurrentVersion_201602090: 0.0000
+1323. CurrentVersion_20160205: 0.0000
+1324. CurrentVersion_201602: 0.0000
+1325. CurrentVersion_20160119: 0.0000
+1326. CurrentVersion_20160118: 0.0000
+1327. CurrentVersion_20160113: 0.0000
+1328. CurrentVersion_20160112: 0.0000
+1329. CurrentVersion_20160108: 0.0000
+1330. CurrentVersion_20160107: 0.0000
+1331. CurrentVersion_20160218: 0.0000
+1332. CurrentVersion_20170303: 0.0000
+1333. CurrentVersion_20170302: 0.0000
+1334. CurrentVersion_2017030140803: 0.0000
+1335. CurrentVersion_20170227: 0.0000
+1336. CurrentVersion_20170222: 0.0000
+1337. CurrentVersion_20170221114221: 0.0000
+1338. CurrentVersion_20170221104413: 0.0000
+1339. CurrentVersion_20170216: 0.0000
+1340. CurrentVersion_20170214: 0.0000
+1341. CurrentVersion_20170211: 0.0000
+1342. CurrentVersion_2017020802: 0.0000
+1343. CurrentVersion_20160809: 0.0000
+1344. CurrentVersion_20170207: 0.0000
+1345. CurrentVersion_20170203: 0.0000
+1346. CurrentVersion_201702: 0.0000
+1347. CurrentVersion_20170131: 0.0000
+1348. CurrentVersion_20170129: 0.0000
+1349. CurrentVersion_20170127: 0.0000
+1350. CurrentVersion_20170121: 0.0000
+1351. CurrentVersion_2017010996: 0.0000
+1352. CurrentVersion_2017010894641: 0.0000
+1353. CurrentVersion_2017010718795: 0.0000
+1354. CurrentVersion_201701040: 0.0000
+1355. CurrentVersion_20170104: 0.0000
+1356. CurrentVersion_2017020801: 0.0000
+1357. CurrentVersion_20170415: 0.0000
+1358. CurrentVersion_20170414: 0.0000
+1359. CurrentVersion_20170413: 0.0000
+1360. CurrentVersion_20170412: 0.0000
+1361. CurrentVersion_20170410: 0.0000
+1362. CurrentVersion_20170405: 0.0000
+1363. CurrentVersion_20170404: 0.0000
+1364. CurrentVersion_20170403: 0.0000
+1365. CurrentVersion_20170402: 0.0000
+1366. CurrentVersion_201704: 0.0000
+1367. CurrentVersion_20170328: 0.0000
+1368. CurrentVersion_20170307: 0.0000
+1369. CurrentVersion_2017032469: 0.0000
+1370. CurrentVersion_20170324: 0.0000
+1371. CurrentVersion_20170321: 0.0000
+1372. Genre_Tools', 'Creativity: 0.0000
+1373. CurrentVersion_201703192221: 0.0000
+1374. CurrentVersion_20170319: 0.0000
+1375. CurrentVersion_20170318: 0.0000
+1376. CurrentVersion_20170317: 0.0000
+1377. CurrentVersion_20170315: 0.0000
+1378. CurrentVersion_20170314: 0.0000
+1379. CurrentVersion_20170310: 0.0000
+1380. CurrentVersion_20170308: 0.0000
+1381. CurrentVersion_20170327: 0.0000
+1382. CurrentVersion_201610230700: 0.0000
+1383. CurrentVersion_20161020: 0.0000
+1384. CurrentVersion_20161018: 0.0000
+1385. CurrentVersion_201610171439: 0.0000
+1386. CurrentVersion_20161012: 0.0000
+1387. CurrentVersion_2016101: 0.0000
+1388. CurrentVersion_2016100322205: 0.0000
+1389. CurrentVersion_20161003: 0.0000
+1390. CurrentVersion_201610: 0.0000
+1391. CurrentVersion_20161: 0.0000
+1392. CurrentVersion_201609302330: 0.0000
+1393. CurrentVersion_201701: 0.0000
+1394. CurrentVersion_2016091390: 0.0000
+1395. CurrentVersion_201609137486: 0.0000
+1396. CurrentVersion_20160907178258: 0.0000
+1397. CurrentVersion_20160907112233: 0.0000
+1398. CurrentVersion_20160906: 0.0000
+1399. CurrentVersion_2016090102: 0.0000
+1400. CurrentVersion_201609: 0.0000
+1401. CurrentVersion_201608281: 0.0000
+1402. CurrentVersion_20160827: 0.0000
+1403. CurrentVersion_20160822: 0.0000
+1404. CurrentVersion_201608141418: 0.0000
+1405. CurrentVersion_201608101557: 0.0000
+1406. CurrentVersion_20160916: 0.0000
+1407. CurrentVersion_2017008: 0.0000
+1408. CurrentVersion_2017: 0.0000
+1409. CurrentVersion_201674: 0.0000
+1410. CurrentVersion_201640: 0.0000
+1411. CurrentVersion_20164: 0.0000
+1412. CurrentVersion_20161230: 0.0000
+1413. CurrentVersion_20161229: 0.0000
+1414. CurrentVersion_201612250849034887: 0.0000
+1415. CurrentVersion_20161225: 0.0000
+1416. CurrentVersion_20161221: 0.0000
+1417. CurrentVersion_20161219: 0.0000
+1418. CurrentVersion_20161025: 0.0000
+1419. CurrentVersion_2016120700: 0.0000
+1420. CurrentVersion_201612: 0.0000
+1421. CurrentVersion_201611250600: 0.0000
+1422. CurrentVersion_20161123: 0.0000
+1423. CurrentVersion_20161118: 0.0000
+1424. CurrentVersion_20161117: 0.0000
+1425. CurrentVersion_20161114: 0.0000
+1426. CurrentVersion_20161103: 0.0000
+1427. CurrentVersion_20161102: 0.0000
+1428. CurrentVersion_201611: 0.0000
+1429. CurrentVersion_20161031: 0.0000
+1430. CurrentVersion_2016102945540: 0.0000
+1431. CurrentVersion_20161209: 0.0000
+1432. CurrentVersion_20120803: 0.0000
+1433. CurrentVersion_20120708: 0.0000
+1434. CurrentVersion_20120703: 0.0000
+1435. CurrentVersion_20120613: 0.0000
+1436. CurrentVersion_20120504: 0.0000
+1437. CurrentVersion_20120327: 0.0000
+1438. CurrentVersion_20120307: 0.0000
+1439. CurrentVersion_20120229: 0.0000
+1440. CurrentVersion_20120208: 0.0000
+1441. CurrentVersion_20120114: 0.0000
+1442. CurrentVersion_20120105: 0.0000
+1443. CurrentVersion_20150820: 0.0000
+1444. CurrentVersion_201153: 0.0000
+1445. CurrentVersion_20111208: 0.0000
+1446. CurrentVersion_20111129: 0.0000
+1447. CurrentVersion_20110717: 0.0000
+1448. CurrentVersion_2011061701: 0.0000
+1449. CurrentVersion_20110616: 0.0000
+1450. CurrentVersion_20110521: 0.0000
+1451. CurrentVersion_20110330: 0.0000
+1452. CurrentVersion_20110320: 0.0000
+1453. CurrentVersion_20110312: 0.0000
+1454. CurrentVersion_20110309: 0.0000
+1455. CurrentVersion_20110220: 0.0000
+1456. CurrentVersion_2012: 0.0000
+1457. CurrentVersion_20130904: 0.0000
+1458. CurrentVersion_20130727: 0.0000
+1459. CurrentVersion_20130628: 0.0000
+1460. CurrentVersion_20130519: 0.0000
+1461. CurrentVersion_20130518: 0.0000
+1462. CurrentVersion_20130510: 0.0000
+1463. CurrentVersion_20130503: 0.0000
+1464. CurrentVersion_20130429: 0.0000
+1465. CurrentVersion_20130419: 0.0000
+1466. CurrentVersion_2013031318: 0.0000
+1467. CurrentVersion_201303120: 0.0000
+1468. CurrentVersion_20120831: 0.0000
+1469. CurrentVersion_20130307: 0.0000
+1470. CurrentVersion_20130102: 0.0000
+1471. CurrentVersion_201300916: 0.0000
+1472. CurrentVersion_2013: 0.0000
+1473. CurrentVersion_20127: 0.0000
+1474. CurrentVersion_20121228: 0.0000
+1475. CurrentVersion_20121215: 0.0000
+1476. CurrentVersion_20121102: 0.0000
+1477. CurrentVersion_2012102902: 0.0000
+1478. CurrentVersion_2012102901: 0.0000
+1479. CurrentVersion_20121001: 0.0000
+1480. CurrentVersion_20120922: 0.0000
+1481. CurrentVersion_20130309: 0.0000
+1482. CurrentVersion_200010: 0.0000
+1483. CurrentVersion_200009: 0.0000
+1484. CurrentVersion_2000000: 0.0000
+1485. CurrentVersion_200000: 0.0000
+1486. CurrentVersion_20000: 0.0000
+1487. CurrentVersion_2000: 0.0000
+1488. CurrentVersion_200: 0.0000
+1489. CurrentVersion_199: 0.0000
+1490. CurrentVersion_19714: 0.0000
+1491. CurrentVersion_197: 0.0000
+1492. CurrentVersion_196088: 0.0000
+1493. CurrentVersion_20110211: 0.0000
+1494. CurrentVersion_1950: 0.0000
+1495. CurrentVersion_192755: 0.0000
+1496. CurrentVersion_1916: 0.0000
+1497. CurrentVersion_191186: 0.0000
+1498. CurrentVersion_19112014: 0.0000
+1499. CurrentVersion_190417: 0.0000
+1500. CurrentVersion_19: 0.0000
+1501. CurrentVersion_188694: 0.0000
+1502. CurrentVersion_1876: 0.0000
+1503. CurrentVersion_187242: 0.0000
+1504. CurrentVersion_1862: 0.0000
+1505. CurrentVersion_186: 0.0000
+1506. CurrentVersion_196: 0.0000
+1507. CurrentVersion_20110127: 0.0000
+1508. CurrentVersion_20110103: 0.0000
+1509. CurrentVersion_2011: 0.0000
+1510. CurrentVersion_20107: 0.0000
+1511. CurrentVersion_201010: 0.0000
+1512. CurrentVersion_20100905: 0.0000
+1513. CurrentVersion_20100613: 0.0000
+1514. CurrentVersion_20100523: 0.0000
+1515. CurrentVersion_20100509: 0.0000
+1516. CurrentVersion_2010: 0.0000
+1517. CurrentVersion_201: 0.0000
+1518. CurrentVersion_200016: 0.0000
+1519. CurrentVersion_2009008: 0.0000
+1520. CurrentVersion_200600: 0.0000
+1521. CurrentVersion_200500: 0.0000
+1522. CurrentVersion_200400: 0.0000
+1523. CurrentVersion_20028: 0.0000
+1524. CurrentVersion_2002: 0.0000
+1525. CurrentVersion_2001007: 0.0000
+1526. CurrentVersion_20006: 0.0000
+1527. CurrentVersion_200042: 0.0000
+1528. CurrentVersion_20004: 0.0000
+1529. CurrentVersion_200022: 0.0000
+1530. CurrentVersion_20002: 0.0000
+1531. CurrentVersion_20091226: 0.0000
+1532. CurrentVersion_201505: 0.0000
+1533. CurrentVersion_20150430: 0.0000
+1534. CurrentVersion_20150422: 0.0000
+1535. CurrentVersion_201504182012: 0.0000
+1536. CurrentVersion_20150418: 0.0000
+1537. CurrentVersion_20150417: 0.0000
+1538. CurrentVersion_201504162000: 0.0000
+1539. CurrentVersion_201504161960: 0.0000
+1540. CurrentVersion_20150416: 0.0000
+1541. CurrentVersion_20150407110425: 0.0000
+1542. CurrentVersion_20150329: 0.0000
+1543. CurrentVersion_20130930: 0.0000
+1544. CurrentVersion_20150322: 0.0000
+1545. CurrentVersion_20150304: 0.0000
+1546. CurrentVersion_201502260: 0.0000
+1547. CurrentVersion_201502251: 0.0000
+1548. CurrentVersion_20150218: 0.0000
+1549. CurrentVersion_201502162: 0.0000
+1550. CurrentVersion_201502161980: 0.0000
+1551. CurrentVersion_201502161960: 0.0000
+1552. CurrentVersion_201502161: 0.0000
+1553. CurrentVersion_20150216: 0.0000
+1554. CurrentVersion_2015020910: 0.0000
+1555. CurrentVersion_20150126: 0.0000
+1556. CurrentVersion_20150326: 0.0000
+1557. CurrentVersion_2015080533122761406347: 0.0000
+1558. CurrentVersion_20150804: 0.0000
+1559. CurrentVersion_201508: 0.0000
+1560. CurrentVersion_20150731: 0.0000
+1561. CurrentVersion_20150723: 0.0000
+1562. CurrentVersion_2015071701: 0.0000
+1563. CurrentVersion_20150717: 0.0000
+1564. CurrentVersion_20150702: 0.0000
+1565. CurrentVersion_2015070101: 0.0000
+1566. CurrentVersion_20150627: 0.0000
+1567. CurrentVersion_20150621: 0.0000
+1568. CurrentVersion_20150501: 0.0000
+1569. CurrentVersion_20150617: 0.0000
+1570. CurrentVersion_20150616: 0.0000
+1571. CurrentVersion_20150615: 0.0000
+1572. CurrentVersion_20150611: 0.0000
+1573. CurrentVersion_201506041: 0.0000
+1574. CurrentVersion_20150604: 0.0000
+1575. CurrentVersion_201506: 0.0000
+1576. CurrentVersion_20150527: 0.0000
+1577. CurrentVersion_201505250153: 0.0000
+1578. CurrentVersion_20150522: 0.0000
+1579. CurrentVersion_20150519: 0.0000
+1580. CurrentVersion_20150510: 0.0000
+1581. CurrentVersion_201506182012: 0.0000
+1582. CurrentVersion_20140429: 0.0000
+1583. CurrentVersion_20140408: 0.0000
+1584. CurrentVersion_20140404: 0.0000
+1585. CurrentVersion_20140403: 0.0000
+1586. CurrentVersion_20140329: 0.0000
+1587. CurrentVersion_20140316: 0.0000
+1588. CurrentVersion_20140215: 0.0000
+1589. CurrentVersion_20140207: 0.0000
+1590. CurrentVersion_20140206: 0.0000
+1591. CurrentVersion_20140130: 0.0000
+1592. CurrentVersion_20140122002: 0.0000
+1593. CurrentVersion_20150122: 0.0000
+1594. CurrentVersion_20140112: 0.0000
+1595. CurrentVersion_20140107: 0.0000
+1596. CurrentVersion_2014: 0.0000
+1597. CurrentVersion_201327: 0.0000
+1598. CurrentVersion_20131213: 0.0000
+1599. CurrentVersion_2013120900: 0.0000
+1600. CurrentVersion_20131202: 0.0000
+1601. CurrentVersion_2013112116: 0.0000
+1602. CurrentVersion_2013112112: 0.0000
+1603. CurrentVersion_20131102: 0.0000
+1604. CurrentVersion_2013107: 0.0000
+1605. CurrentVersion_20131012: 0.0000
+1606. CurrentVersion_20140119: 0.0000
+1607. CurrentVersion_201501111: 0.0000
+1608. CurrentVersion_20150104: 0.0000
+1609. CurrentVersion_20141229: 0.0000
+1610. CurrentVersion_20141219: 0.0000
+1611. CurrentVersion_20141213: 0.0000
+1612. CurrentVersion_20141207: 0.0000
+1613. CurrentVersion_20141120: 0.0000
+1614. CurrentVersion_20141109: 0.0000
+1615. CurrentVersion_20141030: 0.0000
+1616. CurrentVersion_20141028: 0.0000
+1617. CurrentVersion_201410091201: 0.0000
+1618. CurrentVersion_20141005: 0.0000
+1619. CurrentVersion_20140614: 0.0000
+1620. CurrentVersion_20141: 0.0000
+1621. CurrentVersion_20140901: 0.0000
+1622. CurrentVersion_20140828: 0.0000
+1623. CurrentVersion_20140824: 0.0000
+1624. CurrentVersion_20140821: 0.0000
+1625. CurrentVersion_20140819: 0.0000
+1626. CurrentVersion_20140817: 0.0000
+1627. CurrentVersion_20140806: 0.0000
+1628. CurrentVersion_20140801: 0.0000
+1629. CurrentVersion_20140724: 0.0000
+1630. CurrentVersion_20140719: 0.0000
+1631. CurrentVersion_20140710: 0.0000
+1632. CurrentVersion_201410040: 0.0000
