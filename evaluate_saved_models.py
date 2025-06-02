@@ -115,28 +115,28 @@ def plot_feature_importance(models, numerical_features, categorical_features, si
     # Map feature importance back to original features
     preprocessor = models[0].named_steps['preprocessor']
     cat_encoder = preprocessor.named_transformers_['cat']
-    cat_feature_names = cat_encoder.get_feature_names_out()  # Don't pass arguments
+    cat_feature_names = cat_encoder.get_feature_names_out()
     feature_names = numerical_features + list(cat_feature_names)
 
-    # Create a dictionary of feature importances
-    feature_importance_dict = dict(zip(feature_names, feature_importance))
+    # Create a DataFrame of feature importances
+    importance_df = pd.DataFrame({
+        'Feature': feature_names,
+        'Importance': feature_importance
+    })
 
     # Aggregate importance for categorical features
     aggregated_importance = {}
     
     # Add numerical features directly
     for feat in numerical_features:
-        aggregated_importance[feat] = feature_importance_dict[feat]
+        aggregated_importance[feat] = importance_df[importance_df['Feature'] == feat]['Importance'].values[0]
     
     # Sum importance for each categorical feature's encoded versions
     for cat_feat in categorical_features:
-        cat_importance = sum(
-            importance for fname, importance in feature_importance_dict.items() 
-            if fname.startswith(cat_feat + '_')
-        )
+        cat_importance = importance_df[importance_df['Feature'].str.startswith(cat_feat + '_')]['Importance'].sum()
         aggregated_importance[cat_feat] = cat_importance
 
-    # Sort and save/print features
+    # Sort features by importance
     sorted_features = sorted(aggregated_importance.items(), key=lambda x: x[1], reverse=True)
     
     # Get top 25 feature names
@@ -151,8 +151,9 @@ def plot_feature_importance(models, numerical_features, categorical_features, si
     if save_to_file:
         filename = f'feature_importance_{size}_{timestamp}.txt'
         with open(filename, 'w') as f:
-            for feat, importance in sorted_features:
-                line = f"{feat}: {importance:.4f}"
+            f.write("Top 25 Features by Importance (Aggregated):\n")
+            for i, (feat, importance) in enumerate(sorted_features, 1):
+                line = f"{i}. {feat}: {importance:.4f}"
                 print(line)
                 f.write(line + '\n')
         print(f"\nSaved feature importance to: {filename}")

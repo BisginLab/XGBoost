@@ -346,22 +346,36 @@ for size in sample_sizes:
         'Feature': feature_names,
         'Importance': feature_importance
     })
-    importance_df = importance_df.sort_values('Importance', ascending=False)
+    
+    # Aggregate importance for categorical features
+    aggregated_importance = {}
+    
+    # Add numerical features directly
+    for feat in numerical_features:
+        aggregated_importance[feat] = importance_df[importance_df['Feature'] == feat]['Importance'].values[0]
+    
+    # Sum importance for each categorical feature's encoded versions
+    for cat_feat in categorical_features:
+        cat_importance = importance_df[importance_df['Feature'].str.startswith(cat_feat + '_')]['Importance'].sum()
+        aggregated_importance[cat_feat] = cat_importance
+    
+    # Sort by importance
+    sorted_features = sorted(aggregated_importance.items(), key=lambda x: x[1], reverse=True)
     
     # Save feature importance to file
     importance_filename = f'xgboost_feature_importance_sample_{size}_{timestamp}.txt'
     with open(importance_filename, 'w') as f:
-        f.write("Top 25 Features by Importance:\n")
-        for i, (feature, importance) in enumerate(zip(importance_df['Feature'], importance_df['Importance']), 1):
+        f.write("Top 25 Features by Importance (Aggregated):\n")
+        for i, (feature, importance) in enumerate(sorted_features, 1):
             f.write(f"{i}. {feature}: {importance:.4f}\n")
     print(f"Saved feature importance to: {importance_filename}")
     
     # Plot feature importance
     plt.figure(figsize=(12, 8))
-    plt.barh(range(25), importance_df['Importance'][:25])
-    plt.yticks(range(25), importance_df['Feature'][:25])
+    plt.barh(range(25), [imp for _, imp in sorted_features[:25]])
+    plt.yticks(range(25), [feat for feat, _ in sorted_features[:25]])
     plt.xlabel('Importance')
-    plt.title(f'XGBoost - Top 25 Feature Importance - {size} Samples')
+    plt.title(f'XGBoost - Top 25 Feature Importance (Aggregated) - {size} Samples')
     plt.tight_layout()
     
     # Save plot
