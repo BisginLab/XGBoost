@@ -1,0 +1,393 @@
+============================================================
+MODIFIED XGBOOST SCRIPT WITH STANDARDIZED PREPROCESSING
+============================================================
+Verifying standardized data consistency...
+✅ Data consistency verified!
+  Checksum: f0090fe94dd22710647102c9e71c4317
+  Features: 25 in correct order
+  Sample sizes: ['10000', '100000', 'full']
+Loading standardized preprocessing metadata...
+Loaded standardized data for sample size: full
+  Data shape: (724160, 26)
+  Train indices: 506912
+  Val indices: 108624
+  Test indices: 108624
+  Feature order: ['ContentRating', 'highest_android_version', 'CurrentVersion', 'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre', 'privacy_policy_link', 'developer_website', 'days_since_last_update', 'isSpamming', 'max_downloads_log', 'LenWhatsNew', 'PHONE', 'OneStarRatings', 'developer_address', 'FourStarRatings', 'intent', 'ReviewsAverage', 'STORAGE', 'LastUpdated', 'TwoStarRatings', 'LOCATION', 'FiveStarRatings', 'ThreeStarRatings']
+
+Using standardized features:
+  Total features: 25
+  Categorical: 7
+  Numerical: 18
+  Canonical order: ['ContentRating', 'highest_android_version', 'CurrentVersion', 'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre', 'privacy_policy_link', 'developer_website', 'days_since_last_update', 'isSpamming', 'max_downloads_log', 'LenWhatsNew', 'PHONE', 'OneStarRatings', 'developer_address', 'FourStarRatings', 'intent', 'ReviewsAverage', 'STORAGE', 'LastUpdated', 'TwoStarRatings', 'LOCATION', 'FiveStarRatings', 'ThreeStarRatings']
+  Data checksum: f0090fe94dd22710647102c9e71c4317
+
+Training with these features:
+
+Numerical features:
+1. privacy_policy_link
+2. developer_website
+3. days_since_last_update
+4. isSpamming
+5. max_downloads_log
+6. LenWhatsNew
+7. PHONE
+8. OneStarRatings
+9. developer_address
+10. FourStarRatings
+11. intent
+12. ReviewsAverage
+13. STORAGE
+14. LastUpdated
+15. TwoStarRatings
+16. LOCATION
+17. FiveStarRatings
+18. ThreeStarRatings
+
+Categorical features:
+1. ContentRating
+2. highest_android_version
+3. CurrentVersion
+4. lowest_android_version
+5. AndroidVersion
+6. DeveloperCategory
+7. Genre
+
+Canonical feature order (CRITICAL for consistency):
+1. ContentRating (CAT)
+2. highest_android_version (CAT)
+3. CurrentVersion (CAT)
+4. lowest_android_version (CAT)
+5. AndroidVersion (CAT)
+6. DeveloperCategory (CAT)
+7. Genre (CAT)
+8. privacy_policy_link (NUM)
+9. developer_website (NUM)
+10. days_since_last_update (NUM)
+11. isSpamming (NUM)
+12. max_downloads_log (NUM)
+13. LenWhatsNew (NUM)
+14. PHONE (NUM)
+15. OneStarRatings (NUM)
+16. developer_address (NUM)
+17. FourStarRatings (NUM)
+18. intent (NUM)
+19. ReviewsAverage (NUM)
+20. STORAGE (NUM)
+21. LastUpdated (NUM)
+22. TwoStarRatings (NUM)
+23. LOCATION (NUM)
+24. FiveStarRatings (NUM)
+25. ThreeStarRatings (NUM)
+
+Total feature count: 25
+
+Starting training...
+
+==================================================
+Training with sample size: 10000
+==================================================
+
+Loaded standardized data for sample size: 10000
+  Data shape: (724160, 26)
+  Train indices: 7000
+  Val indices: 1500
+  Test indices: 1500
+  Feature order: ['ContentRating', 'highest_android_version', 'CurrentVersion', 'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre', 'privacy_policy_link', 'developer_website', 'days_since_last_update', 'isSpamming', 'max_downloads_log', 'LenWhatsNew', 'PHONE', 'OneStarRatings', 'developer_address', 'FourStarRatings', 'intent', 'ReviewsAverage', 'STORAGE', 'LastUpdated', 'TwoStarRatings', 'LOCATION', 'FiveStarRatings', 'ThreeStarRatings']
+Loaded standardized data for size 10000:
+  Train set size: 7000
+  Validation set size: 1500
+  Test set size: 1500
+
+Feature order verification:
+  Expected: ['ContentRating', 'highest_android_version', 'CurrentVersion']...
+  Actual:   ['ContentRating', 'highest_android_version', 'CurrentVersion']...
+✅ Feature order verified!
+
+Feature counts:
+  Total selected features: 25
+  Numerical features: 18
+  Categorical features: 7
+
+Class balance verification:
+  Train - Class 0 (benign): 3225
+  Train - Class 1 (malware): 3775
+  Train - Ratio: 0.539
+  Val - Class 0 (benign): 691
+  Val - Class 1 (malware): 809
+  Val - Ratio: 0.539
+  Test - Class 0 (benign): 691
+  Test - Class 1 (malware): 809
+  Test - Ratio: 0.539
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7724
+Accuracy: 0.6953
+
+TEST SET SET METRICS:
+ROC AUC: 0.7759
+Accuracy: 0.6980
+
+Saved trained models as: saved_models/xgboost_ensemble_standardized_10000_run_20250824_170708.joblib
+
+Saved ROC curve plot as: xgboost_roc_curve_standardized_sample_10000_20250824_170708.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: xgboost_feature_importance_standardized_sample_10000_20250824_170708.txt
+Saved feature importance plot as: xgboost_feature_importance_standardized_sample_10000_20250824_170708.png
+Saved detailed results to: xgboost_results_standardized_10000_20250824_170708.json
+
+==================================================
+Training with sample size: 100000
+==================================================
+
+Loaded standardized data for sample size: 100000
+  Data shape: (724160, 26)
+  Train indices: 70000
+  Val indices: 15000
+  Test indices: 15000
+  Feature order: ['ContentRating', 'highest_android_version', 'CurrentVersion', 'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre', 'privacy_policy_link', 'developer_website', 'days_since_last_update', 'isSpamming', 'max_downloads_log', 'LenWhatsNew', 'PHONE', 'OneStarRatings', 'developer_address', 'FourStarRatings', 'intent', 'ReviewsAverage', 'STORAGE', 'LastUpdated', 'TwoStarRatings', 'LOCATION', 'FiveStarRatings', 'ThreeStarRatings']
+Loaded standardized data for size 100000:
+  Train set size: 70000
+  Validation set size: 15000
+  Test set size: 15000
+
+Feature order verification:
+  Expected: ['ContentRating', 'highest_android_version', 'CurrentVersion']...
+  Actual:   ['ContentRating', 'highest_android_version', 'CurrentVersion']...
+✅ Feature order verified!
+
+Feature counts:
+  Total selected features: 25
+  Numerical features: 18
+  Categorical features: 7
+
+Class balance verification:
+  Train - Class 0 (benign): 32168
+  Train - Class 1 (malware): 37832
+  Train - Ratio: 0.540
+  Val - Class 0 (benign): 6893
+  Val - Class 1 (malware): 8107
+  Val - Ratio: 0.540
+  Test - Class 0 (benign): 6893
+  Test - Class 1 (malware): 8107
+  Test - Ratio: 0.540
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7925
+Accuracy: 0.7179
+
+TEST SET SET METRICS:
+ROC AUC: 0.7927
+Accuracy: 0.7149
+
+Saved trained models as: saved_models/xgboost_ensemble_standardized_100000_run_20250824_173133.joblib
+
+Saved ROC curve plot as: xgboost_roc_curve_standardized_sample_100000_20250824_173133.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: xgboost_feature_importance_standardized_sample_100000_20250824_173133.txt
+Saved feature importance plot as: xgboost_feature_importance_standardized_sample_100000_20250824_173133.png
+Saved detailed results to: xgboost_results_standardized_100000_20250824_173133.json
+
+==================================================
+Training with sample size: full
+==================================================
+
+Loaded standardized data for sample size: full
+  Data shape: (724160, 26)
+  Train indices: 506912
+  Val indices: 108624
+  Test indices: 108624
+  Feature order: ['ContentRating', 'highest_android_version', 'CurrentVersion', 'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre', 'privacy_policy_link', 'developer_website', 'days_since_last_update', 'isSpamming', 'max_downloads_log', 'LenWhatsNew', 'PHONE', 'OneStarRatings', 'developer_address', 'FourStarRatings', 'intent', 'ReviewsAverage', 'STORAGE', 'LastUpdated', 'TwoStarRatings', 'LOCATION', 'FiveStarRatings', 'ThreeStarRatings']
+Loaded standardized data for size full:
+  Train set size: 506912
+  Validation set size: 108624
+  Test set size: 108624
+
+Feature order verification:
+  Expected: ['ContentRating', 'highest_android_version', 'CurrentVersion']...
+  Actual:   ['ContentRating', 'highest_android_version', 'CurrentVersion']...
+✅ Feature order verified!
+
+Feature counts:
+  Total selected features: 25
+  Numerical features: 18
+  Categorical features: 7
+
+Class balance verification:
+  Train - Class 0 (benign): 231075
+  Train - Class 1 (malware): 275837
+  Train - Ratio: 0.544
+  Val - Class 0 (benign): 49516
+  Val - Class 1 (malware): 59108
+  Val - Ratio: 0.544
+  Test - Class 0 (benign): 49516
+  Test - Class 1 (malware): 59108
+  Test - Ratio: 0.544
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7986
+Accuracy: 0.7213
+
+TEST SET SET METRICS:
+ROC AUC: 0.7970
+Accuracy: 0.7208
+
+Saved trained models as: saved_models/xgboost_ensemble_standardized_full_run_20250824_175712.joblib
+
+Saved ROC curve plot as: xgboost_roc_curve_standardized_sample_full_20250824_175712.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: xgboost_feature_importance_standardized_sample_full_20250824_175712.txt
+Saved feature importance plot as: xgboost_feature_importance_standardized_sample_full_20250824_175712.png
+Saved detailed results to: xgboost_results_standardized_full_20250824_175712.json
+
+============================================================
+FINAL FEATURE IMPORTANCE ANALYSIS
+============================================================
+
+Calculating feature importance from trained models...
+
+Top 25 Features by Importance (Non-aggregated):
+ 1. ContentRating_Unrated: 0.4027
+ 2. privacy_policy_link: 0.0568
+ 3. ContentRating_Everyone: 0.0279
+ 4. developer_website: 0.0267
+ 5. isSpamming: 0.0245
+ 6. max_downloads_log: 0.0169
+ 7. LastUpdated: 0.0143
+ 8. days_since_last_update: 0.0143
+ 9. LenWhatsNew: 0.0098
+10. Genre_Casual: 0.0092
+11. Genre_Personalization: 0.0088
+12. PHONE: 0.0084
+13. Genre_Entertainment: 0.0081
+14. Genre_Education: 0.0070
+15. AndroidVersion_2.3 and up: 0.0070
+16. DeveloperCategory_Active: 0.0065
+17. DeveloperCategory_Aggressive: 0.0062
+18. Genre_Tools: 0.0056
+19. Genre_Puzzle: 0.0056
+20. Genre_Books & Reference: 0.0055
+21. AndroidVersion_Varies with device: 0.0055
+22. Genre_Simulation: 0.0054
+23. Genre_Action: 0.0053
+24. CurrentVersion_4: 0.0053
+25. Genre_Productivity: 0.0052
+
+Top 25 Features by Importance (Aggregated):
+ 1. ContentRating: 0.4430
+ 2. Genre: 0.1797
+ 3. CurrentVersion: 0.0694
+ 4. privacy_policy_link: 0.0568
+ 5. AndroidVersion: 0.0528
+ 6. developer_website: 0.0267
+ 7. isSpamming: 0.0245
+ 8. DeveloperCategory: 0.0214
+ 9. max_downloads_log: 0.0169
+10. LastUpdated: 0.0143
+11. days_since_last_update: 0.0143
+12. LenWhatsNew: 0.0098
+13. PHONE: 0.0084
+14. intent: 0.0051
+15. developer_address: 0.0050
+16. OneStarRatings: 0.0043
+17. lowest_android_version_KitKat: 0.0039
+18. lowest_android_version_Ice Cream Sandwich: 0.0036
+19. highest_android_version_Varies with device: 0.0035
+20. FourStarRatings: 0.0033
+21. lowest_android_version_Varies with device: 0.0033
+22. lowest_android_version_Jelly Bean: 0.0027
+23. highest_android_version_inf: 0.0026
+24. ReviewsAverage: 0.0026
+25. STORAGE: 0.0026
+
+Saved final feature importance to: feature_importance_standardized_20250824_175712.txt
+Saved non-aggregated feature importance plot as: feature_importance_plot_standardized_20250824_175712.png
+Saved aggregated feature importance plot as: feature_importance_plot_aggregated_standardized_20250824_175712.png
+
+============================================================
+XGBOOST TRAINING WITH STANDARDIZED PREPROCESSING COMPLETE!
+============================================================
+
+Key improvements made:
+✅ Uses standardized preprocessing for fair comparison
+✅ Preserves ALL original functionality
+✅ Maintains ensemble training approach
+✅ Keeps comprehensive feature importance analysis
+✅ Uses canonical feature ordering
+✅ Verifies data consistency with checksums
+✅ Compatible with ExcelFormer preprocessing
+
+Preprocessing details:
+  Data source: Standardized preprocessing
+  Feature order: Categorical + Numerical (canonical)
+  Categorical encoding: OneHot
+  Data checksum: f0090fe94dd22710647102c9e71c4317
+  Sample sizes: [10000, 100000, 'full']

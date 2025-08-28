@@ -9,6 +9,7 @@ import os
 import glob
 import sys
 import warnings
+import json
 
 # Define Logger class first
 class Logger:
@@ -56,9 +57,9 @@ def get_latest_model_path():
 
 # Define the specific model paths for each size
 MODEL_PATHS = {
-    '10000': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_10000_run_20250304_120249.joblib',
-    '100000': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_100000_run_20250304_120249.joblib',
-    'full': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_full_run_20250304_120249.joblib'
+    '10000': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_10000_run_20250825_160615.joblib',
+    '100000': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_100000_run_20250825_164742.joblib',
+    'full': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_full_run_20250825_165926.joblib'
 }
 
 def evaluate_models(models, X, y, set_name, size):
@@ -228,6 +229,28 @@ def main():
         plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
         plt.close()
         print(f"\nSaved evaluation plot as: {plot_filename}")
+
+        # Save ROC metrics to JSON
+        dump_dir = "/home/umflint.edu/koernerg/roc_dumps"
+        os.makedirs(dump_dir, exist_ok=True)
+        out_json = os.path.join(dump_dir, f"xgboost_{size}.json")
+        payload = {
+            "model": "xgboost",
+            "size": str(size),
+            "val": {
+                "fpr": [float(x) for x in val_fpr],
+                "tpr": [float(x) for x in val_tpr],
+                "auc": float(val_auc),
+            },
+            "test": {
+                "fpr": [float(x) for x in test_fpr],
+                "tpr": [float(x) for x in test_tpr],
+                "auc": float(test_auc),
+            },
+        }
+        with open(out_json, "w") as f:
+            json.dump(payload, f)
+        print(f"[XGB] Wrote ROC dump to {out_json}")
 
         # Plot feature importance
         plot_feature_importance(models, numerical_features, categorical_features, size)

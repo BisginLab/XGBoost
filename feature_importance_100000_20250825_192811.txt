@@ -1,0 +1,26 @@
+Top 25 Features by Importance (Aggregated):
+1. Genre: 0.3806
+2. OneStarRatings: 0.3500
+3. CurrentVersion: 0.1024
+4. AndroidVersion: 0.0814
+5. days_since_last_update: 0.0258
+6. lowest_android_version: 0.0124
+7. DeveloperCategory: 0.0112
+8. STORAGE: 0.0054
+9. developer_address: 0.0046
+10. TwoStarRatings: 0.0045
+11. LenWhatsNew: 0.0042
+12. isSpamming: 0.0041
+13. FiveStarRatings: 0.0041
+14. privacy_policy_link: 0.0038
+15. max_downloads_log: 0.0029
+16. developer_website: 0.0028
+17. LastUpdated: 0.0000
+18. FourStarRatings: 0.0000
+19. ThreeStarRatings: 0.0000
+20. LOCATION: 0.0000
+21. PHONE: 0.0000
+22. intent: 0.0000
+23. ReviewsAverage: 0.0000
+24. ContentRating: 0.0000
+25. highest_android_version: 0.0000

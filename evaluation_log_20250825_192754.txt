@@ -1,0 +1,136 @@
+Loading data...
+
+Evaluating models for size: 10000
+Loading models from: /home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_10000_run_20250825_160615.joblib
+
+VALIDATION SET METRICS (Size: 10000):
+ROC AUC: 0.7698
+Accuracy: 0.6961
+
+TEST SET METRICS (Size: 10000):
+ROC AUC: 0.7696
+Accuracy: 0.6974
+
+Saved evaluation plot as: evaluation_roc_curve_10000_20250825_192803.png
+[XGB] Wrote ROC dump to /home/umflint.edu/koernerg/roc_dumps/xgboost_10000.json
+
+Calculating feature importance for size: 10000
+
+Saved top 25 features to: top_25_xgboost_features_10000_20250825_192803.npy
+1. Genre: 0.4194
+2. isSpamming: 0.1797
+3. AndroidVersion: 0.1507
+4. CurrentVersion: 0.1327
+5. lowest_android_version: 0.0372
+6. LastUpdated: 0.0175
+7. DeveloperCategory: 0.0104
+8. privacy_policy_link: 0.0095
+9. STORAGE: 0.0083
+10. TwoStarRatings: 0.0082
+11. max_downloads_log: 0.0082
+12. FiveStarRatings: 0.0065
+13. days_since_last_update: 0.0064
+14. LenWhatsNew: 0.0053
+15. OneStarRatings: 0.0000
+16. FourStarRatings: 0.0000
+17. ThreeStarRatings: 0.0000
+18. developer_address: 0.0000
+19. developer_website: 0.0000
+20. LOCATION: 0.0000
+21. PHONE: 0.0000
+22. intent: 0.0000
+23. ReviewsAverage: 0.0000
+24. ContentRating: 0.0000
+25. highest_android_version: 0.0000
+
+Saved feature importance to: feature_importance_10000_20250825_192803.txt
+
+Evaluating models for size: 100000
+Loading models from: /home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_100000_run_20250825_164742.joblib
+
+VALIDATION SET METRICS (Size: 100000):
+ROC AUC: 0.7963
+Accuracy: 0.7189
+
+TEST SET METRICS (Size: 100000):
+ROC AUC: 0.7949
+Accuracy: 0.7177
+
+Saved evaluation plot as: evaluation_roc_curve_100000_20250825_192810.png
+[XGB] Wrote ROC dump to /home/umflint.edu/koernerg/roc_dumps/xgboost_100000.json
+
+Calculating feature importance for size: 100000
+
+Saved top 25 features to: top_25_xgboost_features_100000_20250825_192811.npy
+1. Genre: 0.3806
+2. OneStarRatings: 0.3500
+3. CurrentVersion: 0.1024
+4. AndroidVersion: 0.0814
+5. days_since_last_update: 0.0258
+6. lowest_android_version: 0.0124
+7. DeveloperCategory: 0.0112
+8. STORAGE: 0.0054
+9. developer_address: 0.0046
+10. TwoStarRatings: 0.0045
+11. LenWhatsNew: 0.0042
+12. isSpamming: 0.0041
+13. FiveStarRatings: 0.0041
+14. privacy_policy_link: 0.0038
+15. max_downloads_log: 0.0029
+16. developer_website: 0.0028
+17. LastUpdated: 0.0000
+18. FourStarRatings: 0.0000
+19. ThreeStarRatings: 0.0000
+20. LOCATION: 0.0000
+21. PHONE: 0.0000
+22. intent: 0.0000
+23. ReviewsAverage: 0.0000
+24. ContentRating: 0.0000
+25. highest_android_version: 0.0000
+
+Saved feature importance to: feature_importance_100000_20250825_192811.txt
+
+Evaluating models for size: full
+Loading models from: /home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_full_run_20250825_165926.joblib
+
+VALIDATION SET METRICS (Size: full):
+ROC AUC: 0.7987
+Accuracy: 0.7208
+
+TEST SET METRICS (Size: full):
+ROC AUC: 0.7971
+Accuracy: 0.7212
+
+Saved evaluation plot as: evaluation_roc_curve_full_20250825_192818.png
+[XGB] Wrote ROC dump to /home/umflint.edu/koernerg/roc_dumps/xgboost_full.json
+
+Calculating feature importance for size: full
+
+Saved top 25 features to: top_25_xgboost_features_full_20250825_192818.npy
+1. OneStarRatings: 0.4010
+2. Genre: 0.3666
+3. CurrentVersion: 0.0865
+4. AndroidVersion: 0.0768
+5. days_since_last_update: 0.0288
+6. lowest_android_version: 0.0058
+7. privacy_policy_link: 0.0051
+8. developer_address: 0.0048
+9. TwoStarRatings: 0.0046
+10. STORAGE: 0.0043
+11. isSpamming: 0.0036
+12. LenWhatsNew: 0.0036
+13. max_downloads_log: 0.0023
+14. FiveStarRatings: 0.0023
+15. developer_website: 0.0016
+16. DeveloperCategory: 0.0010
+17. LOCATION: 0.0009
+18. ThreeStarRatings: 0.0003
+19. LastUpdated: 0.0000
+20. FourStarRatings: 0.0000
+21. PHONE: 0.0000
+22. intent: 0.0000
+23. ReviewsAverage: 0.0000
+24. ContentRating: 0.0000
+25. highest_android_version: 0.0000
+
+Saved feature importance to: feature_importance_full_20250825_192818.txt

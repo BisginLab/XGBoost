@@ -1,0 +1,6 @@
+============================================================
+MODIFIED XGBOOST SCRIPT WITH STANDARDIZED PREPROCESSING
+============================================================
+Verifying standardized data consistency...
+❌ Error verifying data consistency: [Errno 2] No such file or directory: './standardized_data/preprocessing_metadata.json'
+❌ Data consistency check failed! Run master preprocessing script first.

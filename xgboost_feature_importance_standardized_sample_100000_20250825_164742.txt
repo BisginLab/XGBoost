@@ -1,0 +1,35 @@
+XGBoost Feature Importance (Standardized Preprocessing)
+============================================================
+
+Sample Size: 100000
+Preprocessing: Standardized
+Categorical Encoding: OneHot
+Feature Order: ['ContentRating', 'LastUpdated', 'days_since_last_update', 'highest_android_version', 'privacy_policy_link', 'TwoStarRatings', 'CurrentVersion', 'isSpamming', 'max_downloads_log', 'OneStarRatings', 'FourStarRatings', 'ThreeStarRatings', 'lowest_android_version', 'STORAGE', 'FiveStarRatings', 'LenWhatsNew', 'AndroidVersion', 'developer_address', 'developer_website', 'intent', 'PHONE', 'LOCATION', 'DeveloperCategory', 'ReviewsAverage', 'Genre']
+Data Checksum: f0090fe94dd22710647102c9e71c4317
+
+Top 25 Features by Importance (Aggregated):
+ 1. ContentRating: 0.3882
+ 2. Genre: 0.2217
+ 3. CurrentVersion: 0.0760
+ 4. AndroidVersion: 0.0503
+ 5. privacy_policy_link: 0.0405
+ 6. lowest_android_version: 0.0360
+ 7. DeveloperCategory: 0.0247
+ 8. isSpamming: 0.0230
+ 9. developer_website: 0.0227
+10. LastUpdated: 0.0219
+11. max_downloads_log: 0.0144
+12. days_since_last_update: 0.0130
+13. highest_android_version: 0.0112
+14. PHONE: 0.0091
+15. LenWhatsNew: 0.0083
+16. intent: 0.0065
+17. developer_address: 0.0053
+18. OneStarRatings: 0.0046
+19. FourStarRatings: 0.0038
+20. ReviewsAverage: 0.0036
+21. STORAGE: 0.0036
+22. LOCATION: 0.0034
+23. ThreeStarRatings: 0.0031
+24. TwoStarRatings: 0.0028
+25. FiveStarRatings: 0.0026
