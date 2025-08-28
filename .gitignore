@@ -7,3 +7,5 @@ saved_models/
 .Python
 *.png
 __pycache__/
+standardized_data/cleaned_data.pkl
+*.pkl
