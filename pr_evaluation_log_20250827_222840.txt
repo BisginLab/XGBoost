@@ -1,0 +1,19 @@
+Loading data…
+
+== Size: 10000 ==
+Loading ensemble: /home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_10000_run_20250825_160615.joblib
+[VAL] AP=0.7982, baseline=0.5442 → pr_plots/xgb_pr_10000_val_20250827_222840.png
+[TEST] AP=0.7982, baseline=0.5442 → pr_plots/xgb_pr_10000_test_20250827_222840.png
+[XGB] Wrote PR dump to /home/umflint.edu/koernerg/pr_dumps/xgboost_pr_10000.json
+
+== Size: 100000 ==
+Loading ensemble: /home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_100000_run_20250825_164742.joblib
+[VAL] AP=0.8223, baseline=0.5442 → pr_plots/xgb_pr_100000_val_20250827_222840.png
+[TEST] AP=0.8211, baseline=0.5442 → pr_plots/xgb_pr_100000_test_20250827_222840.png
+[XGB] Wrote PR dump to /home/umflint.edu/koernerg/pr_dumps/xgboost_pr_100000.json
+
+== Size: full ==
+Loading ensemble: /home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_full_run_20250825_165926.joblib
+[VAL] AP=0.8241, baseline=0.5442 → pr_plots/xgb_pr_full_val_20250827_222840.png
+[TEST] AP=0.8230, baseline=0.5442 → pr_plots/xgb_pr_full_test_20250827_222840.png
+[XGB] Wrote PR dump to /home/umflint.edu/koernerg/pr_dumps/xgboost_pr_full.json

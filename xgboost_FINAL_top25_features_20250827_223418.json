@@ -1,0 +1,205 @@
+{
+  "model": "XGBoost",
+  "preprocessing": "full_features_standardized",
+  "training_approach": "ensemble_11_models",
+  "total_features_trained": 47,
+  "timestamp": "20250827_223418",
+  "data_checksum": "abe919d373e72fc29cbf8725c44fd510",
+  "final_top_25_features": [
+    {
+      "rank": 1,
+      "feature_name": "ContentRating",
+      "importance": 0.4218873977661133,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 2,
+      "feature_name": "Genre",
+      "importance": 0.16178064048290253,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 3,
+      "feature_name": "CurrentVersion",
+      "importance": 0.06441386044025421,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 4,
+      "feature_name": "privacy_policy_link",
+      "importance": 0.05264846235513687,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 5,
+      "feature_name": "AndroidVersion",
+      "importance": 0.046747732907533646,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 6,
+      "feature_name": "developer_website",
+      "importance": 0.026658685877919197,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 7,
+      "feature_name": "isSpamming",
+      "importance": 0.02481606788933277,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 8,
+      "feature_name": "DeveloperCategory",
+      "importance": 0.020554617047309875,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 9,
+      "feature_name": "max_downloads_log",
+      "importance": 0.016893312335014343,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 10,
+      "feature_name": "days_since_last_update",
+      "importance": 0.01575067825615406,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 11,
+      "feature_name": "LastUpdated",
+      "importance": 0.013586423359811306,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 12,
+      "feature_name": "SMS",
+      "importance": 0.011897332035005093,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 13,
+      "feature_name": "LenWhatsNew",
+      "importance": 0.009892561472952366,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 14,
+      "feature_name": "PHONE",
+      "importance": 0.008687778376042843,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 15,
+      "feature_name": "media",
+      "importance": 0.006869732867926359,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 16,
+      "feature_name": "CONTACTS",
+      "importance": 0.006461105775088072,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 17,
+      "feature_name": "developer_address",
+      "importance": 0.005449090152978897,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 18,
+      "feature_name": "bluetooth",
+      "importance": 0.0052218991331756115,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 19,
+      "feature_name": "OneStarRatings",
+      "importance": 0.004695207811892033,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 20,
+      "feature_name": "intent",
+      "importance": 0.004657931160181761,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 21,
+      "feature_name": "paid",
+      "importance": 0.0045551760122179985,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 22,
+      "feature_name": "lowest_android_version_KitKat",
+      "importance": 0.004179552663117647,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 23,
+      "feature_name": "lowest_android_version_Ice Cream Sandwich",
+      "importance": 0.004142932593822479,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 24,
+      "feature_name": "FourStarRatings",
+      "importance": 0.003520786529406905,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 25,
+      "feature_name": "provider",
+      "importance": 0.0034820588771253824,
+      "feature_type": "numerical"
+    }
+  ],
+  "feature_names_only": [
+    "ContentRating",
+    "Genre",
+    "CurrentVersion",
+    "privacy_policy_link",
+    "AndroidVersion",
+    "developer_website",
+    "isSpamming",
+    "DeveloperCategory",
+    "max_downloads_log",
+    "days_since_last_update",
+    "LastUpdated",
+    "SMS",
+    "LenWhatsNew",
+    "PHONE",
+    "media",
+    "CONTACTS",
+    "developer_address",
+    "bluetooth",
+    "OneStarRatings",
+    "intent",
+    "paid",
+    "lowest_android_version_KitKat",
+    "lowest_android_version_Ice Cream Sandwich",
+    "FourStarRatings",
+    "provider"
+  ],
+  "training_details": {
+    "categorical_features_used": [
+      "CurrentVersion",
+      "Genre",
+      "ContentRating",
+      "AndroidVersion",
+      "DeveloperCategory",
+      "lowest_android_version",
+      "highest_android_version"
+    ],
+    "numerical_features_count": 40,
+    "categorical_features_count": 7,
+    "sample_sizes_trained": [
+      10000,
+      100000,
+      "full"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+Using FI features models:
+  10000: saved_models/xgboost_ensemble_fi_features_10000_run_20250828_061856.joblib
+  100000: saved_models/xgboost_ensemble_fi_features_100000_run_20250828_065720.joblib
+  full: saved_models/xgboost_ensemble_fi_features_full_run_20250828_071750.joblib
+Loading data...
+
+Evaluating models for size: 10000
+Loading models from: saved_models/xgboost_ensemble_fi_features_10000_run_20250828_061856.joblib
+Error in evaluate_models: columns are missing: {'SMS', 'paid', 'media', 'provider', 'bluetooth', 'CONTACTS'}
+Model structure: dict_keys(['preprocessor', 'classifier'])

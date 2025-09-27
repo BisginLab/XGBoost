@@ -31,36 +31,16 @@ timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 log_filename = f'evaluation_log_{timestamp}.txt'
 sys.stdout = Logger(log_filename)
 
-# Load the most recent model unless specified
-def get_latest_model_path():
-    model_files = glob.glob('saved_models/xgboost_ensemble_*.joblib')
-    if not model_files:
-        raise FileNotFoundError("No saved models found in saved_models directory")
-    
-    # Group models by size
-    size_models = {}
-    for model_file in model_files:
-        # Extract size from filename
-        if 'full' in model_file:
-            size = 'full'
-        else:
-            # Extract number from filename
-            size = ''.join(filter(str.isdigit, model_file.split('_')[2]))
-        size_models[size] = model_file
-    
-    # Return the most recent model for each size
-    latest_models = {}
-    for size, files in size_models.items():
-        latest_models[size] = max(files)
-    
-    return latest_models
-
-# Define the specific model paths for each size
+# Use hardcoded paths for the FI features models
 MODEL_PATHS = {
-    '10000': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_10000_run_20250825_160615.joblib',
-    '100000': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_100000_run_20250825_164742.joblib',
-    'full': '/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_full_run_20250825_165926.joblib'
+    '10000': 'saved_models/xgboost_ensemble_fi_features_10000_run_20250828_061856.joblib',
+    '100000': 'saved_models/xgboost_ensemble_fi_features_100000_run_20250828_065720.joblib',
+    'full': 'saved_models/xgboost_ensemble_fi_features_full_run_20250828_071750.joblib'
 }
+
+print("Using FI features models:")
+for size, path in MODEL_PATHS.items():
+    print(f"  {size}: {path}")
 
 def evaluate_models(models, X, y, set_name, size):
     try:
@@ -159,33 +139,67 @@ def plot_feature_importance(models, numerical_features, categorical_features, si
                 f.write(line + '\n')
         print(f"\nSaved feature importance to: {filename}")
 
+def load_features_from_json(json_path):
+    """Load top 25 features from the feature importance JSON file"""
+    print(f"Loading features from: {json_path}")
+    
+    if not os.path.exists(json_path):
+        print(f"❌ JSON file not found at: {json_path}")
+        print("❌ Please ensure the feature importance JSON file exists")
+        return None, None, None
+    
+    with open(json_path, 'r') as f:
+        data = json.load(f)
+    
+    # Extract the selected feature names from the JSON
+    selected_features = data['selected_names']
+    
+    print(f"✅ Loaded {len(selected_features)} features from JSON")
+    print(f"✅ Features: {selected_features}")
+    
+    # Define categorical features based on the selected features
+    # These are the features that should be treated as categorical
+    categorical_features = [
+        'ContentRating', 'highest_android_version', 'CurrentVersion',
+        'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre'
+    ]
+    
+    # Filter to only include categorical features that are in the selected features
+    categorical_features = [f for f in categorical_features if f in selected_features]
+    
+    # Numerical features are the remaining selected features
+    numerical_features = [f for f in selected_features if f not in categorical_features]
+    
+    print(f"✅ Categorical features: {categorical_features}")
+    print(f"✅ Numerical features: {numerical_features}")
+    
+    return selected_features, categorical_features, numerical_features
+
 def main():
+    # Load features from the same JSON file used for training
+    print("Loading features from feature importance JSON...")
+    json_path = './xgboost_feature_importance_20250827_230123.json'
+    selected_features, categorical_features, numerical_features = load_features_from_json(json_path)
+    
+    if selected_features is None:
+        print("❌ CRITICAL ERROR: Could not load features from JSON!")
+        sys.exit(1)
+    
     # Load data
     print("Loading data...")
     df = pd.read_csv('./content/sample_data/corrected_permacts.csv')
     df = df.dropna(ignore_index=False)
     
-    # Define features in order of MI importance from ExcelFormer output (exactly as in training script)
-    selected_features = [
-        'ContentRating', 'LastUpdated', 'days_since_last_update',
-        'highest_android_version', 'privacy_policy_link', 'CurrentVersion',
-        'TwoStarRatings', 'isSpamming', 'OneStarRatings', 'FourStarRatings',
-        'ThreeStarRatings', 'max_downloads_log', 'lowest_android_version',
-        'LenWhatsNew', 'FiveStarRatings', 'STORAGE', 'AndroidVersion',
-        'developer_address', 'developer_website', 'LOCATION', 'PHONE',
-        'intent', 'DeveloperCategory', 'Genre', 'ReviewsAverage'
-    ]
-
-    # Define categorical features (exactly as in training script)
-    categorical_features = [
-        'ContentRating', 'highest_android_version', 'CurrentVersion',
-        'lowest_android_version', 'AndroidVersion', 'DeveloperCategory', 'Genre'
-    ]
-
-    # Get numerical features (exactly as in training script)
-    numerical_features = [f for f in selected_features if f not in categorical_features]
+    # Verify all selected features exist in the dataset
+    missing_features = [f for f in selected_features if f not in df.columns]
+    if missing_features:
+        print(f"❌ CRITICAL ERROR: Missing features in dataset: {missing_features}")
+        print(f"❌ Available columns: {df.columns.tolist()}")
+        sys.exit(1)
     
-    # Prepare X and y
+    print(f"✅ All {len(selected_features)} selected features found in dataset")
+    
+    # Prepare X and y using the features from JSON
     X = df[selected_features]
     y = df['status']
     
@@ -233,9 +247,9 @@ def main():
         # Save ROC metrics to JSON
         dump_dir = "/home/umflint.edu/koernerg/roc_dumps"
         os.makedirs(dump_dir, exist_ok=True)
-        out_json = os.path.join(dump_dir, f"xgboost_{size}.json")
+        out_json = os.path.join(dump_dir, f"xgboost_fi_features_{size}.json")
         payload = {
-            "model": "xgboost",
+            "model": "xgboost_fi_features",
             "size": str(size),
             "val": {
                 "fpr": [float(x) for x in val_fpr],

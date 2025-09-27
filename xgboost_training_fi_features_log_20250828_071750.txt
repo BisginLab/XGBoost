@@ -1,0 +1,4 @@
+XGBoost training with FI features completed successfully
+Data checksum: abe919d373e72fc29cbf8725c44fd510
+Feature order: ['ContentRating', 'Genre', 'CurrentVersion', 'privacy_policy_link', 'AndroidVersion', 'developer_website', 'isSpamming', 'lowest_android_version', 'DeveloperCategory', 'LastUpdated', 'max_downloads_log', 'days_since_last_update', 'SMS', 'LenWhatsNew', 'PHONE', 'media', 'CONTACTS', 'highest_android_version', 'developer_address', 'intent', 'OneStarRatings', 'paid', 'bluetooth', 'FourStarRatings', 'provider']
+All original functionality preserved

@@ -1,0 +1,16 @@
+{
+  "model": "XGBoost",
+  "sample_size": "full",
+  "device": "cuda",
+  "test_size": 108624,
+  "test_time_s": 0.041,
+  "throughput_apps_per_s": 2620224.856,
+  "test_auc": null,
+  "peak_vram_mb": 2,
+  "cpu_max_rss_mb": 781,
+  "model_bytes": 4686775,
+  "notes": {
+    "ensemble_size": 1,
+    "trees_per_model": 1000
+  }
+}

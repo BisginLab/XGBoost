@@ -1,0 +1,35 @@
+XGBoost Feature Importance (Full Features - Standardized Preprocessing)
+============================================================
+
+Sample Size: 100000
+Total Features: 47
+Preprocessing: Standardized (Full Features)
+Categorical Encoding: OneHot
+Data Checksum: abe919d373e72fc29cbf8725c44fd510
+
+Top 25 Features by Importance (Aggregated):
+ 1. ContentRating: 0.3614
+ 2. Genre: 0.2062
+ 3. CurrentVersion: 0.0685
+ 4. AndroidVersion: 0.0517
+ 5. privacy_policy_link: 0.0366
+ 6. lowest_android_version: 0.0286
+ 7. developer_website: 0.0234
+ 8. DeveloperCategory: 0.0225
+ 9. isSpamming: 0.0223
+10. LastUpdated: 0.0165
+11. days_since_last_update: 0.0144
+12. max_downloads_log: 0.0139
+13. SMS: 0.0124
+14. PHONE: 0.0092
+15. highest_android_version: 0.0088
+16. LenWhatsNew: 0.0085
+17. media: 0.0069
+18. bluetooth: 0.0065
+19. intent: 0.0061
+20. CONTACTS: 0.0059
+21. developer_address: 0.0053
+22. provider: 0.0051
+23. paid: 0.0049
+24. OneStarRatings: 0.0046
+25. FourStarRatings: 0.0040

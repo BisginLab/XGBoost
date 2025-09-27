@@ -1,0 +1,191 @@
+{
+  "model": "XGBoost",
+  "preprocessing": "full_features_standardized",
+  "sample_size": "full",
+  "timestamp": "20250827_223418",
+  "data_checksum": "abe919d373e72fc29cbf8725c44fd510",
+  "total_features_used": 47,
+  "top_25_features": [
+    {
+      "rank": 1,
+      "feature_name": "ContentRating",
+      "importance": 0.4218873872887343,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 2,
+      "feature_name": "Genre",
+      "importance": 0.16178065043641254,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 3,
+      "feature_name": "CurrentVersion",
+      "importance": 0.06441386236110702,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 4,
+      "feature_name": "privacy_policy_link",
+      "importance": 0.05264846608042717,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 5,
+      "feature_name": "AndroidVersion",
+      "importance": 0.04674773698206991,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 6,
+      "feature_name": "developer_website",
+      "importance": 0.026658691465854645,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 7,
+      "feature_name": "isSpamming",
+      "importance": 0.02481606975197792,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 8,
+      "feature_name": "lowest_android_version",
+      "importance": 0.024120777961798012,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 9,
+      "feature_name": "DeveloperCategory",
+      "importance": 0.020554616348817945,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 10,
+      "feature_name": "max_downloads_log",
+      "importance": 0.016893312335014343,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 11,
+      "feature_name": "days_since_last_update",
+      "importance": 0.01575067825615406,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 12,
+      "feature_name": "LastUpdated",
+      "importance": 0.01358642429113388,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 13,
+      "feature_name": "SMS",
+      "importance": 0.011897331103682518,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 14,
+      "feature_name": "LenWhatsNew",
+      "importance": 0.00989256240427494,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 15,
+      "feature_name": "PHONE",
+      "importance": 0.008687777444720268,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 16,
+      "feature_name": "highest_android_version",
+      "importance": 0.008610150194726884,
+      "feature_type": "categorical"
+    },
+    {
+      "rank": 17,
+      "feature_name": "media",
+      "importance": 0.0068697319366037846,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 18,
+      "feature_name": "CONTACTS",
+      "importance": 0.006461104843765497,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 19,
+      "feature_name": "developer_address",
+      "importance": 0.005449090152978897,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 20,
+      "feature_name": "bluetooth",
+      "importance": 0.005221898667514324,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 21,
+      "feature_name": "OneStarRatings",
+      "importance": 0.00469520827755332,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 22,
+      "feature_name": "intent",
+      "importance": 0.004657931160181761,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 23,
+      "feature_name": "paid",
+      "importance": 0.004555175546556711,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 24,
+      "feature_name": "FourStarRatings",
+      "importance": 0.003520785830914974,
+      "feature_type": "numerical"
+    },
+    {
+      "rank": 25,
+      "feature_name": "provider",
+      "importance": 0.003482059109956026,
+      "feature_type": "numerical"
+    }
+  ],
+  "feature_names_only": [
+    "ContentRating",
+    "Genre",
+    "CurrentVersion",
+    "privacy_policy_link",
+    "AndroidVersion",
+    "developer_website",
+    "isSpamming",
+    "lowest_android_version",
+    "DeveloperCategory",
+    "max_downloads_log",
+    "days_since_last_update",
+    "LastUpdated",
+    "SMS",
+    "LenWhatsNew",
+    "PHONE",
+    "highest_android_version",
+    "media",
+    "CONTACTS",
+    "developer_address",
+    "bluetooth",
+    "OneStarRatings",
+    "intent",
+    "paid",
+    "FourStarRatings",
+    "provider"
+  ],
+  "performance_metrics": {
+    "val_auc": 0.8019205915973533,
+    "test_auc": 0.8004533378946327
+  }
+}

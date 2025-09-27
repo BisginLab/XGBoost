@@ -1,0 +1,13 @@
+run_label,dataset,feature_set,sample_size,wall_train_s,peak_ram_mb,peak_vram_mb,val_auc_last,test_auc_last,test_time_s,test_size,throughput_apps_per_s,checkpoint_bytes,checkpoint_path,started_at,finished_at
+XGB-MI-25-full,android_security,MI-25,full,,792,0,,0.8001596111522152,3.715,108624,29240.374,4639640,,,
+XGB-MI-25-full,android_security,MI-25,full,,692,0,,0.8001596111522152,3.722,108624,29180.765,4639640,,,
+XGB-MI-25-full,android_security,MI-25,full,,674,0,,,0.197,108624,551834.913,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,680,0,,,0.196,108624,553503.576,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,766,0,,,0.041,108624,2642810.774,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,680,0,,,0.196,108624,553717.496,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,766,0,,,0.045,108624,2432186.704,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,766,0,,,0.044,108624,2465445.914,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,784,2,,,0.06,108624,1796545.245,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,694,470,,,0.197,108624,551725.986,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,680,0,,,0.198,108624,549580.974,4686775,,,
+XGB-MI-25-full,android_security,MI-25,full,,781,2,,,0.041,108624,2620224.856,4686775,,,
