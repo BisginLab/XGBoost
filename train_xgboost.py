@@ -193,9 +193,12 @@ print("="*60)
 
 # Verify data consistency first
 print("\nVerifying standardized data consistency...")
-if not verify_data_consistency('./standardized_data'):
+print("This ensures we're using the CLEANED dataframe saved by master_preprocessing.py")
+if not verify_data_consistency('../../data/splits'):
     print("❌ Data consistency check failed! Run master preprocessing script first.")
+    print("   Run: python scripts/master_preprocessing.py")
     sys.exit(1)
+print("✅ Data consistency verified! Using standardized cleaned data.")
 
 # Load features based on the selected mode
 print(f"\nLoading features for mode: {args.features}")
@@ -234,7 +237,7 @@ print(f"  Source: {feature_source}")
 
 # Load metadata to get feature definitions from standardized preprocessing
 print("\nLoading standardized preprocessing metadata...")
-_, _, _, _, metadata = load_standardized_data('full', './standardized_data')
+_, _, _, _, metadata = load_standardized_data('full', '../../data/splits')
 
 print(f"\nFeature summary:")
 print(f"  Feature mode: {args.features}")
@@ -302,15 +305,19 @@ for size in sample_sizes:
     print(f"{'='*50}\n")
     
     # Load standardized data and indices for this sample size
+    # This loads the CLEANED dataframe (cleaned_data.pkl) created by master_preprocessing.py
+    # and applies pre-computed indices directly - ensuring fair comparison with ExcelFormer
     df_clean, train_indices, val_indices, test_indices, size_metadata = load_standardized_data(
         sample_size=size,
-        data_dir='./standardized_data'
+        data_dir='../../data/splits'  # Path from models/xgboost/ to repo root data/splits/
     )
     
-    print(f"Loaded standardized data for size {size}:")
+    print(f"Loaded standardized CLEANED data for size {size}:")
+    print(f"  Dataframe shape: {df_clean.shape}")
     print(f"  Train set size: {len(train_indices)}")
     print(f"  Validation set size: {len(val_indices)}")
     print(f"  Test set size: {len(test_indices)}")
+    print(f"  Data source: cleaned_data.pkl (preprocessed by master_preprocessing.py)")
     
     # Extract features using the feature list from JSON (CRITICAL!)
     X = df_clean[selected_features]  # Use features from JSON!
