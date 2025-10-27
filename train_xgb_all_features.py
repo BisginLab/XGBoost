@@ -198,7 +198,7 @@ xgb_pipeline = Pipeline([
 ])
 
 # Create directory for models if it doesn't exist
-os.makedirs('saved_models', exist_ok=True)
+os.makedirs('results/xgboost', exist_ok=True)
 
 # Create fixed sample sizes for consistent training across models
 sample_sizes = ['full']  # Preserve original sample sizes
@@ -327,7 +327,7 @@ for size in sample_sizes:
     
     # Save models
     timestamp_save = datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_filename = f'saved_models/xgboost_ensemble_full_features_{size}_run_{timestamp_save}.joblib'
+    model_filename = f'results/xgboost/xgboost_ensemble_full_features_{size}_run_{timestamp_save}.joblib'
     joblib.dump(models, model_filename)
     print(f"\nSaved trained models as: {model_filename}")
     
