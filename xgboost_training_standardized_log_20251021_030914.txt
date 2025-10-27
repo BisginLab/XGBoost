@@ -1,0 +1,4 @@
+XGBoost training with standardized preprocessing completed successfully
+Data checksum: f0090fe94dd22710647102c9e71c4317
+Feature order: ['ContentRating', 'LastUpdated', 'days_since_last_update', 'highest_android_version', 'privacy_policy_link', 'TwoStarRatings', 'CurrentVersion', 'isSpamming', 'max_downloads_log', 'OneStarRatings', 'FourStarRatings', 'ThreeStarRatings', 'lowest_android_version', 'STORAGE', 'FiveStarRatings', 'LenWhatsNew', 'AndroidVersion', 'developer_address', 'developer_website', 'intent', 'PHONE', 'LOCATION', 'DeveloperCategory', 'ReviewsAverage', 'Genre']
+All original functionality preserved

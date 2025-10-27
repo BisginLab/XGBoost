@@ -1,0 +1,6 @@
+============================================================
+MODIFIED XGBOOST SCRIPT WITH STANDARDIZED PREPROCESSING
+============================================================
+Verifying standardized data consistency...
+❌ Error verifying data consistency: [Errno 2] No such file or directory: './standardized_data/cleaned_data.pkl'
+❌ Data consistency check failed! Run master preprocessing script first.
