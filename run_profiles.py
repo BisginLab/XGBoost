@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-# No-args runner for XGBoost → dumps JSONs into roc_dumps/compute_profiles
+# No-args runner for XGBoost → dumps JSONs into results/figures/compute_profiles
 
 import sys, subprocess
 from pathlib import Path
 
 # ---- fixed paths ----
 XGB_ROOT  = Path(__file__).parent
-THIRD_OUT = Path("/home/umflint.edu/koernerg/roc_dumps/compute_profiles")
-DF_PATH   = "/home/umflint.edu/koernerg/xgboost/content/sample_data/corrected_permacts.csv"
-INDICES   = "/home/umflint.edu/koernerg/xgboost/standardized_data"
+REPO_ROOT = XGB_ROOT.parent.parent
+THIRD_OUT = REPO_ROOT / "results" / "figures" / "compute_profiles"
+DF_PATH   = str(REPO_ROOT / "data" / "raw" / "corrected_permacts.csv")
+INDICES   = str(REPO_ROOT / "data" / "splits")
 
 FEATURE_SETS = ["MI-25", "FI-25"]
 SIZES        = ["10000", "100000", "full"]

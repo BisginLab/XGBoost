@@ -24,21 +24,21 @@ except Exception:
 
 # ---------- Constants ----------
 POLL_SECS = 0.5
-IDX_DIR_DEFAULT = "./standardized_data"
-OUT_DIR_DEFAULT = "./compute_profiles"
+IDX_DIR_DEFAULT = "../../data/splits"
+OUT_DIR_DEFAULT = "../../results/figures/compute_profiles"
 CSV_NAME = "compute_profiles_summary.csv"
 
-# ---------- Model paths for each feature type (matches xgb_plot_pr.py) ----------
+# ---------- Model paths for each feature type (glob patterns) ----------
 MODEL_PATHS = {
     "MI-25": {
-        "10000": "/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_10000_run_20250825_160615.joblib",
-        "100000": "/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_100000_run_20250825_164742.joblib",
-        "full": "/home/umflint.edu/koernerg/xgboost/saved_models/xgboost_ensemble_standardized_full_run_20250825_165926.joblib",
+        "10000": "../../results/xgboost/xgboost_ensemble_mi-25_10000_run_*.joblib",
+        "100000": "../../results/xgboost/xgboost_ensemble_mi-25_100000_run_*.joblib",
+        "full": "../../results/xgboost/xgboost_ensemble_mi-25_full_run_*.joblib",
     },
     "FI-25": {
-        "10000": "saved_models/xgboost_ensemble_fi_features_10000_run_20250828_061856.joblib",
-        "100000": "saved_models/xgboost_ensemble_fi_features_100000_run_20250828_065720.joblib",
-        "full": "saved_models/xgboost_ensemble_fi_features_full_run_20250828_071750.joblib",
+        "10000": "../../results/xgboost/xgboost_ensemble_fi-25_10000_run_*.joblib",
+        "100000": "../../results/xgboost/xgboost_ensemble_fi-25_100000_run_*.joblib",
+        "full": "../../results/xgboost/xgboost_ensemble_fi-25_full_run_*.joblib",
     },
 }
 
@@ -400,7 +400,7 @@ def main():
     ap.add_argument("--single_model", action="store_true",
                     help="Use only the first pipeline in the joblib (fair single-model timing).")
     ap.add_argument("--report_auc", action="store_true", help="Also compute ROC AUC (off by default).")
-    ap.add_argument("--df_path", default="./content/sample_data/corrected_permacts.csv",
+    ap.add_argument("--df_path", default="../../data/raw/corrected_permacts.csv",
                     help="CSV with original columns used by the pipelines.")
     ap.add_argument("--indices_dir", default=IDX_DIR_DEFAULT,
                     help="Folder with test_indices_{size}.npy files (matches PR script).")
@@ -424,8 +424,23 @@ def main():
     print(f"[XGB-PROFILER] Running sizes: {sizes}")
     
     for size in sizes:
-        path = mapping.get(size)
-        if not path or not Path(path).exists():
+        path_pattern = mapping.get(size)
+        if not path_pattern:
+            print(f"⚠️  Skipping {args.feature_set} {size}: no path pattern defined")
+            continue
+        
+        # Resolve glob pattern if present
+        if '*' in path_pattern:
+            import glob
+            matches = glob.glob(path_pattern)
+            if not matches:
+                print(f"⚠️  Skipping {args.feature_set} {size}: no files matching {path_pattern}")
+                continue
+            path = max(matches, key=os.path.getmtime)
+        else:
+            path = path_pattern
+        
+        if not Path(path).exists():
             print(f"⚠️  Skipping {args.feature_set} {size}: model file missing → {path}")
             continue
 
