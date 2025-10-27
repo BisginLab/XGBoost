@@ -2,6 +2,45 @@
 """Modified XGBoost Script with Standardized Preprocessing
 
 Preserves ALL original functionality while using standardized preprocessing for fair comparison.
+Supports multiple feature modes: all, mi-25, fi-25
+
+USAGE:
+------
+This script requires a --features argument to select which features to train on:
+
+1. Train on MI top 25 features (Mutual Information):
+   python train_xgboost.py --features mi-25
+
+2. Train on FI top 25 features (Feature Importance from XGBoost):
+   python train_xgboost.py --features fi-25
+
+3. Train on ALL features from the dataset:
+   python train_xgboost.py --features all
+
+NOTE: The --features argument is REQUIRED. Script will error if not provided.
+
+FEATURE MODES:
+--------------
+- all:   Trains on ALL available features from corrected_permacts.csv (after cleaning)
+- mi-25: Trains on top 25 features selected by Mutual Information
+         (loads from: ./top_mi_feature_list/mi_top25_catenc(1)_norm(quantile).json)
+- fi-25: Trains on top 25 features selected by XGBoost Feature Importance
+         (loads from: ./xgboost_feature_importance_20250827_230123.json)
+
+OUTPUT:
+-------
+All outputs are saved with the feature mode in the filename:
+- Models: results/xgboost/xgboost_ensemble_{features}_{size}_run_{timestamp}.joblib
+- Logs: xgboost_{features}_training_log_{timestamp}.txt
+- Results: xgboost_results_{features}_{size}_{timestamp}.json
+- Plots: xgboost_roc_curve_{features}_sample_{size}_{timestamp}.png
+
+REQUIREMENTS:
+-------------
+- Preprocessed data must exist in ./standardized_data/ directory
+- Run scripts/master_preprocessing.py first if data doesn't exist
+- For mi-25 mode: MI JSON file must exist
+- For fi-25 mode: FI JSON file must exist
 """
 
 import zipfile
@@ -11,6 +50,7 @@ import numpy as np
 import sys
 from datetime import datetime
 import json
+import argparse
 
 import xgboost as xgb
 import torch
@@ -61,6 +101,56 @@ def load_features_from_json(json_path):
     
     return selected_features, categorical_features, numerical_features
 
+def load_all_features_from_csv():
+    """Load data from corrected_permacts.csv and get ALL available features"""
+    print("Loading data from corrected_permacts.csv...")
+    
+    # Check if the CSV exists
+    csv_path = './content/sample_data/corrected_permacts.csv'
+    if not os.path.exists(csv_path):
+        print(f"❌ CSV file not found at: {csv_path}")
+        print("❌ Please ensure corrected_permacts.csv exists in ./content/sample_data/")
+        return None, None, None
+    
+    # Load the CSV
+    df = pd.read_csv(csv_path)
+    print(f"Initial DataFrame shape: {df.shape}")
+    
+    # Apply same cleaning as ExcelFormer
+    df = df.dropna()
+    print(f"Shape after dropping NaNs: {df.shape}")
+    
+    if 'Unnamed: 0' in df.columns:
+        df = df.drop('Unnamed: 0', axis=1)
+        print(f"Shape after dropping Unnamed: 0: {df.shape}")
+    
+    # Drop pkgname as in ExcelFormer
+    if 'pkgname' in df.columns:
+        df = df.drop(['pkgname'], axis=1)
+        print(f"Shape after dropping pkgname: {df.shape}")
+    
+    # Get ALL features (excluding target)
+    all_features = [col for col in df.columns if col != 'status']
+    
+    print(f"✅ Found {len(all_features)} total features in original dataset")
+    
+    # Define categorical features based on data types
+    categorical_features = df[all_features].select_dtypes(include=['object']).columns.tolist()
+    numerical_features = df[all_features].select_dtypes(include=['int64', 'float64']).columns.tolist()
+    
+    print(f"✅ Detected {len(categorical_features)} categorical features")
+    print(f"✅ Detected {len(numerical_features)} numerical features")
+    
+    return all_features, categorical_features, numerical_features
+
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description='Train XGBoost with different feature sets')
+parser.add_argument('--features', 
+                    choices=['all', 'mi-25', 'fi-25'], 
+                    required=True,
+                    help='Feature set to use: all (all features), mi-25 (MI top 25), fi-25 (FI top 25)')
+args = parser.parse_args()
+
 # Check XGBoost GPU support
 print("XGBoost GPU support:", xgb.build_info())
 
@@ -89,33 +179,68 @@ class Logger:
 
 # Add after the imports
 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-log_filename = f'xgboost_standardized_training_log_{timestamp}.txt'
+log_filename = f'xgboost_{args.features}_training_log_{timestamp}.txt'
 sys.stdout = Logger(log_filename)
 
 print("="*60)
-print("MODIFIED XGBOOST SCRIPT WITH STANDARDIZED PREPROCESSING")
+print(f"XGBOOST TRAINING SCRIPT - FEATURE MODE: {args.features.upper()}")
+print("="*60)
+print(f"Selected feature mode: {args.features}")
+print(f"  all: Train on ALL available features from CSV")
+print(f"  mi-25: Train on top 25 features from Mutual Information")
+print(f"  fi-25: Train on top 25 features from Feature Importance")
 print("="*60)
 
 # Verify data consistency first
-print("Verifying standardized data consistency...")
+print("\nVerifying standardized data consistency...")
 if not verify_data_consistency('./standardized_data'):
     print("❌ Data consistency check failed! Run master preprocessing script first.")
     sys.exit(1)
 
-# Load features from JSON instead of hardcoded list
-print("Loading feature definitions from JSON...")
-json_path = './top_mi_feature_list/mi_top25_catenc(1)_norm(quantile).json'
-selected_features, categorical_features, numerical_features = load_features_from_json(json_path)
+# Load features based on the selected mode
+print(f"\nLoading features for mode: {args.features}")
+
+if args.features == 'all':
+    # Load ALL features from CSV
+    print("Loading ALL features from corrected_permacts.csv...")
+    selected_features, categorical_features, numerical_features = load_all_features_from_csv()
+    if selected_features is None:
+        print("❌ CRITICAL ERROR: Could not load all features!")
+        sys.exit(1)
+    feature_source = "ALL features from CSV"
+    
+elif args.features == 'mi-25':
+    # Load MI top 25 features from JSON
+    print("Loading top 25 features from Mutual Information JSON...")
+    json_path = './top_mi_feature_list/mi_top25_catenc(1)_norm(quantile).json'
+    if not os.path.exists(json_path):
+        print(f"❌ MI JSON file not found at: {json_path}")
+        sys.exit(1)
+    selected_features, categorical_features, numerical_features = load_features_from_json(json_path)
+    feature_source = f"MI-25 from {json_path}"
+    
+elif args.features == 'fi-25':
+    # Load FI top 25 features from JSON
+    print("Loading top 25 features from Feature Importance JSON...")
+    json_path = './xgboost_feature_importance_20250827_230123.json'
+    if not os.path.exists(json_path):
+        print(f"❌ FI JSON file not found at: {json_path}")
+        sys.exit(1)
+    selected_features, categorical_features, numerical_features = load_features_from_json(json_path)
+    feature_source = f"FI-25 from {json_path}"
+
+print(f"\n✅ Loaded features successfully!")
+print(f"  Source: {feature_source}")
 
 # Load metadata to get feature definitions from standardized preprocessing
-print("Loading standardized preprocessing metadata...")
+print("\nLoading standardized preprocessing metadata...")
 _, _, _, _, metadata = load_standardized_data('full', './standardized_data')
 
-print(f"\nUsing features from JSON file: {json_path}")
+print(f"\nFeature summary:")
+print(f"  Feature mode: {args.features}")
 print(f"  Total features: {len(selected_features)}")
 print(f"  Categorical: {len(categorical_features)}")
 print(f"  Numerical: {len(numerical_features)}")
-print(f"  Feature order: {selected_features}")
 print(f"  Data checksum: {metadata['data_checksum']}")
 
 # After feature definitions but before training
@@ -281,7 +406,7 @@ for size in sample_sizes:
     
     # Save models (PRESERVE ORIGINAL SAVING)
     timestamp_save = datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_filename = f'results/xgboost/xgboost_ensemble_standardized_{size}_run_{timestamp_save}.joblib'
+    model_filename = f'results/xgboost/xgboost_ensemble_{args.features}_{size}_run_{timestamp_save}.joblib'
     joblib.dump(models, model_filename)
     print(f"\nSaved trained models as: {model_filename}")
     
@@ -294,12 +419,12 @@ for size in sample_sizes:
     plt.plot([0, 1], [0, 1], 'k--')
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
-    plt.title(f'XGBoost ROC Curve (Standardized) - {size} Samples')
+    plt.title(f'XGBoost ROC Curve ({args.features.upper()}) - {size} Samples')
     plt.legend()
     plt.grid(True)
     
     # Save plot
-    plot_filename = f'xgboost_roc_curve_standardized_sample_{size}_{timestamp_save}.png'
+    plot_filename = f'xgboost_roc_curve_{args.features}_sample_{size}_{timestamp_save}.png'
     plt.savefig(plot_filename)
     plt.close()
     print(f"\nSaved ROC curve plot as: {plot_filename}")
@@ -338,14 +463,15 @@ for size in sample_sizes:
     sorted_features = sorted(aggregated_importance.items(), key=lambda x: x[1], reverse=True)
     
     # Save feature importance to file (ENHANCED with standardization info)
-    importance_filename = f'xgboost_feature_importance_standardized_sample_{size}_{timestamp_save}.txt'
+    importance_filename = f'xgboost_feature_importance_{args.features}_sample_{size}_{timestamp_save}.txt'
     with open(importance_filename, 'w') as f:
-        f.write("XGBoost Feature Importance (Standardized Preprocessing)\n")
+        f.write(f"XGBoost Feature Importance ({args.features.upper()})\n")
         f.write("="*60 + "\n\n")
+        f.write(f"Feature Mode: {args.features}\n")
         f.write(f"Sample Size: {size}\n")
         f.write(f"Preprocessing: Standardized\n")
         f.write(f"Categorical Encoding: OneHot\n")
-        f.write(f"Feature Order: {selected_features}\n")
+        f.write(f"Feature Count: {len(selected_features)}\n")
         f.write(f"Data Checksum: {metadata['data_checksum']}\n\n")
         f.write("Top 25 Features by Importance (Aggregated):\n")
         for i, (feature, importance) in enumerate(sorted_features[:25], 1):
@@ -360,11 +486,11 @@ for size in sample_sizes:
     plt.barh(range(25), top_25_importance)
     plt.yticks(range(25), top_25_features)
     plt.xlabel('Importance')
-    plt.title(f'XGBoost - Top 25 Feature Importance (Standardized) - {size} Samples')
+    plt.title(f'XGBoost - Top 25 Feature Importance ({args.features.upper()}) - {size} Samples')
     plt.tight_layout()
     
     # Save plot
-    plot_filename = f'xgboost_feature_importance_standardized_sample_{size}_{timestamp_save}.png'
+    plot_filename = f'xgboost_feature_importance_{args.features}_sample_{size}_{timestamp_save}.png'
     plt.savefig(plot_filename)
     plt.close()
     print(f"Saved feature importance plot as: {plot_filename}")
@@ -372,8 +498,10 @@ for size in sample_sizes:
     # Save detailed results (ENHANCED)
     results = {
         'model': 'XGBoost',
+        'feature_mode': args.features,
         'preprocessing': 'standardized',
         'sample_size': size,
+        'feature_count': len(selected_features),
         'train_size': len(train_indices),
         'val_size': len(val_indices),
         'test_size': len(test_indices),
@@ -390,7 +518,7 @@ for size in sample_sizes:
         }
     }
     
-    results_filename = f'xgboost_results_standardized_{size}_{timestamp_save}.json'
+    results_filename = f'xgboost_results_{args.features}_{size}_{timestamp_save}.json'
     with open(results_filename, 'w') as f:
         json.dump(results, f, indent=2)
     print(f"Saved detailed results to: {results_filename}")
@@ -458,12 +586,13 @@ for i, (feature, importance) in enumerate(sorted_aggregated_final[:25], 1):
 
 # Save feature importance to file (PRESERVE ORIGINAL)
 timestamp_final = datetime.now().strftime('%Y%m%d_%H%M%S')
-filename = f'feature_importance_standardized_{timestamp_final}.txt'
+filename = f'feature_importance_{args.features}_{timestamp_final}.txt'
 with open(filename, 'w') as f:
-    f.write("XGBoost Feature Importance Analysis (Standardized Preprocessing)\n")
+    f.write(f"XGBoost Feature Importance Analysis ({args.features.upper()})\n")
     f.write("="*70 + "\n\n")
-    f.write(f"Data Checksum: {metadata['data_checksum']}\n")
-    f.write(f"Feature Order: {selected_features}\n\n")
+    f.write(f"Feature Mode: {args.features}\n")
+    f.write(f"Feature Count: {len(selected_features)}\n")
+    f.write(f"Data Checksum: {metadata['data_checksum']}\n\n")
     f.write("Non-aggregated Feature Importance:\n")
     for feature, importance in sorted_features_final:
         f.write(f"{feature}: {importance:.4f}\n")
@@ -481,11 +610,11 @@ top_importance = [x[1] for x in sorted_features_final[:top_n]]
 plt.barh(range(len(top_features)), top_importance)
 plt.yticks(range(len(top_features)), top_features)
 plt.xlabel('Feature Importance')
-plt.title('Top 25 Features by Importance (Non-aggregated) - Standardized')
+plt.title(f'Top 25 Features by Importance (Non-aggregated) - {args.features.upper()}')
 plt.tight_layout()
 
 # Save non-aggregated plot
-plot_filename = f'feature_importance_plot_standardized_{timestamp_final}.png'
+plot_filename = f'feature_importance_plot_{args.features}_{timestamp_final}.png'
 plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
 plt.close()
 print(f"Saved non-aggregated feature importance plot as: {plot_filename}")
@@ -498,38 +627,39 @@ top_agg_importance = [x[1] for x in sorted_aggregated_final[:top_n]]
 plt.barh(range(len(top_agg_features)), top_agg_importance)
 plt.yticks(range(len(top_agg_features)), top_agg_features)
 plt.xlabel('Feature Importance')
-plt.title('Top 25 Features by Importance (Aggregated) - Standardized')
+plt.title(f'Top 25 Features by Importance (Aggregated) - {args.features.upper()}')
 plt.tight_layout()
 
 # Save aggregated plot
-plot_filename = f'feature_importance_plot_aggregated_standardized_{timestamp_final}.png'
+plot_filename = f'feature_importance_plot_aggregated_{args.features}_{timestamp_final}.png'
 plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
 plt.close()
 print(f"Saved aggregated feature importance plot as: {plot_filename}")
 
 # Save training log (PRESERVE ORIGINAL)
-with open(f'xgboost_training_standardized_log_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt', 'w') as f:
-    f.write("XGBoost training with standardized preprocessing completed successfully\n")
+with open(f'xgboost_training_{args.features}_log_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt', 'w') as f:
+    f.write(f"XGBoost training with {args.features} features completed successfully\n")
+    f.write(f"Feature mode: {args.features}\n")
+    f.write(f"Feature count: {len(selected_features)}\n")
     f.write(f"Data checksum: {metadata['data_checksum']}\n")
-    f.write(f"Feature order: {selected_features}\n")
     f.write("All original functionality preserved\n")
 
 print("\n" + "="*60)
-print("XGBOOST TRAINING WITH STANDARDIZED PREPROCESSING COMPLETE!")
+print(f"XGBOOST TRAINING COMPLETE - {args.features.upper()} MODE")
 print("="*60)
 
 print("\nKey improvements made:")
+print("✅ Supports multiple feature modes via --features argument")
 print("✅ Uses standardized preprocessing for fair comparison")
 print("✅ Preserves ALL original functionality")
 print("✅ Maintains ensemble training approach")
 print("✅ Keeps comprehensive feature importance analysis")
-print("✅ Uses features from JSON file")
 print("✅ Verifies data consistency with checksums")
 print("✅ Compatible with ExcelFormer preprocessing")
 
-print(f"\nPreprocessing details:")
-print(f"  Data source: Standardized preprocessing")
-print(f"  Feature order: From JSON file ({len(selected_features)} features)")
+print(f"\nTraining details:")
+print(f"  Feature mode: {args.features}")
+print(f"  Feature count: {len(selected_features)}")
 print(f"  Categorical encoding: OneHot")
 print(f"  Data checksum: {metadata['data_checksum']}")
 print(f"  Sample sizes: {sample_sizes}")
@@ -562,6 +692,12 @@ def create_feature_contribution_map(models, X_sample):
 # Add at the very end of the script
 sys.stdout = sys.stdout.terminal  # Restore normal stdout
 print(f"\nTraining log saved to: {log_filename}")
-print("✅ XGBoost training with standardized preprocessing completed successfully!")
+print(f"✅ XGBoost training completed successfully!")
+print(f"✅ Feature mode: {args.features.upper()}")
+print(f"✅ Feature count: {len(selected_features)}")
 print("✅ All original functionality preserved!")
 print("✅ Ready for fair comparison with ExcelFormer!")
+print(f"\nUsage examples:")
+print(f"  python train_xgboost.py --features all     # Train on ALL features")
+print(f"  python train_xgboost.py --features mi-25   # Train on MI top 25")
+print(f"  python train_xgboost.py --features fi-25   # Train on FI top 25")
