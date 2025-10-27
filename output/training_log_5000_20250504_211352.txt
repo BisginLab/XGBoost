@@ -1,3 +1,0 @@
-
-Training with 5000 samples
-Encoding ContentRating...
