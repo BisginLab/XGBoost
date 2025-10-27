@@ -6,7 +6,7 @@ This script extracts the top 25 features by feature importance from XGBoost
 models and saves them to a JSON file.
 
 Behavior:
-- First checks for existing trained XGBoost model in results/xgboost/
+- First checks for existing trained XGBoost model in /workspace/results/xgboost/
 - If found, loads the model (fast)
 - If not found, trains new ensemble of 11 XGBoost models on ALL features (slow)
 
@@ -45,7 +45,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'scripts'))
 from master_preprocessing import load_standardized_data
 
-def find_existing_model(model_dir='results/xgboost', feature_mode='all', sample_size='full'):
+def find_existing_model(model_dir='/workspace/results/xgboost', feature_mode='all', sample_size='full'):
     """Find the most recent saved XGBoost model for the given configuration"""
     pattern = os.path.join(model_dir, f'xgboost_ensemble_{feature_mode}_{sample_size}_run_*.joblib')
     models = glob.glob(pattern)
@@ -61,7 +61,7 @@ def load_all_features_from_csv():
     """Load data from corrected_permacts.csv and get ALL available features"""
     print("Loading ALL features from corrected_permacts.csv...")
     
-    csv_path = 'data/raw/corrected_permacts.csv'
+    csv_path = '/workspace/data/raw/corrected_permacts.csv'
     if not os.path.exists(csv_path):
         print(f"❌ CSV file not found at: {csv_path}")
         return None, None, None
@@ -98,7 +98,7 @@ def main():
     sample_size = 'full'
     seed = 42
     n_models = 11
-    output_dir = 'data/feature_regimes'
+    output_dir = '/workspace/data/feature_regimes'
     
     print("="*60)
     print("COMPUTING FI-25 JSON WITH FIXED CONFIGURATION")
@@ -118,7 +118,7 @@ def main():
     selected_features, categorical_features, numerical_features = load_all_features_from_csv()
     if selected_features is None:
         print("❌ Failed to load features!")
-        return
+        sys.exit(1)
     
     print(f"\nFeature summary:")
     print(f"  Total features: {len(selected_features)}")
@@ -129,7 +129,7 @@ def main():
     print(f"\nStep 2: Loading standardized data (sample_size={sample_size})...")
     df_clean, train_indices, val_indices, test_indices, metadata = load_standardized_data(
         sample_size=sample_size,
-        data_dir='data/splits'
+        data_dir='/workspace/data/splits'
     )
     
     print(f"  Train set size: {len(train_indices)}")
@@ -148,7 +148,7 @@ def main():
     # Step 3: Check for existing model
     print("\nStep 3: Checking for existing trained models...")
     existing_model_path = find_existing_model(
-        model_dir='results/xgboost',
+        model_dir='/workspace/results/xgboost',
         feature_mode='all',
         sample_size='full'
     )
@@ -268,7 +268,7 @@ def main():
         "timestamp": datetime.utcnow().isoformat() + "Z",
         "method": "xgboost_feature_importance",
         "sample_size": sample_size,
-        "indices_dir": "data/splits",
+        "indices_dir": "/workspace/data/splits",
         "seed": seed,
         "n_models": n_models,
         "k": 25,

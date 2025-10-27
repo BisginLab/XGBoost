@@ -23,9 +23,9 @@ FEATURE MODES:
 --------------
 - all:   Trains on ALL available features from corrected_permacts.csv (after cleaning)
 - mi-25: Trains on top 25 features selected by Mutual Information
-         (loads from: ./top_mi_feature_list/mi_top25_catenc(1)_norm(quantile).json)
+         (loads latest: /workspace/data/feature_regimes/mi-25_features_*.json)
 - fi-25: Trains on top 25 features selected by XGBoost Feature Importance
-         (loads from: ./xgboost_feature_importance_20250827_230123.json)
+         (loads latest: /workspace/data/feature_regimes/fi-25_features_*.json)
 
 OUTPUT:
 -------
@@ -213,24 +213,34 @@ if args.features == 'all':
     feature_source = "ALL features from CSV"
     
 elif args.features == 'mi-25':
-    # Load MI top 25 features from JSON
+    # Load MI top 25 features from JSON (find latest)
     print("Loading top 25 features from Mutual Information JSON...")
-    json_path = './top_mi_feature_list/mi_top25_catenc(1)_norm(quantile).json'
-    if not os.path.exists(json_path):
-        print(f"❌ MI JSON file not found at: {json_path}")
+    import glob
+    json_pattern = '/workspace/data/feature_regimes/mi-25_features_*.json'
+    json_files = sorted(glob.glob(json_pattern), reverse=True)
+    if not json_files:
+        print(f"❌ No MI-25 JSON files found matching: {json_pattern}")
+        print("   Run compute_mi-25_json.py first!")
         sys.exit(1)
+    json_path = json_files[0]  # Most recent
+    print(f"   Using: {json_path}")
     selected_features, categorical_features, numerical_features = load_features_from_json(json_path)
-    feature_source = f"MI-25 from {json_path}"
+    feature_source = f"MI-25 from {os.path.basename(json_path)}"
     
 elif args.features == 'fi-25':
-    # Load FI top 25 features from JSON
+    # Load FI top 25 features from JSON (find latest)
     print("Loading top 25 features from Feature Importance JSON...")
-    json_path = './xgboost_feature_importance_20250827_230123.json'
-    if not os.path.exists(json_path):
-        print(f"❌ FI JSON file not found at: {json_path}")
+    import glob
+    json_pattern = '/workspace/data/feature_regimes/fi-25_features_*.json'
+    json_files = sorted(glob.glob(json_pattern), reverse=True)
+    if not json_files:
+        print(f"❌ No FI-25 JSON files found matching: {json_pattern}")
+        print("   Run compute_fi-25_json.py first!")
         sys.exit(1)
+    json_path = json_files[0]  # Most recent
+    print(f"   Using: {json_path}")
     selected_features, categorical_features, numerical_features = load_features_from_json(json_path)
-    feature_source = f"FI-25 from {json_path}"
+    feature_source = f"FI-25 from {os.path.basename(json_path)}"
 
 print(f"\n✅ Loaded features successfully!")
 print(f"  Source: {feature_source}")
@@ -292,7 +302,7 @@ xgb_pipeline = Pipeline([
 ])
 
 # Create directory for models if it doesn't exist
-os.makedirs('results/xgboost', exist_ok=True)
+os.makedirs('/workspace/results/xgboost', exist_ok=True)
 
 # Create fixed sample sizes for consistent training across models
 sample_sizes = [10000, 100000, 'full']  # Preserve original sample sizes
@@ -413,7 +423,7 @@ for size in sample_sizes:
     
     # Save models (PRESERVE ORIGINAL SAVING)
     timestamp_save = datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_filename = f'results/xgboost/xgboost_ensemble_{args.features}_{size}_run_{timestamp_save}.joblib'
+    model_filename = f'/workspace/results/xgboost/xgboost_ensemble_{args.features}_{size}_run_{timestamp_save}.joblib'
     joblib.dump(models, model_filename)
     print(f"\nSaved trained models as: {model_filename}")
     

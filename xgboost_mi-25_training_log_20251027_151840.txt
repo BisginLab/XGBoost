@@ -1,0 +1,20 @@
+============================================================
+XGBOOST TRAINING SCRIPT - FEATURE MODE: MI-25
+============================================================
+Selected feature mode: mi-25
+  all: Train on ALL available features from CSV
+  mi-25: Train on top 25 features from Mutual Information
+  fi-25: Train on top 25 features from Feature Importance
+============================================================
+
+Verifying standardized data consistency...
+This ensures we're using the CLEANED dataframe saved by master_preprocessing.py
+✅ Data consistency verified!
+  Checksum: ab92e964f13be4621ffb1057ab3071b9
+  Features: 47 in correct order
+  Sample sizes: ['10000', '100000', 'full']
+✅ Data consistency verified! Using standardized cleaned data.
+
+Loading features for mode: mi-25
+Loading top 25 features from Mutual Information JSON...
+❌ MI JSON file not found at: ./top_mi_feature_list/mi_top25_catenc(1)_norm(quantile).json
