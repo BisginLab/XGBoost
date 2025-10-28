@@ -29,11 +29,13 @@ FEATURE MODES:
 
 OUTPUT:
 -------
-All outputs are saved with the feature mode in the filename:
-- Models: /workspace/results/xgboost/xgboost_ensemble_{features}_{size}_run_{timestamp}.joblib
-- Logs: xgboost_{features}_training_log_{timestamp}.txt
+All outputs are saved to /workspace/results/xgboost/:
+- Models: xgboost_ensemble_{features}_{size}_run_{timestamp}.joblib
+- Logs: logs/xgboost_{features}_training_log_{timestamp}.txt
 - Results: xgboost_results_{features}_{size}_{timestamp}.json
-- Plots: xgboost_roc_curve_{features}_sample_{size}_{timestamp}.png
+- ROC Plots: xgboost_roc_curve_{features}_sample_{size}_{timestamp}.png
+- Feature Importance Plots: xgboost_feature_importance_{features}_sample_{size}_{timestamp}.png
+- Feature Importance Text: xgboost_feature_importance_{features}_sample_{size}_{timestamp}.txt
 
 REQUIREMENTS:
 -------------
@@ -157,7 +159,10 @@ class Logger:
 
 # Add after the imports
 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-log_filename = f'xgboost_{args.features}_training_log_{timestamp}.txt'
+
+# Create log directory
+os.makedirs('/workspace/results/xgboost/logs', exist_ok=True)
+log_filename = f'/workspace/results/xgboost/logs/xgboost_{args.features}_training_log_{timestamp}.txt'
 sys.stdout = Logger(log_filename)
 
 print("="*60)
@@ -416,7 +421,7 @@ for size in sample_sizes:
     plt.grid(True)
     
     # Save plot
-    plot_filename = f'xgboost_roc_curve_{args.features}_sample_{size}_{timestamp_save}.png'
+    plot_filename = f'/workspace/results/xgboost/xgboost_roc_curve_{args.features}_sample_{size}_{timestamp_save}.png'
     plt.savefig(plot_filename)
     plt.close()
     print(f"\nSaved ROC curve plot as: {plot_filename}")
@@ -455,7 +460,7 @@ for size in sample_sizes:
     sorted_features = sorted(aggregated_importance.items(), key=lambda x: x[1], reverse=True)
     
     # Save feature importance to file (ENHANCED with standardization info)
-    importance_filename = f'xgboost_feature_importance_{args.features}_sample_{size}_{timestamp_save}.txt'
+    importance_filename = f'/workspace/results/xgboost/xgboost_feature_importance_{args.features}_sample_{size}_{timestamp_save}.txt'
     with open(importance_filename, 'w') as f:
         f.write(f"XGBoost Feature Importance ({args.features.upper()})\n")
         f.write("="*60 + "\n\n")
@@ -482,7 +487,7 @@ for size in sample_sizes:
     plt.tight_layout()
     
     # Save plot
-    plot_filename = f'xgboost_feature_importance_{args.features}_sample_{size}_{timestamp_save}.png'
+    plot_filename = f'/workspace/results/xgboost/xgboost_feature_importance_{args.features}_sample_{size}_{timestamp_save}.png'
     plt.savefig(plot_filename)
     plt.close()
     print(f"Saved feature importance plot as: {plot_filename}")
@@ -510,7 +515,7 @@ for size in sample_sizes:
         }
     }
     
-    results_filename = f'xgboost_results_{args.features}_{size}_{timestamp_save}.json'
+    results_filename = f'/workspace/results/xgboost/xgboost_results_{args.features}_{size}_{timestamp_save}.json'
     with open(results_filename, 'w') as f:
         json.dump(results, f, indent=2)
     print(f"Saved detailed results to: {results_filename}")
@@ -578,7 +583,7 @@ for i, (feature, importance) in enumerate(sorted_aggregated_final[:25], 1):
 
 # Save feature importance to file (PRESERVE ORIGINAL)
 timestamp_final = datetime.now().strftime('%Y%m%d_%H%M%S')
-filename = f'feature_importance_{args.features}_{timestamp_final}.txt'
+filename = f'/workspace/results/xgboost/feature_importance_{args.features}_{timestamp_final}.txt'
 with open(filename, 'w') as f:
     f.write(f"XGBoost Feature Importance Analysis ({args.features.upper()})\n")
     f.write("="*70 + "\n\n")
@@ -606,7 +611,7 @@ plt.title(f'Top 25 Features by Importance (Non-aggregated) - {args.features.uppe
 plt.tight_layout()
 
 # Save non-aggregated plot
-plot_filename = f'feature_importance_plot_{args.features}_{timestamp_final}.png'
+plot_filename = f'/workspace/results/xgboost/feature_importance_plot_{args.features}_{timestamp_final}.png'
 plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
 plt.close()
 print(f"Saved non-aggregated feature importance plot as: {plot_filename}")
@@ -623,13 +628,13 @@ plt.title(f'Top 25 Features by Importance (Aggregated) - {args.features.upper()}
 plt.tight_layout()
 
 # Save aggregated plot
-plot_filename = f'feature_importance_plot_aggregated_{args.features}_{timestamp_final}.png'
+plot_filename = f'/workspace/results/xgboost/feature_importance_plot_aggregated_{args.features}_{timestamp_final}.png'
 plt.savefig(plot_filename, dpi=300, bbox_inches='tight')
 plt.close()
 print(f"Saved aggregated feature importance plot as: {plot_filename}")
 
 # Save training log (PRESERVE ORIGINAL)
-with open(f'xgboost_training_{args.features}_log_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt', 'w') as f:
+with open(f'/workspace/results/xgboost/logs/xgboost_training_{args.features}_log_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt', 'w') as f:
     f.write(f"XGBoost training with {args.features} features completed successfully\n")
     f.write(f"Feature mode: {args.features}\n")
     f.write(f"Feature count: {len(selected_features)}\n")
