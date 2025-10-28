@@ -21,7 +21,7 @@ NOTE: The --features argument is REQUIRED. Script will error if not provided.
 
 FEATURE MODES:
 --------------
-- all:   Trains on ALL available features from corrected_permacts.csv (after cleaning)
+- all:   Trains on ALL available features from cleaned_data.pkl (standardized preprocessing)
 - mi-25: Trains on top 25 features selected by Mutual Information
          (loads latest: /workspace/data/feature_regimes/mi-25_features_*.json)
 - fi-25: Trains on top 25 features selected by XGBoost Feature Importance
@@ -30,17 +30,17 @@ FEATURE MODES:
 OUTPUT:
 -------
 All outputs are saved with the feature mode in the filename:
-- Models: results/xgboost/xgboost_ensemble_{features}_{size}_run_{timestamp}.joblib
+- Models: /workspace/results/xgboost/xgboost_ensemble_{features}_{size}_run_{timestamp}.joblib
 - Logs: xgboost_{features}_training_log_{timestamp}.txt
 - Results: xgboost_results_{features}_{size}_{timestamp}.json
 - Plots: xgboost_roc_curve_{features}_sample_{size}_{timestamp}.png
 
 REQUIREMENTS:
 -------------
-- Preprocessed data must exist in ./standardized_data/ directory
+- Standardized data must exist: cleaned_data.pkl in data/processed/, indices in data/splits/
 - Run scripts/master_preprocessing.py first if data doesn't exist
-- For mi-25 mode: MI JSON file must exist
-- For fi-25 mode: FI JSON file must exist
+- For mi-25 mode: MI-25 JSON must exist in data/feature_regimes/
+- For fi-25 mode: FI-25 JSON must exist in data/feature_regimes/
 """
 
 import zipfile
@@ -101,45 +101,23 @@ def load_features_from_json(json_path):
     
     return selected_features, categorical_features, numerical_features
 
-def load_all_features_from_csv():
-    """Load data from corrected_permacts.csv and get ALL available features"""
-    print("Loading data from corrected_permacts.csv...")
+def load_all_features_from_metadata(metadata):
+    """
+    Get ALL features from the standardized preprocessing metadata.
     
-    # Check if the CSV exists
-    csv_path = './content/sample_data/corrected_permacts.csv'
-    if not os.path.exists(csv_path):
-        print(f"❌ CSV file not found at: {csv_path}")
-        print("❌ Please ensure corrected_permacts.csv exists in ./content/sample_data/")
-        return None, None, None
+    This uses the SAME cleaned data that master_preprocessing.py created,
+    ensuring consistency with ExcelFormer.
+    """
+    print("Loading ALL features from standardized preprocessing metadata...")
     
-    # Load the CSV
-    df = pd.read_csv(csv_path)
-    print(f"Initial DataFrame shape: {df.shape}")
+    # Get feature lists from metadata (created by master_preprocessing.py)
+    all_features = metadata['canonical_feature_order']
+    categorical_features = metadata['categorical_features']
+    numerical_features = metadata['numerical_features']
     
-    # Apply same cleaning as ExcelFormer
-    df = df.dropna()
-    print(f"Shape after dropping NaNs: {df.shape}")
-    
-    if 'Unnamed: 0' in df.columns:
-        df = df.drop('Unnamed: 0', axis=1)
-        print(f"Shape after dropping Unnamed: 0: {df.shape}")
-    
-    # Drop pkgname as in ExcelFormer
-    if 'pkgname' in df.columns:
-        df = df.drop(['pkgname'], axis=1)
-        print(f"Shape after dropping pkgname: {df.shape}")
-    
-    # Get ALL features (excluding target)
-    all_features = [col for col in df.columns if col != 'status']
-    
-    print(f"✅ Found {len(all_features)} total features in original dataset")
-    
-    # Define categorical features based on data types
-    categorical_features = df[all_features].select_dtypes(include=['object']).columns.tolist()
-    numerical_features = df[all_features].select_dtypes(include=['int64', 'float64']).columns.tolist()
-    
-    print(f"✅ Detected {len(categorical_features)} categorical features")
-    print(f"✅ Detected {len(numerical_features)} numerical features")
+    print(f"✅ Found {len(all_features)} total features from cleaned data")
+    print(f"✅ Categorical features: {len(categorical_features)}")
+    print(f"✅ Numerical features: {len(numerical_features)}")
     
     return all_features, categorical_features, numerical_features
 
@@ -186,7 +164,7 @@ print("="*60)
 print(f"XGBOOST TRAINING SCRIPT - FEATURE MODE: {args.features.upper()}")
 print("="*60)
 print(f"Selected feature mode: {args.features}")
-print(f"  all: Train on ALL available features from CSV")
+print(f"  all: Train on ALL features from cleaned_data.pkl (standardized preprocessing)")
 print(f"  mi-25: Train on top 25 features from Mutual Information")
 print(f"  fi-25: Train on top 25 features from Feature Importance")
 print("="*60)
@@ -200,17 +178,18 @@ if not verify_data_consistency('../../data/splits'):
     sys.exit(1)
 print("✅ Data consistency verified! Using standardized cleaned data.")
 
+# Load metadata to get feature definitions from standardized preprocessing
+print("\nLoading standardized preprocessing metadata...")
+_, _, _, _, metadata = load_standardized_data('full', '../../data/splits')
+
 # Load features based on the selected mode
 print(f"\nLoading features for mode: {args.features}")
 
 if args.features == 'all':
-    # Load ALL features from CSV
-    print("Loading ALL features from corrected_permacts.csv...")
-    selected_features, categorical_features, numerical_features = load_all_features_from_csv()
-    if selected_features is None:
-        print("❌ CRITICAL ERROR: Could not load all features!")
-        sys.exit(1)
-    feature_source = "ALL features from CSV"
+    # Load ALL features from standardized metadata
+    print("Loading ALL features from standardized preprocessing metadata...")
+    selected_features, categorical_features, numerical_features = load_all_features_from_metadata(metadata)
+    feature_source = "ALL features from cleaned_data.pkl (standardized preprocessing)"
     
 elif args.features == 'mi-25':
     # Load MI top 25 features from JSON (find latest)
@@ -244,10 +223,6 @@ elif args.features == 'fi-25':
 
 print(f"\n✅ Loaded features successfully!")
 print(f"  Source: {feature_source}")
-
-# Load metadata to get feature definitions from standardized preprocessing
-print("\nLoading standardized preprocessing metadata...")
-_, _, _, _, metadata = load_standardized_data('full', '../../data/splits')
 
 print(f"\nFeature summary:")
 print(f"  Feature mode: {args.features}")
