@@ -1,0 +1,217 @@
+============================================================
+XGBOOST TRAINING SCRIPT - FEATURE MODE: MI-25
+============================================================
+Selected feature mode: mi-25
+  all: Train on ALL available features from CSV
+  mi-25: Train on top 25 features from Mutual Information
+  fi-25: Train on top 25 features from Feature Importance
+============================================================
+
+Verifying standardized data consistency...
+This ensures we're using the CLEANED dataframe saved by master_preprocessing.py
+✅ Data consistency verified!
+  Checksum: ab92e964f13be4621ffb1057ab3071b9
+  Features: 47 in correct order
+  Sample sizes: ['10000', '100000', 'full']
+✅ Data consistency verified! Using standardized cleaned data.
+
+Loading features for mode: mi-25
+Loading top 25 features from Mutual Information JSON...
+   Using: /workspace/data/feature_regimes/mi-25_features_20251028_222101.json
+
+✅ Loaded features successfully!
+  Source: MI-25 from mi-25_features_20251028_222101.json
+
+Loading standardized preprocessing metadata...
+Loaded standardized data for sample size: full
+  Data shape: (724160, 48)
+  Train indices: 506912
+  Val indices: 108624
+  Test indices: 108624
+  Feature order: ['CurrentVersion', 'Genre', 'ContentRating', 'AndroidVersion', 'DeveloperCategory', 'lowest_android_version', 'highest_android_version', 'DevRegisteredDomain', 'LenDescription', 'LenWhatsNew', 'ReviewsAverage', 'LastUpdated', 'LenTitle', 'isSpamming', 'net', 'intent', 'bluetooth', 'app', 'provider', 'speech', 'nfc', 'media', 'hardware', 'google', 'os', 'CALENDAR', 'CAMERA', 'CONTACTS', 'LOCATION', 'MICROPHONE', 'PHONE', 'SENSORS', 'SMS', 'STORAGE', 'FourStarRatings', 'ThreeStarRatings', 'FiveStarRatings', 'OneStarRatings', 'TwoStarRatings', 'paid', 'file_size', 'max_downloads_log', 'developer_email', 'privacy_policy_link', 'developer_address', 'developer_website', 'days_since_last_update']
+
+Feature summary:
+  Feature mode: mi-25
+  Total features: 25
+  Categorical: 6
+  Numerical: 19
+  Data checksum: ab92e964f13be4621ffb1057ab3071b9
+
+Training with these features:
+
+Numerical features:
+1. privacy_policy_link
+2. LastUpdated
+3. days_since_last_update
+4. isSpamming
+5. developer_address
+6. developer_website
+7. OneStarRatings
+8. TwoStarRatings
+9. STORAGE
+10. max_downloads_log
+11. PHONE
+12. FourStarRatings
+13. ThreeStarRatings
+14. FiveStarRatings
+15. LenWhatsNew
+16. CONTACTS
+17. CAMERA
+18. intent
+19. LOCATION
+
+Categorical features:
+1. ContentRating
+2. highest_android_version
+3. CurrentVersion
+4. lowest_android_version
+5. AndroidVersion
+6. DeveloperCategory
+
+Feature order from JSON (CRITICAL for consistency):
+1. highest_android_version (CAT)
+2. ContentRating (CAT)
+3. CurrentVersion (CAT)
+4. privacy_policy_link (NUM)
+5. LastUpdated (NUM)
+6. days_since_last_update (NUM)
+7. isSpamming (NUM)
+8. developer_address (NUM)
+9. developer_website (NUM)
+10. OneStarRatings (NUM)
+11. TwoStarRatings (NUM)
+12. STORAGE (NUM)
+13. lowest_android_version (CAT)
+14. max_downloads_log (NUM)
+15. PHONE (NUM)
+16. FourStarRatings (NUM)
+17. ThreeStarRatings (NUM)
+18. DeveloperCategory (CAT)
+19. AndroidVersion (CAT)
+20. FiveStarRatings (NUM)
+21. LenWhatsNew (NUM)
+22. CONTACTS (NUM)
+23. CAMERA (NUM)
+24. intent (NUM)
+25. LOCATION (NUM)
+
+Total feature count: 25
+
+Starting training...
+
+==================================================
+Training with sample size: 10000
+==================================================
+
+Loaded standardized data for sample size: 10000
+  Data shape: (724160, 48)
+  Train indices: 7000
+  Val indices: 1500
+  Test indices: 1500
+  Feature order: ['CurrentVersion', 'Genre', 'ContentRating', 'AndroidVersion', 'DeveloperCategory', 'lowest_android_version', 'highest_android_version', 'DevRegisteredDomain', 'LenDescription', 'LenWhatsNew', 'ReviewsAverage', 'LastUpdated', 'LenTitle', 'isSpamming', 'net', 'intent', 'bluetooth', 'app', 'provider', 'speech', 'nfc', 'media', 'hardware', 'google', 'os', 'CALENDAR', 'CAMERA', 'CONTACTS', 'LOCATION', 'MICROPHONE', 'PHONE', 'SENSORS', 'SMS', 'STORAGE', 'FourStarRatings', 'ThreeStarRatings', 'FiveStarRatings', 'OneStarRatings', 'TwoStarRatings', 'paid', 'file_size', 'max_downloads_log', 'developer_email', 'privacy_policy_link', 'developer_address', 'developer_website', 'days_since_last_update']
+Loaded standardized CLEANED data for size 10000:
+  Dataframe shape: (724160, 48)
+  Train set size: 7000
+  Validation set size: 1500
+  Test set size: 1500
+  Data source: cleaned_data.pkl (preprocessed by master_preprocessing.py)
+
+Feature order verification:
+  Expected: ['highest_android_version', 'ContentRating', 'CurrentVersion']...
+  Actual:   ['highest_android_version', 'ContentRating', 'CurrentVersion']...
+✅ Feature order verified!
+
+Feature counts:
+  Total selected features: 25
+  Numerical features: 19
+  Categorical features: 6
+
+Class balance verification:
+  Train - Class 0 (benign): 3225
+  Train - Class 1 (malware): 3775
+  Train - Ratio: 0.539
+  Val - Class 0 (benign): 691
+  Val - Class 1 (malware): 809
+  Val - Ratio: 0.539
+  Test - Class 0 (benign): 691
+  Test - Class 1 (malware): 809
+  Test - Ratio: 0.539
+
+Training model 1/11
+
+Training model 2/11
+
+Training model 3/11
+
+Training model 4/11
+
+Training model 5/11
+
+Training model 6/11
+
+Training model 7/11
+
+Training model 8/11
+
+Training model 9/11
+
+Training model 10/11
+
+Training model 11/11
+
+VALIDATION SET SET METRICS:
+ROC AUC: 0.7701
+Accuracy: 0.6893
+
+TEST SET SET METRICS:
+ROC AUC: 0.7710
+Accuracy: 0.6860
+
+Saved trained models as: /workspace/results/xgboost/xgboost_ensemble_mi-25_10000_run_20251028_222209.joblib
+
+Saved ROC curve plot as: xgboost_roc_curve_mi-25_sample_10000_20251028_222209.png
+
+Calculating feature importance from trained models...
+Saved feature importance to: xgboost_feature_importance_mi-25_sample_10000_20251028_222209.txt
+Saved feature importance plot as: xgboost_feature_importance_mi-25_sample_10000_20251028_222209.png
+Saved detailed results to: xgboost_results_mi-25_10000_20251028_222209.json
+
+==================================================
+Training with sample size: 100000
+==================================================
+
+Loaded standardized data for sample size: 100000
+  Data shape: (724160, 48)
+  Train indices: 70000
+  Val indices: 15000
+  Test indices: 15000
+  Feature order: ['CurrentVersion', 'Genre', 'ContentRating', 'AndroidVersion', 'DeveloperCategory', 'lowest_android_version', 'highest_android_version', 'DevRegisteredDomain', 'LenDescription', 'LenWhatsNew', 'ReviewsAverage', 'LastUpdated', 'LenTitle', 'isSpamming', 'net', 'intent', 'bluetooth', 'app', 'provider', 'speech', 'nfc', 'media', 'hardware', 'google', 'os', 'CALENDAR', 'CAMERA', 'CONTACTS', 'LOCATION', 'MICROPHONE', 'PHONE', 'SENSORS', 'SMS', 'STORAGE', 'FourStarRatings', 'ThreeStarRatings', 'FiveStarRatings', 'OneStarRatings', 'TwoStarRatings', 'paid', 'file_size', 'max_downloads_log', 'developer_email', 'privacy_policy_link', 'developer_address', 'developer_website', 'days_since_last_update']
+Loaded standardized CLEANED data for size 100000:
+  Dataframe shape: (724160, 48)
+  Train set size: 70000
+  Validation set size: 15000
+  Test set size: 15000
+  Data source: cleaned_data.pkl (preprocessed by master_preprocessing.py)
+
+Feature order verification:
+  Expected: ['highest_android_version', 'ContentRating', 'CurrentVersion']...
+  Actual:   ['highest_android_version', 'ContentRating', 'CurrentVersion']...
+✅ Feature order verified!
+
+Feature counts:
+  Total selected features: 25
+  Numerical features: 19
+  Categorical features: 6
+
+Class balance verification:
+  Train - Class 0 (benign): 32168
+  Train - Class 1 (malware): 37832
+  Train - Ratio: 0.540
+  Val - Class 0 (benign): 6893
+  Val - Class 1 (malware): 8107
+  Val - Ratio: 0.540
+  Test - Class 0 (benign): 6893
+  Test - Class 1 (malware): 8107
+  Test - Ratio: 0.540
+
+Training model 1/11
