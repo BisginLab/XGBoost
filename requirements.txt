@@ -14,3 +14,4 @@ groq>=0.4.0
 pillow>=9.0.0
 psutil
 seaborn
+shap>=0.41.0
